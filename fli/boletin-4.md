@@ -51,17 +51,17 @@ Ejemplo de estas oraciones:
 
 ### L0
 
-$B$ : Ser buena persona  
-$M$ : Ser María  
-$A$ : Ser uno de mis amigos
+$B$: Ser buena persona  
+$M$: Ser María  
+$A$: Ser uno de mis amigos
 
 $ (B \land M) \lor (B \land A) $
 
 ### L1
 
-$B(x)$ : Ser buena persona  
-$A(x)$ : Ser uno de mis amigos  
-$m$ : María (constante)
+$B(x)$: Ser buena persona  
+$A(x)$: Ser uno de mis amigos  
+$m$: María (constante)
 
 $ \forall x (A(x) \to B(x)) \land B(m) $
 
@@ -73,12 +73,12 @@ $ \forall x (A(x) \to B(x)) \land B(m) $
 
 > Cualquier base nitrogenada del ADN es Adenina, Citosina, Guanina o Timina. Y cualquiera dos bases se encuentran unidas por un puente de hidrógeno.
 
-$B(x)$ : Ser base nitrogenada  
-$A(x)$ : x es Adenina  
-$C(x)$ : x es Citosina  
-$G(x)$ : x es Guanina  
-$T(x)$ : x es Timina  
-$P(x, y)$ : x se une con y mediante un puente de hidrogeno
+$B(x)$: Ser base nitrogenada  
+$A(x)$: x es Adenina  
+$C(x)$: x es Citosina  
+$G(x)$: x es Guanina  
+$T(x)$: x es Timina  
+$P(x, y)$: x se une con y mediante un puente de hidrogeno
 
 $ \forall x (B(x) \to (A(x) \lor C(x) \lor G(x) \lor T(x))) $  
 $ \forall x \forall y (B(x) \land B(y) \to P(x, y)) $
@@ -87,8 +87,8 @@ $ \forall x \forall y (B(x) \land B(y) \to P(x, y)) $
 
 > En toda pareja de vecinos existe algún un envidioso.
 
-$V(x)$ : x es vecino  
-$E(x)$ : x es envidioso
+$V(x)$: x es vecino  
+$E(x)$: x es envidioso
 
 $ \forall x \exists y (V(x) \land V(y) \to E(x) \lor E(y)) $
 
@@ -96,9 +96,9 @@ $ \forall x \exists y (V(x) \land V(y) \to E(x) \lor E(y)) $
 
 > Todos los alumnos de informática son amigos de los aficionados a la lógica.
 
-$E(x)$ : x es estudiante de informatica  
-$L(x)$ : x es aficionado a la logica  
-$A(x, y)$ : x es amigo de y
+$E(x)$: x es estudiante de informatica  
+$L(x)$: x es aficionado a la logica  
+$A(x, y)$: x es amigo de y
 
 $ \forall x (E(x) \to \forall y (L(y) \to A(x, y))) $
 
@@ -106,9 +106,9 @@ $ \forall x (E(x) \to \forall y (L(y) \to A(x, y))) $
 
 > Algunos estudiantes de informática sólo son amigos de los aficionados a la lógica.
 
-$E(x)$ : x es estudiante de informatica  
-$L(x)$ : x es aficionado a la logica  
-$A(x, y)$ : x es amigo de y
+$E(x)$: x es estudiante de informatica  
+$L(x)$: x es aficionado a la logica  
+$A(x, y)$: x es amigo de y
 
 $ \exists x (E(x) \land \forall y (L(y) \to A(y, x)) \land \forall z (\neg L(z) \to \neg A(z, x))) $
 
