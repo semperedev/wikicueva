@@ -1,4 +1,4 @@
-<!-- --- title: Boletín 6: Satisfacibilidad y Deducción Natural en L1 -->
+# Boletín 6: Satisfacibilidad y Deducción Natural en L1
 
 # Ejercicio 1
 
