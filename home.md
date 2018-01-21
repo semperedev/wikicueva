@@ -1,8 +1,6 @@
 <!-- TITLE: WikiCueva -->
 <!-- SUBTITLE: Información variada sobre temas variados -->
 
-# WikiCueva
-
 Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimiento variado sobre temas variados.
 
 ## Ingeniería Informática
@@ -18,7 +16,7 @@ El código fuente de la Wiki se puede encontrar en su [repositorio de GitHub](ht
 
 ## Software
 
-La WikiCueva corre actualmente en [Gollum](https://github.com/gollum/gollum), el software para wikis de GitHub. Existe un sitio de respaldo corriendo [Wiki.js](https://github.com/Requarks/wiki) con el mismo repositorio.
+La WikiCueva corre actualmente en [Wiki.js](https://github.com/Requarks/wiki). Existe un sitio de respaldo corriendo [Gollum](https://github.com/gollum/gollum), el software para wikis de GitHub con el mismo repositorio.
 
 ## Colaborar
 
