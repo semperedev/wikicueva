@@ -10,19 +10,19 @@ Se han omitido los ejercicios que por su trivialidad no aportaban ninguna inform
 
 > Qué diferencia existe entre interpretar en L0 e interpretar en L1?
 
-Podemos verlo en su apartado en la Wiki: [[Interpretar en L1|l1#interpretar-en-l1]].
+Podemos verlo en su apartado en la Wiki: [Interpretar en L1](/fli/l1#interpretar-en-l1).
 
 ## Apartado B
 
 > Explica el proceso que necesitas realizar para evaluar una expresión en L1.
 
-Podemos verlo en su apartado en la Wiki: [[Evaluar en L1|l1#evaluar-en-l1]].
+Podemos verlo en su apartado en la Wiki: [Evaluar en L1](/fli/l1#evaluar-en-l1).
 
 ## Apartado C
 
 > Si en L0, el elemento atómico “$p$” puede ser verdadero o puede ser falso, ¿cuál es la evaluación del elemento atómico “$P(x)$” en L1?
 
-La evaluación de $P(x)$ dependerá del dominio y las relaciones del mundo en el que nos encontremos. Podemos ver más sobre esto en el apartado de la Wiki [[Evaluar en L1|l1#evaluar-en-l1]].
+La evaluación de $P(x)$ dependerá del dominio y las relaciones del mundo en el que nos encontremos. Podemos ver más sobre esto en el apartado de la Wiki [Evaluar en L1](/fli/l1#evaluar-en-l1).
 
 ## Apartado D
 
