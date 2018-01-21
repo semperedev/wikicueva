@@ -1,3 +1,5 @@
+<!-- TITLE: Fundamentos Lógicos de la Informática -->
+
 # Fundamentos Lógicos de la Informática
 
 # Fundamentos de la Lógica

@@ -1,3 +1,5 @@
+<!-- TITLE: Esquemas de Recorrido -->
+
 # Esquemas de Recorrido
 
 # Máquinas Secuenciales

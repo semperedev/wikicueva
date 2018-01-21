@@ -1,3 +1,5 @@
+<!-- TITLE: Introducción a la Sintaxis de Pascal -->
+
 # Introducción a la Sintaxis de Pascal
 
 # Estructura de un fichero .pas
@@ -66,9 +68,9 @@ type
 	end;
 
 	mesesDelAnio = 1..12;
-	
+
 	mesesNombres = (Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre);
-	
+
 	tablaMeses = array [mesesDelAnio] of mesesNombres;
 ```
 
@@ -111,7 +113,7 @@ end;
 // Algoritmo principal
 begin
 	ObtenerNumero('Introduzca un número: ', entrada);
-	
+
 	writeln('Número introducido: ', entrada);
 end.
 ```

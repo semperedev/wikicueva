@@ -1,3 +1,6 @@
+<!-- TITLE : Boletín 4 -->
+<!-- SUBTITLE: Conceptos Básicos y Formalización en LC y L1 -->
+
 # Boletín 4: Conceptos Básicos y Formalización en LC y L1
 
 Este boletín se mandó como trabajo del alumno en el curso 2017/18 en la FIUM.
