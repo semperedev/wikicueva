@@ -4,4 +4,5 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 ## Ingeniería Informática
 
+[[Introducción a la Programación|ip]]  
 [[Fundamentos Lógicos de la Informática|fli]]
