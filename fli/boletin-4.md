@@ -54,11 +54,10 @@ Ejemplo de estas oraciones:
 
 ### L0
 
-$B$: Ser buena persona  
-$M$: Ser María  
-$A$: Ser uno de mis amigos
+$M$: María es buena persona  
+$A$: Mis amigos son buenas personas
 
-$ (B \land M) \lor (B \land A) $
+$ M \land A $
 
 ### L1
 
