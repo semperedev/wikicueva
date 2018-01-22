@@ -150,6 +150,7 @@ Podemos hablar de:
 # Creación de empresas
 
 **Para ejercer la actividad**:
+
 * Agencia tributaria:
   * Alta en el censo de empresarios
   * Impuesto sobre actividades económicas
