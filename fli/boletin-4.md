@@ -1,4 +1,4 @@
-<!-- TITLE : Boletín 4 -->
+<!-- TITLE: Boletín 4 -->
 <!-- SUBTITLE: Conceptos Básicos y Formalización en LC y L1 -->
 
 # Boletín 4: Conceptos Básicos y Formalización en LC y L1
