@@ -19,9 +19,7 @@ Como dijo Pedro Soto:
 
 ## Organización Formal: Organigramas
 
-![Organigrama](/uploads/gohp/organigrama.png){.align-right}
-
-<img src="/uploads/gohp/organigrama.png" align="right" width="40%" alt="Organigrama" />
+<img src="/uploads/gohp/organigrama.png" alt="Organigrama" class="align-right" />
 
 Se trata de una representación gráfica de la Estructura Organizativa, en la cual representamos unidades organizativas y puestos de trabajo existentes, sobre los que expresamos relaciones formales y líneas de comunicación.
 
@@ -355,8 +353,10 @@ Las actividades relacionadas con los principales tipos de clientes se agrupan y 
 
 ## Matricial
 
-![Departamentos Matricial](/uploads/gohp/departamentos-matricial.png "Departamentos Matricial"){.align-right}
+<img src="/uploads/gohp/departamentos-matricial.png" alt="Departamentos matricial" class="align-right" />
+
 Según Mintzberg: No existe ninguna base de agrupación capaz de dar respuesta a las interdependencias existentes en una actividad:
+
 * Estructuras funcionales: problema de excesiva especialización
 * Estructuras basadas en mercado: obstáculos al contacto entre los especialistas
 
