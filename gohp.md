@@ -12,5 +12,5 @@
 8. [La función financiera](/gohp/tema-8) (En proceso)
 
 # Recursos
-[Ejercicios Resueltos](/gohp/ejercicios-resueltos)
+[Ejercicios Resueltos](/gohp/ejercicios-resueltos)  
 [Conceptos Matemáticos útiles](/gohp/matematicas)
