@@ -14,6 +14,12 @@ Podemos agregar comentarios en el propio código si ponemos un `#` antes del com
 numeroPi = 3.141592 # Definimos PI
 ```
 
+## Utilidades
+
+Podemos mostrar el contenido de una variable de forma *bonita* utilizando `show(nombreVariable)`. Y para obtener el resultado en LaTeX, podemos usar `latex(nombreVariable)`.
+
+Si en la última línea del *Notebook* ponemos el nombre de una variable sin nada más, nos mostrará su contenido (pero no tan bonito como `show`).
+
 ## Matrices
 
 Las matrices en SAGE son *arrays* bidimensionales de Python. Si las definimos como `column_matrix` les proporcionamos las filas, y en caso contrario, las columnas.
@@ -67,9 +73,11 @@ A = matrix(QQ, [[1, 2], [3, 4]])
 B = column_matrix(QQ, [[5, 6]])
 
 AB = A.augment(B, subdivide=true)
+
+show(AB)
 ```
 
-\\( A = \left(\begin{array}{rr|r}
+\\( AB = \left(\begin{array}{rr|r}
   1 & 2 & 5 \\\\
   3 & 4 & 6
 \end{array}\right) \\)
