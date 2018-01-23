@@ -7,11 +7,11 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 ## Primer Curso
 
-### Primer Cuatrimestre
+**1er Cuatrimestre**
 
-[Gestión y Organización de las Habilidades profesionales](/gohp)  
-[Fundamentos Lógicos de la Informática](/fli)  
-[Introducción a la Programación](/ip)
+* [Gestión y Organización de las Habilidades profesionales](/gohp)
+* [Fundamentos Lógicos de la Informática](/fli)
+* [Introducción a la Programación](/ip)
 
 # La Wiki
 
