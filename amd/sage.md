@@ -49,6 +49,27 @@ A = matrix(Zmod(5), [[1, 2], [3, 4]])
 
 ### Operaciones con matrices
 
+Las siguientes operaciones devuelven valores, que tenemos que asignar a variables (nuevas o anteriores).
+
 ```python
-nombreMatriz.echelon_form()
+nombreMatriz.echelon_form() # Reducir y escalonar
+nombreMatriz.transpose() # Cambiar filas por columnas
+nombreMatriz.inverse() # Invertir una matriz
+nombreMatriz.augment(segundaMatriz) # Ampliar una matriz
+nombreMatriz.augment(segundaMatriz, subdivide=true) # Ampliar una matriz (con separador)
 ```
+
+Utilizando la segunda version de `augment`, obtendríamos algo parecido a esto:
+
+```python
+A = matrix(QQ, [[1, 2], [3, 4]])
+
+B = column_matrix(QQ, [[5, 6]])
+
+AB = A.augment(B, subdivide=true)
+```
+
+\\( A = \left(\begin{array}{rr|r}
+  1 & 2 & 5 \\\\
+  3 & 4 & 6
+\end{array}\right) \\)
