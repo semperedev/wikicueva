@@ -4,22 +4,28 @@
 
 SAGE se basa en [Python](https://www.python.org/), por eso resulta interesante conocer un poco cómo funciona este lenguaje antes de comenzar con las prácticas de AMD.
 
-## Variables
+Para declarar variables, escribimos `nombre = valor`. En un nombre de variable podemos utilizar letras (mayúsculas o minúsculas), números y barras bajas, pero no se puede empezar por un número.
 
-Para declarar variables, utilizamos la siguiente sintaxis:
+Podemos agregar comentarios en el propio código si ponemos un `#` antes del comentario. (No tiene por qué ser al principio de la línea)
 
 ```python
-nombreVariable = contenidoDeLaVariable
+# Esto es un comentario
+
+numeroPi = 3.141592 # Definimos PI
 ```
 
 ## Matrices
 
-Las matrices en SAGE son *arrays* bidimensionales de Python. Si las definimos como `column_matrix` les proporcionamos las filas, y en caso contrario, las columnas. Utilizaremos la siguiente sintaxis:
+Las matrices en SAGE son *arrays* bidimensionales de Python. Si las definimos como `column_matrix` les proporcionamos las filas, y en caso contrario, las columnas.
+
+Ten en cuenta que el valor de la matriz lo guardamos en una variable.
+
+Utilizaremos la siguiente sintaxis:
 
 ```python
-nombreMatriz = matrix(identificadorCuerpo, [[a, b], [c, d]])
+matrizPrimera = matrix(identificadorCuerpo, [[a, b], [c, d]])
 
-matrizColumna = column_matrix(idCuerpo, [[a, c], [b, d]])
+matrizSegunda = column_matrix(idCuerpo, [[a, c], [b, d]])
 ```
 
 Donde `identificadorCuerpo` puede ser:
@@ -39,4 +45,10 @@ Se escribiria en SAGE:
 
 ```python
 A = matrix(Zmod(5), [[1, 2], [3, 4]])
+```
+
+### Operaciones con matrices
+
+```python
+nombreMatriz.echelon_form()
 ```
