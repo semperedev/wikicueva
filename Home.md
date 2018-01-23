@@ -4,8 +4,13 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 ## Ingeniería Informática
 
-[[Introducción a la Programación|ip]]  
-[[Fundamentos Lógicos de la Informática|fli]]
+### Primer Curso
+
+#### Primer Cuatrimestre
+
+[[Fundamentos Lógicos de la Informática|fli]]  
+[[Gestión y Organización de las Habilidades profesionales|gohp]]  
+[[Introducción a la Programación|ip]]
 
 # La Wiki
 
