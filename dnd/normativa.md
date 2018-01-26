@@ -28,5 +28,15 @@ Cambios con el nivel:
 * Nivel 10: el druida puede transformarse en animales voladores o acuáticos.
 * Nivel 12: el druida puede transformarse en insectos con un tamaño mínimo de 5cm.
 * Nivel 15: el druida puede transformarse en elementales (aire, tierra, fuego o agua) de tamaño pequeño o mediano una vez al día.
-* Nivel 17: el druida puede transformarse en animales de cualquier tamaño.
+* Nivel 17: el druida puede transformarse en animales de tamaño gigante.
 * Nivel 20: el druida puede transformarse en elementales de tamaño grande o gigante una vez al día.
+
+El druida sólo podrá **hablar** en forma humanoide, o transformado en alguno de estos animales:
+
+* Loro, pero sólo cuando se encuentre en el hombro de un humanoide.
+* Pato, pero sólo cuando se encuentre junto a otro pato.
+* Gato, pero sólo lo entenderán los ratones y otros gatos.
+
+Si el druida aprende lengua de signos durante la aventura, podrá comunicarse en lengua de signos mientras esté transformado en un primate (mono, gorila, chimpancé...) con otros personajes que también conozcan dicha lengua.
+
+En cualquier otro caso, el druida podrá intentar hablar con un personaje, que deberá obtener una tirada natural de D20 de 17 o más para entender al druida transformado.
