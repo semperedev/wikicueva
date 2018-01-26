@@ -2,7 +2,7 @@
 
 # Normativa adaptada
 
-Dada la ambigüedad de algunas normas en la edición 4 de Dragones y Mazmorras, para las campañas de D&D llevadas a cabo en La Cueva, se han establecido una normativa adaptada como extensión de los manuales de juego.
+Dada la ambigüedad de algunas normas en la edición 4 de Dragones y Mazmorras, para las campañas de D&D llevadas a cabo en La Cueva, se ha establecido una normativa adaptada como extensión de los manuales de juego.
 
 # Religión
 
