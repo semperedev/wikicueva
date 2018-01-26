@@ -18,6 +18,7 @@ Se aplican las siguientes limitaciones al rasgo de clase *Forma Salvaje*:
 
 * El druida debe estar familiarizado con el animal al que se va a transformar.
 * Los escudos físicos no tienen efecto durante el estado *Forma Bestial* (según la [actualización de 2010](http://dnd4.wikia.com/wiki/March_2010_update))
+* El druida sólo puede transformarse en **un** animal cada vez, no en conjunto de animales y/o insectos.
 * Inicialmente, el druida sólo puede transformarse en animales terrestres que tengan un tamaño aproximado igual al del personaje.
 
 Cambios con el nivel:
