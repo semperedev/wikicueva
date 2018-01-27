@@ -9,3 +9,7 @@
 [La Perdición de Los Dracónidos](/dnd/perdicion-draconidos)
 [Wuls Debe Morir](/dnd/wuls-debe-morir)
 -->
+
+# Otros
+
+[Normativa ampliada](/dnd/normativa)
