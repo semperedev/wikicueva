@@ -3,12 +3,13 @@
 
 # Dexudal
 
-1. [La Guerra de las Mil Antorchas](/dnd/guerra-mil-antorchas)
+> ¡ALERTA SPOILER! Algunos artículos pueden contener spoilers de la aventura de D&D en curso. Para evitar esta situación, se ha creado una versión resumida del mundo para jugadores:
 
-<!--
-[La Perdición de Los Dracónidos](/dnd/perdicion-draconidos)
-[Wuls Debe Morir](/dnd/wuls-debe-morir)
--->
+[Dexudal para Jugadores](/dnd/dexudal-resumen)
+
+## Historia
+
+[Cronología de Dexudal](/dnd/cronologia)
 
 # Otros
 
