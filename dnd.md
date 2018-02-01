@@ -3,7 +3,7 @@
 
 # Dexudal
 
-[La Guerra de las Mil Antorchas](/dnd/guerra-mil-antorchas)
+1. [La Guerra de las Mil Antorchas](/dnd/guerra-mil-antorchas)
 
 <!--
 [La Perdición de Los Dracónidos](/dnd/perdicion-draconidos)
@@ -12,4 +12,4 @@
 
 # Otros
 
-[Normativa ampliada](/dnd/normativa)
+* [Normativa ampliada](/dnd/normativa)
