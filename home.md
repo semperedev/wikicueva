@@ -13,6 +13,10 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 * [Fundamentos Lógicos de la Informática](/fli)
 * [Introducción a la Programación](/ip)
 
+**2o Cuatrimestre**
+
+* [Cálculo](/calc)
+
 # Dragones y Mazmorras
 
 ## Campañas
