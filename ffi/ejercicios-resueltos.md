@@ -16,4 +16,4 @@ Por tanto:
 
 Sustituyendo:
 
-\\( \Delta E = \frac{4 \cdot 10^{-12}}{2} \cdot (300^2 - 150^2) = 1.35 \cdot 10^{-7} J = 0.135 \mu J \\)
+\\( \Delta E = \frac{4 \cdot 10^{-12}}{2} \cdot (300^2 - 150^2) = 1.35 \cdot 10^{-7} J = 0.135\ \mu J \\)
