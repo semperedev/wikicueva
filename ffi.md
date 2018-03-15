@@ -2,4 +2,5 @@
 
 # Recursos
 
+[Ejercicios Resueltos](/ffi/ejercicios-resueltos)
 [Formulario](/ffi/formulario)

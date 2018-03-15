@@ -15,7 +15,7 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 **2o Cuatrimestre**
 
-* [Cálculo](/calc)
+* [Cálculo](/calc)  
 * [Fundamentos Físicos de la Informática](/ffi)
 
 # Dragones y Mazmorras
