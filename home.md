@@ -20,6 +20,8 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 # Dragones y Mazmorras
 
+[Cronología de Dexudal](/dnd/cronologia)
+
 ## Campañas
 
 1. [La Guerra de las Mil Antorchas](/dnd/guerra-mil-antorchas)
