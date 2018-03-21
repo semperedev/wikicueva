@@ -12,7 +12,7 @@ Glynii llevaba meses atrapada tras sus libros de la Escuela Arcana, y por fin ha
 
 Llegó a la Laguna casi corriendo por la emoción, con el libro de conjuros en las manos, y apretando el talismán con tanta fuerza que casi podía sentir la magia rodeando sus manos.
 
-Reviso y volvió a revisar el ritual para estar segura de hacerlo todo correctamente. Preparó los materiales a la orilla, dibujo un círculo con tiza en el suelo, y algo interior le indicó que era el momento de comenzar: un rápido movimiento de manos para esparcir el incienso por el agua, y un par de palabras en algún dialecto antiguo.
+Reviso y volvió a revisar el ritual para estar segura de hacerlo todo correctamente. Preparó los materiales a la orilla, dibujo un círculo con tiza en el suelo, y algo desde su interior le indicó que era el momento de comenzar: un rápido movimiento de manos para esparcir el incienso por el agua junto a un par de palabras en algún dialecto antiguo.
 
 Y como por arte de magia, emergió frente a ella. Entre destellos y ascuas del color del agua por las mañanas, apareció la forma de un dragón esculpido en energía arcana, danzando entre los límites del plano mortal y algún otro lugar más allá de la comprensión de Glynii.
 
