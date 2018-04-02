@@ -18,6 +18,7 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 **2o Cuatrimestre**
 
 * [Cálculo](/informatica/2/calc)  
+* [Estadística](/informatica/2/est)  
 * [Fundamentos Físicos de la Informática](/informatica/2/ffi)
 
 # Dragones y Mazmorras
