@@ -1,0 +1,12 @@
+---
+---
+
+@import "minima";
+
+@media (min-width: 400px) {
+  .align-right {
+    float: right;
+    margin: 0 0 10px 10px;
+    max-width: 40%;
+  }
+}

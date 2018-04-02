@@ -1,0 +1,44 @@
+defaults:
+  - scope:
+      path: ""
+      type: dnd
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: informatica
+    values:
+      layout: page
+
+title: WikiCueva
+lang: es
+description: El centro de información de La Cueva. Información variada sobre temas variados.
+baseurl: "" # subpath, e.g. /blog
+url: "" # without trailing /
+github_url:  PabloClon/wikicueva
+github_title: wikicueva
+
+collections:
+  dnd:
+    title: D&D
+    output: true
+    permalink: /dnd/:path/
+
+  informatica:
+    title: Ingeniería Informática
+    output: true
+    permalink: /informatica/:path/
+
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
