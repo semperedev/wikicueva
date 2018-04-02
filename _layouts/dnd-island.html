@@ -7,10 +7,12 @@ layout: default
     <h1 class="post-title">{{ page.title | escape }}</h1>
   </header>
 
-  <div class="island-data">
-    <p>Localización: <b>{{ page.island.location }}</b></p>
-    <p>Razas predominantes: <b>{{ page.island.races }}</b></p>
-  </div>
+  {%- if page.island -%}
+    <div class="island-data">
+      <p>Localización: <b>{{ page.island.location }}</b></p>
+      <p>Razas predominantes: <b>{{ page.island.races }}</b></p>
+    </div>
+  {%- endif -%}
 
   <div class="post-content">
     {{ content }}
