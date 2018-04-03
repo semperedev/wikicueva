@@ -8,6 +8,8 @@ title: Fundamentos Lógicos de la Informática
 
 # Recursos
 
+La deducción natural, tanto en L0 como en L1, está muy bien explicada en la web de [Daniel Clemente](http://www.danielclemente.com/logica/dn.html).
+
 #### Ejercicios Resueltos
 
 [Boletín 4: Conceptos Básicos y Formalización en LC y L1](fli/boletin-4.md)  
