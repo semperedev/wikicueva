@@ -14,13 +14,13 @@ title: Tema 5 - La Función de Organización
 
 Podemos diferenciar entre Administración y organización, pues la administración simplemente indica unos objetivos y determinadas actividades a realizar; mientras que la organización nos permite dividir el trabajo, agrupar las tareas y coordinar a los trabajadores mediante una estructura organizativa, con la cual lograr esos objetivos eficazmente.
 
-Como dijo Pedro Soto:
+Como dijo mi querido profesor:
 
 > Las empresas son organizaciones, cuya organización se rige por los principios de la teoría de la organización.
 
 ## Organización Formal: Organigramas
 
-<img src="/uploads/gohp/organigrama.png" alt="Organigrama" class="align-right" />
+![Organigrama][organigrama]{: .align-right}
 
 Se trata de una representación gráfica de la Estructura Organizativa, en la cual representamos unidades organizativas y puestos de trabajo existentes, sobre los que expresamos relaciones formales y líneas de comunicación.
 
@@ -354,7 +354,7 @@ Las actividades relacionadas con los principales tipos de clientes se agrupan y 
 
 ## Matricial
 
-<img src="/uploads/gohp/departamentos-matricial.png" alt="Departamentos matricial" class="align-right" />
+![Departamentos Matricial][departamentos-matricial]{: .align-right}
 
 Según Mintzberg: No existe ninguna base de agrupación capaz de dar respuesta a las interdependencias existentes en una actividad:
 
@@ -387,9 +387,7 @@ Las organizaciones matriciales combinan departamentalización por funciones con,
   </tbody>
 </table>
 
-Pedro Soto dijo:
-
-> La Universidad de Murcia se organiza, en gran medida, matricialmente.
+> Por ejemplo: la Universidad de Murcia se organiza, en gran medida, matricialmente.
 
 ## Estructura Divisional
 
@@ -428,3 +426,6 @@ La coordinación se logra a través de unidades de apoyo. En empresas multinacio
     </tr>
   </tbody>
 </table>
+
+[organigrama]: /uploads/informatica/1/gohp/organigrama.png
+[departamentos-matricial]: /uploads/informatica/1/gohp/departamentos-matricial.png
