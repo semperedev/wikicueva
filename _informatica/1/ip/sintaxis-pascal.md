@@ -132,3 +132,31 @@ begin
 	nombreDeLaFuncion := valorDeRetorno;
 end;
 ```
+
+### Ejemplo
+
+```pascal
+program ejemploFuncion;
+
+// Variables globales
+var
+	entrada : integer;
+
+// Función con un parámetro de entrada (texto) que devuelve un entero
+function ObtenerNumero(texto : string) : integer;
+var
+  numero : integer;
+begin
+	write(texto);
+	readln(numero);
+
+  ObtenerNumero := numero;
+end;
+
+// Algoritmo principal
+begin
+	entrada := ObtenerNumero('Introduzca un número: ');
+
+	writeln('Número introducido: ', entrada);
+end.
+```
