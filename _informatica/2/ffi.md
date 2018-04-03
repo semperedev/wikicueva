@@ -4,4 +4,4 @@ title: Fundamentos Físicos de la Informática
 
 # Recursos
 
-* [Ejercicios Resueltos](ejercicios-resueltos)
+* [Ejercicios Resueltos](ffi/ejercicios-resueltos.md)

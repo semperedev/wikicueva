@@ -11,21 +11,21 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 **1er Cuatrimestre**
 
-* [Gestión y Organización de las Habilidades profesionales](/informatica/1/gohp)
-* [Fundamentos Lógicos de la Informática](/informatica/1/fli)
-* [Introducción a la Programación](/informatica/1/ip)
+* [Gestión y Organización de las Habilidades profesionales](_informatica/1/gohp.md)
+* [Fundamentos Lógicos de la Informática](_informatica/1/fli.md)
+* [Introducción a la Programación](_informatica/1/ip.md)
 
 **2o Cuatrimestre**
 
-* [Cálculo](/informatica/2/calc)  
-* [Estadística](/informatica/2/est)  
-* [Fundamentos Físicos de la Informática](/informatica/2/ffi)
+* [Cálculo](_informatica/2/calc.md)  
+* [Estadística](_informatica/2/est.md)  
+* [Fundamentos Físicos de la Informática](_informatica/2/ffi.md)
 
 # Dragones y Mazmorras
 
-[Normativa ampliada](/dnd/normativa)  
-[Cronología de Dexudal](/dnd/cronologia)
+[Normativa ampliada](_dnd/normativa.md)  
+[Cronología de Dexudal](_dnd/cronologia.md)
 
 ## Campañas
 
-1. [La Guerra de las Mil Antorchas](/dnd/guerra-mil-antorchas)
+1. [La Guerra de las Mil Antorchas](_dnd/guerra-mil-antorchas.md)

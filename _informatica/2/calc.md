@@ -4,4 +4,4 @@ title: Cálculo
 
 # Temario
 
-2. [Sucesiones](sucesiones)
+2. [Sucesiones](calc/sucesiones.md)

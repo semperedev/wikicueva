@@ -4,9 +4,10 @@ title: Estadística
 
 # Temario
 
-* [Combinatoria y Probabilidad](combinatoria)
-* [Variable Aleatoria Discreta](variable-aleatoria-discreta)
+* [Estadística Descriptiva](est/estadistica-descriptiva.md)
+* [Combinatoria y Probabilidad](est/combinatoria.md)
+* [Variable Aleatoria Discreta](est/variable-aleatoria-discreta.md)
 
 # Recursos
 
-* [Ejercicios Resueltos](ejercicios-resueltos)
+* [Ejercicios Resueltos](est/ejercicios-resueltos.md)
