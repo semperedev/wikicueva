@@ -17,6 +17,7 @@ baseurl: "" # subpath, e.g. /blog
 url: "" # without trailing /
 github_url:  PabloClon/wikicueva
 github_title: wikicueva
+google_analytics: UA-55358979-9
 
 collections:
   dnd:
