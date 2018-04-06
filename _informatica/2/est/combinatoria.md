@@ -14,6 +14,12 @@ Denotaremos los casos posibles por \\( \Omega \\), de forma que la probabilidad 
 
 La probabilidad de un suceso se encuentra siempre entre 0 y 1, y la suma de las probabilidades de todos los sucesos posibles siempre es 1.
 
+## Regla de Bayes
+
+Tenemos dos propiedades A y B, independientes. Si conozco \\( P(B\|A) \\) y quiero calcular \\( P(A\|B) \\):
+
+\\[ P(B\|A) = \frac{P(A\|B) \cdot P(A)}{P(B)} \\]
+
 # Números combinatorios
 
 A la hora de elegir elementos de un conjunto, utilizaremos números combinatorios para saber de cuántas formas podemos hacerlo:
