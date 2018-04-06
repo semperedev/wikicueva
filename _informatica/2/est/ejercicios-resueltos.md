@@ -72,7 +72,7 @@ Tenemos que calcular la probabilidad de que nos hayan dado los cuatro ases de la
 >
 > \\( P(C\|G1) = 0.05 \\)  
 > \\( P(C\|G2) = 0.03 \\)  
-> \\( P(C\|G2) = 0.04 \\)
+> \\( P(C\|G3) = 0.04 \\)
 >
 > Hay un alumno que sabe C, ¿de qué grupo podría ser?
 
