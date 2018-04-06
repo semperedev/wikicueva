@@ -42,7 +42,7 @@ En este caso tenemos que coger las bolas en dos pasos. Por el principio multipli
 
 # Ejercicio 4
 
-> Haz una lista de cartas (baraja española) de modo que el rey de oros esté en la primera **_o_** en la segunda posición. ¿De cuántas formas se pueden ordenar los elementos de la lista?
+> Haz una lista de cartas (baraja española), de longitud 4, de modo que el rey de oros esté en la primera **_o_** en la segunda posición. ¿De cuántas formas se pueden ordenar los elementos de la lista?
 
 Primero, distinguimos los casos favorables:
 
