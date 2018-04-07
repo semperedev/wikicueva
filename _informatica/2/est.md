@@ -5,10 +5,7 @@ quarter: 2
 
 # Temario
 
+* [Combinatoria](est/combinatoria.md)
 * [Estadística Descriptiva](est/estadistica-descriptiva.md)
-* [Combinatoria y Probabilidad](est/combinatoria.md)
+* [Probabilidad](est/probabilidad.md)
 * [Variable Aleatoria Discreta](est/variable-aleatoria-discreta.md)
-
-# Recursos
-
-* [Ejercicios Resueltos](est/ejercicios-resueltos.md)
