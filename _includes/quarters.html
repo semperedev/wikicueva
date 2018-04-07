@@ -1,39 +1,13 @@
-{%- assign quarter = 0 -%}
-{%- assign open = false -%}
-
 <ul>
   {%- for obj in site.informatica -%}
     {%- if obj.itsQuarter -%}
-      {%- if quarter != obj.itsQuarter -%}
-        {%- if open -%}
-            </ul>
-          </li>
-
-          {% assign open = false %}
-        {%- endif -%}
-
-        {%- assign quarter = obj.itsQuarter -%}
-      {%- endif -%}
-
-      {%- assign subjects = site.informatica | where: "quarter", quarter -%}
+      {%- assign quarter = obj.itsQuarter -%}
 
       <li>
         <a href="{{ obj.url }}">{{ obj.title }}</a>
 
-        <ul>
-    {%- elsif quarter == obj.quarter -%}
-      {% assign open = true %}
-
-      <li>
-        <a href="{{ obj.url }}" title="{{ obj.title }}">
-          {{ obj.title }}
-        </a>
+        {%- include subjects.html -%}
       </li>
     {%- endif -%}
   {%- endfor -%}
-
-  {%- if open -%}
-      </ul>
-    </li>
-  {%- endif -%}
 </ul>

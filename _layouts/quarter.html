@@ -2,16 +2,7 @@
 layout: page
 ---
 
-{% assign subjects = site.informatica | where: "quarter", page.itsQuarter %}
-
-<ul>
-  {% for subject in subjects %}
-    <li>
-      <a href="{{ subject.url }}" title="{{ subject.title }}">
-        {{ subject.title }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+{% assign quarter = page.itsQuarter %}
+{%- include subjects.html -%}
 
 {{ content }}

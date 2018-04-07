@@ -1,0 +1,11 @@
+{%- assign subjects = site.informatica | where: "quarter", quarter -%}
+
+<ul>
+  {% for subject in subjects %}
+    <li>
+      <a href="{{ subject.url }}" title="{{ subject.title }}">
+        {{ subject.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
