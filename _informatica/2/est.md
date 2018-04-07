@@ -1,5 +1,6 @@
 ---
 title: Estadística
+quarter: 2
 ---
 
 # Temario

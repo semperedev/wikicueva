@@ -1,5 +1,6 @@
 ---
 title: Gestión y Organización de las Habilidades profesionales
+quarter: 1
 ---
 
 # Temario

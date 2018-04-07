@@ -1,8 +1,7 @@
 ---
 title: Introducción a la Programación
+quarter: 1
 ---
-
-# Introducción a la Programación
 
 # Temario
 [Sintaxis de Pascal](ip/sintaxis-pascal.md)  

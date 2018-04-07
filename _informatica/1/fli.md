@@ -1,5 +1,6 @@
 ---
 title: Fundamentos Lógicos de la Informática
+quarter: 1
 ---
 
 # Temario
