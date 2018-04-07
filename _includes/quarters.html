@@ -1,0 +1,29 @@
+{%- assign quarter = 0 -%}
+
+<ul>
+  {%- for obj in site.informatica -%}
+    {%- if obj.itsQuarter -%}
+      {%- if quarter != obj.itsQuarter -%}
+        {%- if quarter != 0 -%}
+            </ul>
+          </li>
+        {%- endif -%}
+
+        {%- assign quarter = obj.itsQuarter -%}
+      {%- endif -%}
+
+      {%- assign subjects = site.informatica | where: "quarter", quarter -%}
+
+      <li>
+        <a href="{{ obj.url }}">{{ obj.title }}</a>
+
+        <ul>
+    {%- elsif quarter == obj.quarter -%}
+      <li>
+        <a href="{{ obj.url }}" title="{{ obj.title }}">
+          {{ obj.title }}
+        </a>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>

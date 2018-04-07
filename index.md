@@ -7,19 +7,7 @@ Bienvenido al centro de información de La Cueva. Aquí encontrarás conocimient
 
 # Ingeniería Informática
 
-## Primer Curso
-
-**1er Cuatrimestre**
-
-* [Gestión y Organización de las Habilidades profesionales](_informatica/1/gohp.md)
-* [Fundamentos Lógicos de la Informática](_informatica/1/fli.md)
-* [Introducción a la Programación](_informatica/1/ip.md)
-
-**2o Cuatrimestre**
-
-* [Cálculo](_informatica/2/calc.md)  
-* [Estadística](_informatica/2/est.md)  
-* [Fundamentos Físicos de la Informática](_informatica/2/ffi.md)
+{% include quarters.html %}
 
 # Dragones y Mazmorras
 
