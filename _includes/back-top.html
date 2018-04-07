@@ -1,0 +1,78 @@
+<div id="back-top" class="back-top" style="opacity: 0;"></div>
+
+<script type="text/javascript">
+  (function() {
+    var btn = document.getElementById('back-top');
+
+    function Fader() {
+      var that = this;
+
+      that.shown = false;
+      that.interval = null;
+      that.amount = 0.05;
+
+      that.fade = function(m) {
+        if (that.interval || ((m > 0) && that.shown) || ((m < 0) && !that.shown))
+          return false;
+
+        var amount = m * that.amount;
+
+        btn.style.display = 'block';
+
+        that.interval = setInterval(function() {
+          btn.style.opacity = parseFloat(btn.style.opacity) + amount;
+
+          if ((btn.style.opacity == 0) || (btn.style.opacity == 1)) {
+            clearInterval(that.interval);
+
+            that.interval = null;
+            that.shown = amount > 0;
+
+            if (!that.shown)
+              btn.style.display = 'none';
+          }
+        }, 15);
+      };
+    }
+
+    function Scroller() {
+      var that = this;
+
+      that.interval = null;
+      that.working = false;
+
+      that.scroll = function() {
+        if (that.scrolling)
+          return false;
+
+        that.scrolling = true;
+
+        that.interval = setInterval(function() {
+          if (window.pageYOffset === 0) {
+            clearInterval(that.interval);
+
+            that.interval = null;
+            that.scrolling = false;
+          }
+
+          window.scroll(0, window.pageYOffset - 100);
+        }, 15);
+      };
+    }
+
+    var fader = new Fader;
+    var scroller = new Scroller;
+
+    btn.addEventListener('click', function() {
+      if ((window.pageYOffset !== 0) && (scroller.interval === null)) {
+        fader.fade(-1);
+        scroller.scroll();
+      }
+    });
+
+    setInterval(function() {
+      if (!scroller.scrolling)
+        fader.fade(window.pageYOffset > (window.innerHeight / 2) ? 1 : -1);
+    }, 15);
+  })();
+</script>
