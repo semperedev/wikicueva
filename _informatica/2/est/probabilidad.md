@@ -141,3 +141,30 @@ Y ahora calculamos las probabilidades de cada grupo:
 \\[ P(G3\|C) = \frac{0.04 \cdot 0.39}{0.3} = 0.052 \\]
 
 Por tanto lo más probable es que el alumno sea del G1.
+
+### Ejercicio 8 - estudio de la eficiencia
+
+> * Lanzamos un antivirus.
+> * Un virus afecta al 40% de la población.
+> * Sacamos un parche y lo instalamos en el 20% de la población.
+> * Dentro de los que siguen infectados, el 15% tiene el parche instalado.
+
+Tenemos:
+
+\\( P(A) = 0.2 \\)  
+\\( P(V) = 0.4 \\)  
+\\( P(A\|V) = 0.15 \\)
+
+Comparamos las dos probabilidades:
+
+\\[ n = \frac{P(V \| A)}{P(V)} \\]
+
+Calculamos \\( P(V \| A) \\) mediante Bayes:
+
+\\[ P(V \| A) = \frac{P(A\|V) \cdot P(V)}{P(A)} = 0.15 \\]
+
+Y finalmente sustituimos:
+
+\\[ n = \frac{P(V \| A)}{P(V)} = \frac{0.15}{0.4} = 0.75 \\]
+
+El resultado es menor que la unidad, por tanto podemos afirmar que la medida es efectiva y la situación ha mejorado.
