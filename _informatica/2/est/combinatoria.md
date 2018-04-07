@@ -41,6 +41,37 @@ Visto de otra forma: elegimos el que no queremos.
 
 \\( {n \choose n - 1} = n \\)
 
+## Listas
+
+A la hora de crear una lista de longitud \\( l \\), podemos conocer la cantidad de formas de hacer dicha lista, \\( n \\), multiplicando la cantidad de formas de llenar cada hueco.
+
+#### Ejemplo 1
+
+> ¿Cuántas listas de longitud 4 podemos formar con las vocales A, E y O?
+
+Tenemos que llenar 4 huecos en total. En este caso podemos repetir los valores, por tanto hay 3 formas de llenar cada hueco:
+
+\\( n = 3 \cdot 3 \cdot 3 \cdot 3 \\)
+
+Dejaremos indicadas las multiplicaciones para que el corrector vea nuestro razonamiento.
+
+#### Ejemplo 2
+
+> ¿Cuántas listas podemos formar con las letras A, B, C, D y E; sin repetir ninguna?
+
+En este caso, conforme vayamos usando las letras para llenar huecos, dejarán de estar disponibles para el siguiente hueco, con lo cual:
+
+* Para el primer hueco tenemos las cinco letras
+* Para el segundo hueco tenemos solamente cuatro, pues hemos gastado una en el primero
+* Para el tercer hueco tenemos dos letras menos
+* Y así...
+
+Sabiendo que disponemos de cinco elementos, el resultado final lo calcularemos de la siguiente forma:
+
+\\[ n = 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 \\]
+
+**Consejo**: cuando tengas muchas condiciones, haz la lista por pasos, igual que en este ejercicio; de esta forma te liarás menos.
+
 ## Ejercicios Resueltos
 
 ### Ejercicio 1 - listas simples
@@ -55,10 +86,10 @@ Hay 3 formas de rellenar cada uno de los ocho huecos, por tanto:
 
 > Haz una lista de cartas (baraja española), de longitud 4, de modo que el rey de oros esté en la primera **_o_** en la segunda posición. ¿De cuántas formas se pueden ordenar los elementos de la lista?
 
-Primero, distinguimos los casos favorables:
+Primero, distinguimos los casos favorables, y creamos la lista llenando primero los huecos con condiciones:
 
 * Rey en 1ª posición: \\(1 \cdot 39 \cdot 38 \cdot 37\\)
-* Rey en 2ª posición: \\(1 \cdot 39 \cdot 38 \cdot 37\\)
+* Rey en 2ª posición: \\(39 \cdot 1 \cdot 38 \cdot 37\\)
 
 Para ambos casos, fijamos al rey en una posición, y con el resto de cartas seguimos haciendo la lista. Como los dos casos **no se pueden dar a la vez**, el total de formas es la **suma** de ambos casos. Por tanto:
 
