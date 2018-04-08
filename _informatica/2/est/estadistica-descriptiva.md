@@ -2,7 +2,30 @@
 title: Estadística Descriptiva
 ---
 
-# Tabla estadística
+* Tabla de Contenidos
+{:toc}
+
+## Variable Estadística
+
+Definimos una variable estadística como una de las características o rasgos de los individuos que queremos estudiar. Las variables toman valores de un conjunto llamado *Dominio de la Variable*.
+
+Podemos clasificar las variables de la siguiente forma:
+
+* Cuantitativas: toman valores numéricos
+  * Discretas: valores aislados, es decir, números naturales y enteros
+  * Contínuas: puede tomar cualquier valor numérico
+* Cualitativas: toman valores *no* numéricos
+  * Ordinales: se pueden ordenar
+  * Nominales: no se pueden ordenar
+
+#### Intervalos de Clase
+
+Cuando el conjunto de valores que puede tomar una variable cuantitativa es muy grande, agruparemos los datos en intervalos de clase, que deben:
+
+* Cubrir todos los valores del dominio
+* Ser disjuntos, es decir, semiabiertos por uno de los dos lados (normalmente el derecho)
+
+## Tabla estadística
 
 Una tabla estadística nos permite representar la distribución de una variable. Para formarla necesitaremos completar los siguientes campos:
 
@@ -53,7 +76,7 @@ Valor \\( x_i \\) | F. Absoluta \\( n_i \\)  | F. Abs. Acumulada \\( N_i \\) | F
 
 Como podemos observar, la última celda de la frecuencia absoluta acumulada es siempre el número de datos, \\( n \\). Del mismo modo, la última celda de la frecuencia relativa acumulada siempre es 1.
 
-## Trabajando con RStudio
+### Trabajando con RStudio
 
 Los valores y las frecuencias absolutas los introducimos como una colección de repeticiones:
 
@@ -78,6 +101,4 @@ Y por último creamos la tabla:
 tabla <- cbind(n_i, N_i, f_i, F_i)
 ```
 
-![Tabla Estadística Descriptiva][tabla-1]
-
-[tabla-1]: /uploads/informatica/2/est/descriptiva-tabla-1.png
+![Tabla Estadística Descriptiva](/uploads/informatica/2/est/descriptiva-tabla-1.png)
