@@ -2,7 +2,10 @@
 title: Variable Aleatoria Discreta
 ---
 
-# Variable Aleatoria Discreta
+* Tabla de Contenidos
+{:toc}
+
+## Variable Aleatoria Discreta
 
 Estudiamos un experimento aleatorio, y para cada resultado me quedo con una característica que sea un número entero.
 
@@ -31,7 +34,7 @@ plot(val, prob_acumulada, type="s")
 
 ![Variable Aleatoria Discreta: escalonada][discreta-2]
 
-# Variables Notables
+## Variables Notables
 
 Vamos a ver cinco variables notables. En la primera de ellas, todos los sucesos tienen la misma probabilidad. En las otras cuatro hay un suceso que nos interesa y conocemos su probabilidad:
 
@@ -40,7 +43,7 @@ Vamos a ver cinco variables notables. En la primera de ellas, todos los sucesos 
 * Si lo hago varias veces, ¿cuántas veces ocurre ese suceso?
 * No conozco la probabilidad y me interesa cuántas veces ocurre ese suceso
 
-### Trabajando en RStudio
+#### Trabajando en RStudio
 
 Podemos declarar las variables notables con el siguiente formato:
 
@@ -67,7 +70,7 @@ Por ejemplo:
 prob <- dbinom(val, n, p)
 ```
 
-## Uniforme
+### Uniforme
 
 Número de valores finito y todos con la misma probabilidad.
 
@@ -90,7 +93,7 @@ plot(val, prob)               # El dibujo es plano
 
 ![Variables Notables: Uniforme][uniforme-1]
 
-## Bernouilli
+### Bernouilli
 
 Hay un suceso que me interesa y conozco su probabilidad \\( p \\). Se trata de una variable booleana:
 
@@ -125,7 +128,7 @@ Y podemos calcular:
 \\( varianza = 0.2 \cdot 0.8 = 0.16 \\)  
 \\( desviación\ típica = \sqrt{0.16} = 0.4 \\)
 
-## Variable binomial
+### Variable binomial
 
 Si el mismo experimento lo hacemos \\( n \\) veces, tenemos que \\( x \\) es el número de veces que ocurre el suceso que me interesa.
 
@@ -200,7 +203,7 @@ A la vista de los resultados, vemos claramente que los USBs rotos se encuentran 
 
 > Nota: si la cantidad se sale de este rango, muy posiblemente nos estén engañando, e incluso se podría calcular la probabilidad de que esto esté sucediendo.
 
-## Poisson
+### Poisson
 
 **No conocemos la probabilidad** de que se dé un suceso, pero nos interesa la cantidad de veces que ocurre.
 
@@ -281,7 +284,7 @@ Binomial y Poisson sirven para contar, por tanto el dibujo es el mismo.
 
 > Si conozco la probabilidad del suceso, se trata de binomial, en caso contrario, de Poisson.
 
-## Geométrica
+### Geométrica
 
 Repetimos un experimento hasta que ocurra un suceso que queremos estudiar, y nos interesa la cantidad de fallos hasta dicho suceso. Si la probabilidad del suceso no varía con el tiempo, se trata de una variable geométrica.
 
@@ -310,3 +313,37 @@ varianza <- (1 - p) / p**2
 [binom-1]: /uploads/informatica/2/est/variable-notable-binom-1.png
 [poisson-1]: /uploads/informatica/2/est/variable-notable-poisson-1.png
 [poisson-2]: /uploads/informatica/2/est/variable-notable-poisson-2.png
+
+## Elegir el tipo de variable
+
+Nos realizaremos una serie de preguntas para ir descartando opciones.
+
+* ¿Tiene sólo dos valores? \\( \leftarrow \\) Bernouilli
+* ¿Todos los valores tienen igual probabilidad? \\( \leftarrow \\) Uniforme
+* ¿Tengo que esperar? \\( \leftarrow \\) Geométrica
+
+Si tengo que contar:
+
+*¿Binomial o Poisson?*
+
+* Si nos dan la probabilidad \\( \leftarrow \\) Binomial
+* Si nos dan la media \\( \leftarrow \\) Poisson
+
+* Si el valor máximo está definido \\( \leftarrow \\) Binomial
+* Si no lo está \\( \leftarrow \\) Poisson
+
+#### Ejemplos
+
+> Elijo un elemento de una lista y me interesa qué elemento ha salido
+
+Son más de dos valores y todos tienen la misma probabilidad de salir, es por tanto **uniforme**.
+
+> El 20% de los trabajadores de una empresa irá a una huelga. Se seleccionan 5 trabajadores de dicha empresa. Nos interesa el número de asistencia a la huelga entre los 5 seleccionados.
+
+Hay más de dos valores, sus probabilidades no son iguales y nos piden que contemos, por tanto tenemos que elegir entre binomial y Poisson.
+
+Como conozco la probabilidad de ir a la huelga y hay un valor "tope" definido, se trata claramente de una **binomial**.
+
+> Se realiza un examen tipo test de diez preguntas, teniendo en cuenta que cada pregunta tiene cuatro respuestas, y sólo una es correcta. Nos interesa la probabilidad de acertar al menos la mitad respondiendo aleatoriamente.
+
+Hay más de dos valores y sus probabilidades no son iguales. Nos piden que contemos y el valor "tope" está claro, por ello es una **binomial**.
