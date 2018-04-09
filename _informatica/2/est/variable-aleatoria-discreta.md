@@ -359,3 +359,69 @@ Hay más de dos valores y sus probabilidades no son iguales. Nos piden que conte
 > El número medio de accidentes ocurridos en una planta petrolera es de 2 accidentes en 2 meses. Nos interesa el número de accidentes ocurridos en los próximos dos meses.
 
 Hay más de dos valores, tengo que contar y no conozco la probabilidad. Como nos dan la media se trata de una **Poisson**.
+
+## Ejercicios Resueltos
+
+### Ejercicio 1
+
+> La consulta de un médico recibe 150 pacientes al día. Se sabe que la proporción de pacientes con enfermedades graves es del 4%. Un día se considera bueno si es del 55 de los días en los que el número de pacientes graves atendidos es menor y se considera malo si es del 10% de los días en que se atienden a más pacientes graves. Si el día no es ni bueno ni malo, se considera estándar.
+
+#### Apartado A
+
+> ¿Entre qué valores debe esatr el número de pacientes con enfermedades graves atendidos en un día para que se considere estándar?
+
+Recopilando los datos:
+
+* 150 pacientes/día
+* Proporción enfermos graves: 4%
+
+Nos piden el número de pacientes graves, tenemos que contar y nos dan una probabilidad, se trata de una variable **binomial**.
+
+Si posicionamos los tipos de días, vemos que:
+
+* 05% son buenos
+* 85% son estándar
+* 10% son malos
+
+Lo que nos piden son las cantidades que separan los tipos, con lo cual tenemos que calcular los **percentiles** de la variable:
+
+\\[ X = Nº\ de\ pacientes\ graves = Binomial(150, \frac{4}{100}) \\]
+
+```r
+percentil_a <- qbinom(5/100, 150, 4/100)
+percentil_b <- qbinom(90/100, 150, 4/100)
+```
+
+#### Apartado B
+
+> ¿Cuál es la probabilidad de que el número de días malos en un mes sea mayor que 5?. ¿Cuántos días malos esperamos que haya al mes?
+
+De nuevo, se trata de una binomial.
+
+\\[ Y = Nº\ días\ malos = Binomial(30, \frac{10}{100}) \\]
+
+Y nos piden la siguiente probabilidad:
+
+\\[ P(Y \lt 5) = 1 - P(Y \leq 5 ) \\]
+
+```r
+p = 1 - pbinom(5, 30, 10/100)
+```
+
+Como la probabilidad es del 10% y tenemos un mes (30 días), esperamos:
+
+\\[ 10\% \cdot 30 = 3 días\ malos \\]
+
+#### Apartado C
+
+> ¿Cuál es la probabilidad de que pase una semana antes de que haya un día bueno?
+
+\\[ Z = Nº\ días\ antes\ de\ que\ haya\ uno\ bueno = Geométrica(\frac{5}{100}) \\]
+
+Calculamos la probabilidad:
+
+\\[ P(Z \geq 7) = 1 - P(Z \leq 6) \\]
+
+```r
+p = 1 - pgeom(6, 5/100)
+```
