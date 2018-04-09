@@ -216,3 +216,45 @@ Para agregar los elementos con condiciones tenemos 5 huecos, que rellenamos: \\(
 Y hacemos la lista:
 
 \\[ n = {5 \choose 3} \cdot {4 \choose 2} \cdot 1 \cdot 4! \cdot 5 \cdot 4 \\]
+
+### Ejercicio 8 - reparto y separación
+
+> Tengo 12 trabajos de impresión (iguales), 9 programas de ordenador (distintos) y 3 ordenadores. Si reparto los trabajos de impresión y los programas entre los ordenadores ¿cuál es la probabilidad de que a cada ordenador se le asignen tres programas y, al menos, dos trabajos de impresión?
+
+Primero vamos a calcular \\( \|\Omega\| \\): todas las formas posibles de repartir los 12 trabajos y los 9 programas.
+
+Dado que los trabajos son iguales, repartimos los doce trabajos utilizando la técnica de unos y ceros: ponemos unos en las posiciones donde pondremos los trabajos y ceros para separar los tres ordenadores.
+
+1 1 1 1 0 1 1 1 1 0 1 1 1 1
+
+Ahora ordenamos los unos y los ceros:
+
+\\[ \frac{14!}{2! \cdot 12!} \\]
+
+A continuación, repartimos los programas. Como son distintos, tenemos que repartirlos por separado. Cada uno de los programas podemos repartirlo de tres formas distintas:
+
+\\[ 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 \cdot 3 = 3^9 \\]
+
+Por tanto:
+
+\\[ \|\Omega\| = \frac{14!}{2! \cdot 12!} \cdot 3^9 \\]
+
+Ahora calcularemos los casos favorables:
+
+Primero repartimos los 9 programas:
+
+\\[ {9 \choose 3} \cdot {6 \choose 3} \cdot {3 \choose 3} \\]
+
+Ahora repartimos dos trabajos a cada ordenador, porque tienen que tener *al menos* dos; y al ser todos iguales, sólo podemos repartirlos de una forma.
+
+Y después repartimos los 6 trabajos restantes con el método de unos y ceros: 1 1 0 1 1 0 1 1
+
+\\[ \frac{8!}{2! \cdot 6!} \\]
+
+Y ya podemos calcular los casos favorables:
+
+\\[ \|A\| = {9 \choose 3} \cdot {6 \choose 3} \cdot {3 \choose 3} \cdot 1 \cdot \frac{8!}{2! \cdot 6!} \\]
+
+Para finalizar, calculamos la probabilidad:
+
+\\[ P(A) = \frac{\|A\|}{\|\Omega\|} = \frac{ {9 \choose 3} \cdot {6 \choose 3} \cdot {3 \choose 3} \cdot 1 \cdot \frac{8!}{2! \cdot 6!} }{\frac{14!}{2! \cdot 12!} \cdot 3^9} \\]
