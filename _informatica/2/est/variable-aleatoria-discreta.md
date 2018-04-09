@@ -334,6 +334,14 @@ Si tengo que contar:
 
 #### Ejemplos
 
+> Me interesa si un disco duro presenta problemas.
+
+Sólo hay dos valores posibles: o funciona, o no funciona. Es por tanto una **Bernouilli**.
+
+> Lanzo un dado y me interesa el resultado.
+
+Hay más de dos valores, pero sus probabilidades son iguales, se trata entonces de una **uniforme**.
+
 > Elijo un elemento de una lista y me interesa qué elemento ha salido
 
 Son más de dos valores y todos tienen la misma probabilidad de salir, es por tanto **uniforme**.
@@ -347,3 +355,7 @@ Como conozco la probabilidad de ir a la huelga y hay un valor "tope" definido, s
 > Se realiza un examen tipo test de diez preguntas, teniendo en cuenta que cada pregunta tiene cuatro respuestas, y sólo una es correcta. Nos interesa la probabilidad de acertar al menos la mitad respondiendo aleatoriamente.
 
 Hay más de dos valores y sus probabilidades no son iguales. Nos piden que contemos y el valor "tope" está claro, por ello es una **binomial**.
+
+> El número medio de accidentes ocurridos en una planta petrolera es de 2 accidentes en 2 meses. Nos interesa el número de accidentes ocurridos en los próximos dos meses.
+
+Hay más de dos valores, tengo que contar y no conozco la probabilidad. Como nos dan la media se trata de una **Poisson**.
