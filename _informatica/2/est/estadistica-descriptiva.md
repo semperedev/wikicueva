@@ -102,3 +102,29 @@ tabla <- cbind(n_i, N_i, f_i, F_i)
 ```
 
 ![Tabla Estadística Descriptiva](/uploads/informatica/2/est/descriptiva-tabla-1.png)
+
+## Medidas Descriptivas
+
+Son valores numéricos que resumen la información de una muestra con \\( n \\) datos.
+
+### Media Aritmética
+
+Es la división entre la suma de todos los valores y el número de valores:
+
+\\[ \bar{x} = \frac{x_1 + x_2 + \cdot \cdot \cdot + x_n}{n} \\]
+
+### Mediana
+
+Dado un conjunto de valores ordenados de menor a mayor, la mediana nos deja el 50% de los datos a cada lado.
+
+Si la cantidad de datos \\( n \\) es impar, la mediana es el dato que ocupa el lugar central. En caso contrario, la mediana es la media entre los dos datos centrales.
+
+#### Ejemplo
+
+Teniendo los datos: \\( 1, 5, 8, 2, 4, 9 \\); sabemos que:
+
+\\[ M_e = \frac{8 + 2}{6} = 1.67 \\]
+
+### Moda
+
+Se trata del valor que más se repite en una muestra. (Así de simple)

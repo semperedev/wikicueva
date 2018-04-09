@@ -364,6 +364,42 @@ Hay más de dos valores, tengo que contar y no conozco la probabilidad. Como nos
 
 ### Ejercicio 1
 
+> En una biblioteca se cuenta el número de estudiantes que entran por turno y se observa que los posibles valores van de 2 a 15 con frecuencias inversamente proporcionales a esos números, es decir, \\( P(X = i) = \frac{k}{i} \\), para \\( i = 2, 3, \cdot \cdot \cdot, 15 \\). Se pide:
+
+#### Apartado A
+
+> Calcula \\( k \\)
+
+Sabemos que los valores van de 2 a 15, y la suma de las probabilidades es siempre la unidad, por tanto:
+
+\\[ \frac{k}{2} + \frac{k}{3} + \cdot \cdot \cdot + \frac{k}{15} = 1 \\]
+
+```r
+val  <- 2:15
+prob <- 1/val
+
+suma <- sum(prob)
+k    <- 1 / suma
+```
+
+#### Apartado B
+
+> Analiza la Variable: valores, funciones de probabilidad, distribución, media y desviación típica
+
+```r
+prob <- k * prob # Obtenemos las probabilidades reales
+F_i  <- cumsum(prob)
+
+plot(val, prob, type="l")
+plot(val, F_i,  type="s")
+```
+
+#### Apartado C
+
+> Calcula \\( E\|\sqrt{X}\| \\)
+
+### Ejercicio 2
+
 > La consulta de un médico recibe 150 pacientes al día. Se sabe que la proporción de pacientes con enfermedades graves es del 4%. Un día se considera bueno si es del 55 de los días en los que el número de pacientes graves atendidos es menor y se considera malo si es del 10% de los días en que se atienden a más pacientes graves. Si el día no es ni bueno ni malo, se considera estándar.
 
 #### Apartado A
