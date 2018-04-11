@@ -38,6 +38,10 @@ Tenemos dos propiedades A y B, independientes. Si conozco \\( P(B\|A) \\) y quie
 
 \\[ P(B\|A) = \frac{P(A\|B) \cdot P(A)}{P(B)} \\]
 
+Y una pequeña variación:
+
+\\[ P(B\|A) = \frac{P(A \land B)}{P(B)} \\]
+
 ## Estudio de la eficiencia de una medida
 
 Se da una situación \\( B \\) y aplicamos una medida \\( A \\) para intentar mejorarla. Comparamos las siguientes probabilidades, situando en la parte superior de la fracción la que esperamos que sea menor:

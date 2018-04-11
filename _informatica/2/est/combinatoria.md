@@ -145,7 +145,7 @@ Ahora juntamos los grupos:
 
 \\[ \frac{7!}{2!} \\]
 
-Y por último unimos todo y hacemos la lista multiplicando por \\( 4! \\)
+Y por último unimos todo:
 
 \\[ n = \frac{ {5 \choose 4} \cdot {10 \choose 2} \cdot {1 \choose 1} \cdot 2! \cdot 7! }{2!} \\]
 
@@ -174,7 +174,7 @@ Tenemos 4 elementos, y repetimos dos de ellos.
 
 \\[ \frac{4!}{2!} \\]
 
-Hacemos la lista, sin olvidarnos del \\( 4! \\)
+Hacemos la lista:
 
 \\[ n = \frac{ {5 \choose 3} \cdot {3 \choose 2} \cdot {2 \choose 2} \cdot 3! \cdot 4! \cdot 4! }{2! \cdot 2!} \\]
 
