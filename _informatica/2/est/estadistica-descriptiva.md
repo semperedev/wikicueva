@@ -113,11 +113,19 @@ Es la división entre la suma de todos los valores y el número de valores:
 
 \\[ \bar{x} = \frac{x_1 + x_2 + \cdot \cdot \cdot + x_n}{n} \\]
 
+```r
+media <- mean(x)
+```
+
 ### Mediana
 
 Dado un conjunto de valores ordenados de menor a mayor, la mediana nos deja el 50% de los datos a cada lado.
 
 Si la cantidad de datos \\( n \\) es impar, la mediana es el dato que ocupa el lugar central. En caso contrario, la mediana es la media entre los dos datos centrales.
+
+```r
+mediana <- median(x)
+```
 
 #### Ejemplo
 
@@ -128,3 +136,12 @@ Teniendo los datos: \\( 1, 2, 4, 5, 8, 9 \\); sabemos que:
 ### Moda
 
 Se trata del valor que más se repite en una muestra. (Así de simple)
+
+> Para calcular la moda en R es necesario cargar librerías externas.
+
+### Varianza y desviación típica
+
+```r
+varianza    <- var(x)
+desv_tipica <- sd(x)
+```

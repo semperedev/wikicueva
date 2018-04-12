@@ -36,7 +36,7 @@ Dicho de otra forma, \\( P(A \| B) \\) es la probabilidad de que suceda A, sabie
 
 Tenemos dos propiedades A y B, independientes. Si conozco \\( P(B\|A) \\) y quiero calcular \\( P(A\|B) \\):
 
-\\[ P(B\|A) = \frac{P(A\|B) \cdot P(A)}{P(B)} \\]
+\\[ P(A\|B) = \frac{P(B\|A) \cdot P(A)}{P(B)} \\]
 
 Y una pequeña variación:
 
