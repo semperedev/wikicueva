@@ -326,6 +326,8 @@ Si tengo que contar:
 
 *¿Binomial o Poisson?*
 
+Si nos dan la media y la varianza, y ambas son iguales: es una Poisson.
+
 * Si nos dan la probabilidad \\( \leftarrow \\) Binomial
 * Si nos dan la media \\( \leftarrow \\) Poisson
 
