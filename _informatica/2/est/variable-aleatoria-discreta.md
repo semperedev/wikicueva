@@ -2,6 +2,8 @@
 title: Variable Aleatoria Discreta
 ---
 
+[&lt;&lt; Volver a **Estadística**](../est.md)
+
 * Tabla de Contenidos
 {:toc}
 
@@ -18,7 +20,7 @@ prob <- c(2/6, 3/6, 1/6) # Probabilidades de cada elemento
 plot(val, prob, type="l")
 ```
 
-![Variable Aleatoria Discreta: lineal][discreta-1]
+![Variable Aleatoria Discreta: lineal](/uploads/informatica/2/est/variable-aleatoria-discreta-1.png)
 
 Una vez que los tengamos, podemos calcular ciertas propiedades:
 
@@ -32,7 +34,7 @@ prob_acumulada <- cumsum(prob)
 plot(val, prob_acumulada, type="s")
 ```
 
-![Variable Aleatoria Discreta: escalonada][discreta-2]
+![Variable Aleatoria Discreta: escalonada](/uploads/informatica/2/est/variable-aleatoria-discreta-2.png)
 
 ## Variables Notables
 
@@ -91,7 +93,7 @@ sd  <- sqrt(var)             # Desviación típica
 plot(val, prob)               # El dibujo es plano
 ```
 
-![Variables Notables: Uniforme][uniforme-1]
+![Variables Notables: Uniforme](/uploads/informatica/2/est/variable-notable-uniforme-1.png)
 
 ### Bernouilli
 
@@ -174,7 +176,7 @@ sd <- sqrt(va)
 plot(val, prob, type="l")
 ```
 
-![Variables Notables: Binomial][binom-1]
+![Variables Notables: Binomial](/uploads/informatica/2/est/variable-notable-binom-1.png)
 
 ```r
 # 2.- Calculamos m-sd y m+sd
@@ -230,7 +232,7 @@ varianza <- lambda
 
 #### Ejemplo
 
-> En un sistema de atención al público, llegan, en media, 30 USBs rotos al mes. Nos interesa la cantidad de USBs rotos el próximo mes, con una seguridad del 90%.
+> En un sistema de atención al público, llegan, en media, 80 USBs rotos al mes. Nos interesa la cantidad de USBs rotos el próximo mes, con una seguridad del 90%.
 
 Pasos a seguir:
 
@@ -252,7 +254,7 @@ prob <- dpois(val, l)
 plot(val, prob, type="l")
 ```
 
-![Variables Notables: Poisson][poisson-1]
+![Variables Notables: Poisson](/uploads/informatica/2/est/variable-notable-poisson-1.png)
 
 Al realizar el dibujo, podemos ver claramente que hemos cortado muy pronto, por lo que aumentamos el intervalo hasta \\( [0, m + 3 \cdot sd] \\):
 
@@ -265,7 +267,7 @@ prob <- dpois(val, l)
 plot(val, prob, type="l")
 ```
 
-![Variables Notables: Poisson][poisson-2]
+![Variables Notables: Poisson](/uploads/informatica/2/est/variable-notable-poisson-2.png)
 
 Ahora podemos continuar con el ejercicio:
 
@@ -306,13 +308,6 @@ prob <- dgeom(val, p)
 media    <- (1 - p) / p
 varianza <- (1 - p) / p**2
 ```
-
-[discreta-1]: /uploads/informatica/2/est/variable-aleatoria-discreta-1.png
-[discreta-2]: /uploads/informatica/2/est/variable-aleatoria-discreta-2.png
-[uniforme-1]: /uploads/informatica/2/est/variable-notable-uniforme-1.png
-[binom-1]: /uploads/informatica/2/est/variable-notable-binom-1.png
-[poisson-1]: /uploads/informatica/2/est/variable-notable-poisson-1.png
-[poisson-2]: /uploads/informatica/2/est/variable-notable-poisson-2.png
 
 ## Elegir el tipo de variable
 
@@ -396,17 +391,13 @@ plot(val, prob, type="l")
 plot(val, F_i,  type="s")
 ```
 
-#### Apartado C
-
-> Calcula \\( E\|\sqrt{X}\| \\)
-
 ### Ejercicio 2
 
 > La consulta de un médico recibe 150 pacientes al día. Se sabe que la proporción de pacientes con enfermedades graves es del 4%. Un día se considera bueno si es del 55 de los días en los que el número de pacientes graves atendidos es menor y se considera malo si es del 10% de los días en que se atienden a más pacientes graves. Si el día no es ni bueno ni malo, se considera estándar.
 
 #### Apartado A
 
-> ¿Entre qué valores debe esatr el número de pacientes con enfermedades graves atendidos en un día para que se considere estándar?
+> ¿Entre qué valores debe estar el número de pacientes con enfermedades graves atendidos en un día para que se considere estándar?
 
 Recopilando los datos:
 
