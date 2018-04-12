@@ -121,9 +121,9 @@ Si la cantidad de datos \\( n \\) es impar, la mediana es el dato que ocupa el l
 
 #### Ejemplo
 
-Teniendo los datos: \\( 1, 5, 8, 2, 4, 9 \\); sabemos que:
+Teniendo los datos: \\( 1, 2, 4, 5, 8, 9 \\); sabemos que:
 
-\\[ M_e = \frac{8 + 2}{6} = 1.67 \\]
+\\[ M_e = \frac{4 + 5}{6} = 1.5 \\]
 
 ### Moda
 
