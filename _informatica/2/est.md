@@ -9,3 +9,4 @@ quarter: 2
 * [Estadística Descriptiva](est/estadistica-descriptiva.md)
 * [Probabilidad](est/probabilidad.md)
 * [Variable Aleatoria Discreta](est/variable-aleatoria-discreta.md)
+* [Variable Aleatoria Contínua](est/variable-aleatoria-continua.md)
