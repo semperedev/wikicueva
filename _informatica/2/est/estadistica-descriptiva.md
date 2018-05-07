@@ -2,6 +2,8 @@
 title: Estadística Descriptiva
 ---
 
+[&lt;&lt; Volver a **Estadística**](../est.md)
+
 * Tabla de Contenidos
 {:toc}
 

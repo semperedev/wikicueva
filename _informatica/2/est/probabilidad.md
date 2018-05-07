@@ -2,6 +2,8 @@
 title: Probabilidad
 ---
 
+[&lt;&lt; Volver a **Estadística**](../est.md)
+
 * Tabla de Contenidos
 {:toc}
 

@@ -2,6 +2,8 @@
 title: Combinatoria
 ---
 
+[&lt;&lt; Volver a **Estadística**](../est.md)
+
 * Tabla de Contenidos
 {:toc}
 
@@ -176,7 +178,7 @@ Tenemos 4 elementos, y repetimos dos de ellos.
 
 Hacemos la lista:
 
-\\[ n = \frac{ {5 \choose 3} \cdot {3 \choose 2} \cdot {2 \choose 2} \cdot 3! \cdot 4! \cdot 4! }{2! \cdot 2!} \\]
+\\[ n = \frac{ {5 \choose 3} \cdot {3 \choose 2} \cdot {2 \choose 2} \cdot 3! \cdot 4! }{2! \cdot 2!} \\]
 
 ### Ejercicio 6 - listas con separación
 
