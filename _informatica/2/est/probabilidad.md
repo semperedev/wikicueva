@@ -19,6 +19,12 @@ Denotaremos los casos posibles por \\( \Omega \\), de forma que la probabilidad 
 
 La probabilidad de un suceso se encuentra siempre entre 0 y 1, y la suma de las probabilidades de todos los sucesos posibles siempre es 1.
 
+### Casos especiales
+
+\\[ P(A \lor B) = P(A) + P(B) - P(A \land B) \\]
+
+\\[ P(\neg A) = 1 - P(A) \\]
+
 ## Probabilidad condicionada
 
 Distinguimos entre:
@@ -30,9 +36,11 @@ Dicho de otra forma, \\( P(A \| B) \\) es la probabilidad de que suceda A, sabie
 
 ### Casos especiales
 
-\\[ P(A\ y\ B) = P(A) \cdot P(B \| A) \\]
+\\[ P(A \land B) = P(A) \cdot P(B \| A) \\]
 
-\\[ P(A\ ó\ B) = P(A) + P(B) \\]
+\\[ P(A \land B) = P(B) \cdot P(A \|B) \\]
+
+\\[ P(\neg A \| B) = 1 - P(A \| B) \\]
 
 ## Regla de Bayes
 
@@ -40,9 +48,9 @@ Tenemos dos propiedades A y B, independientes. Si conozco \\( P(B\|A) \\) y quie
 
 \\[ P(A\|B) = \frac{P(B\|A) \cdot P(A)}{P(B)} \\]
 
-Y una pequeña variación:
+Y una pequeña variación (despejando en los casos especiales vistos anteriormente):
 
-\\[ P(B\|A) = \frac{P(A \land B)}{P(B)} \\]
+\\[ P(A\|B) = \frac{P(A \land B)}{P(B)} \\]
 
 ## Estudio de la eficiencia de una medida
 
