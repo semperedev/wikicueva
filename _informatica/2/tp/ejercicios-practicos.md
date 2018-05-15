@@ -2,6 +2,10 @@
 title: Ejercicios Prácticos
 ---
 
+[&lt;&lt; Volver a **TP**](../tp.md)
+
+## Arrays
+
 > Devuelve un array en orden inverso
 
 ```c
@@ -15,6 +19,8 @@ int * invierte(int datos[], int n) {
   return nuevo;
 }
 ```
+
+## Cadenas de texto
 
 > Devuelve una cadena de longitud n formada por letras aleatorias de la cadena dada
 
@@ -41,6 +47,8 @@ char * genera(char * fuente, int n) {
   return nueva;
 }
 ```
+
+## Memoria dinámica
 
 > Devolver un array con n puntos con coordenadas generadas aleatoriamente
 
