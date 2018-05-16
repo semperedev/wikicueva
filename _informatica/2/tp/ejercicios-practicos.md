@@ -68,3 +68,157 @@ struct PuntoRep * genera(int n) {
   return array;
 }
 ```
+
+## Listas
+
+```c
+typedef int Elemento;
+
+struct Nodo {
+  Elemento elem;
+  struct Nodo * sig;
+};
+
+typedef struct Nodo * NodoPtr;
+```
+
+> Crea y devuelve una lista de n elementos aleatorios entre a y b
+
+```c
+NodoPtr crea(int n, Elemento a, Elemento b) {
+  NodoPtr cabecera = malloc(sizeof(struct Nodo));
+  cabecera->sig = NULL;
+
+  for (int i = 0; i < n; i++) {
+    NodoPtr nuevo = malloc(sizeof(struct Nodo));
+    nuevo->elem = (rand() % a-b + 1) + a;
+    nuevo->sig = cabecera->sig;
+    cabecera->sig = nuevo;
+  }
+
+  return cabecera;
+}
+```
+
+> Inserta un elemento a continuación de otro
+
+```c
+void inserta(NodoPtr l, Elemento d) {
+  NodoPtr nuevo = malloc(sizeof(struct Nodo));
+  nuevo->elem = d;
+  nuevo->sig = l->sig;
+
+  l->sig = nuevo;
+}
+```
+
+> Inserta un elemento si no se encuentra ya en la lista
+
+Cuando recorremos la lista, comprobamos siempre el elemento siguiente; de esta forma, cuando vayamos a insertar tendremos un elemento al que unir nuestro nuevo nodo.
+
+```c
+void inserta(NodoPtr l, Elemento d) {
+  NodoPtr aux = l;
+
+  while ((aux->sig != NULL) && (aux->sig->elem != d)) {
+    aux = aux->sig;
+  }
+
+  if (aux->sig != NULL) {
+    NodoPtr nuevo = malloc(sizeof(struct Nodo));
+    nuevo->elem = d;
+    nuevo->sig = aux->sig;
+    aux->sig = nuevo;
+  }
+}
+```
+
+> Inserta un elemento en una lista ordenada de menor a mayor con elementos repetidos
+
+```c
+void inserta(NodoPtr l, Elemento d) {
+  NodoPtr aux = l;
+
+  while ((aux->sig != NULL) && (aux->sig->elem < d)) {
+    aux = aux->sig;
+  }
+
+  NodoPtr nuevo = malloc(sizeof(struct Nodo));
+  nuevo->elem = d;
+  nuevo->sig = aux->sig;
+  aux->sig = nuevo;
+}
+```
+
+> Inserta un elemento en una lista ordenada de menor a mayor **sin** elementos repetidos
+
+En este caso solamente insertaremos cuando el elemento sea distinto del que queremos insertar.
+
+```c
+void inserta(NodoPtr l, Elemento d) {
+  NodoPtr aux = l;
+
+  while ((aux->sig != NULL) && (aux->sig->elem < d)) {
+    aux = aux->sig;
+  }
+
+  if ((aux->sig == NULL) || (aux->sig->elem != d)) {
+    NodoPtr nuevo = malloc(sizeof(struct Nodo));
+    nuevo->elem = d;
+    nuevo->sig = aux->sig;
+    aux->sig = nuevo;
+  }
+}
+```
+
+> Elimina el elemento i-ésimo
+
+```c
+void suprime(NodoPtr l, int i) {
+  if (i < 1) {
+    return;
+  }
+
+  NodoPtr aux = l;
+
+  while ((aux->sig != NULL) && (i > 1)) {
+    aux = aux->sig;
+    i--;
+  }
+
+  NodoPtr borrar = aux->sig;
+  aux->sig = borrar->sig;
+
+  free(borrar);
+}
+```
+
+> Elimina el elemento i-ésimo desde el final
+
+El truco está en mantener un puntero que mantenga siempre el elemento i puestos por detrás del elemento actual, de esta forma cuando el elemento actual llegue al final, tendremos un puntero que nos permitirá acceder directamente al elemento que queremos borrar.
+
+```c
+void suprime(NodoPtr l, int i) {
+  if (i < 1) {
+    return;
+  }
+
+  NodoPtr aux = l;
+  NotoPtr anterior = l;
+
+  while (aux->sig != NULL) {
+    aux = aux->sig;
+
+    i--;
+
+    if (i <= 0) {
+      anterior = anterior->sig;
+    }
+  }
+
+  NodoPtr borrar = anterior->sig;
+  anterior->sig = borrar->sig;
+
+  free(borrar);
+}
+```
