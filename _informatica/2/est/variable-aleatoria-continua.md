@@ -2,6 +2,11 @@
 title: Variable Aleatoria Contínua
 ---
 
+[&lt;&lt; Volver a **Estadística**](../est.md)
+
+* Tabla de Contenidos
+{:toc}
+
 ## Valores
 
 Para representar utilizaremos solamente algunos de sus valores:
