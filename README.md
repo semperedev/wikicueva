@@ -3,7 +3,10 @@ WikiCueva
 
 Información variada sobre temas variados.
 
-Construido sobre: [Jekyll](https://jekyllrb.com/)
+* Construido sobre: [Jekyll](https://jekyllrb.com/)
+* Alojado en: [GitHub Pages](https://pages.github.com/)
+* Librerías:
+  * [Mathjax](https://www.mathjax.org/)
 
 ### Derechos
 
