@@ -136,7 +136,7 @@ Y podemos calcular:
 \\( varianza = 0.2 \cdot 0.8 = 0.16 \\)  
 \\( desviación\ típica = \sqrt{0.16} = 0.4 \\)
 
-### Variable binomial
+### Binomial
 
 Si el mismo experimento lo hacemos \\( n \\) veces, tenemos que \\( x \\) es el número de veces que ocurre el suceso que me interesa.
 
