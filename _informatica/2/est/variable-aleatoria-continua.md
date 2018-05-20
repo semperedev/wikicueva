@@ -30,7 +30,7 @@ En contínua siempre tenemos \\( P(x = a) = 0 \\); por tanto utilizaremos la **F
 
 #### Ejemplo
 
-> Se sabe que cuanto más alto eres, más probabilidaddes hay de que te duela la columna. Queremos la probabilidad de que esto suceda para alturas entre 1.50 y 2 metros.
+> Las alturas de una población oscilan entre 1.50 y 2 metros. Se sabe que cuanto más alto eres, más probabilidaddes hay de que te duela la columna. Queremos calcular la probabilidad de que esto suceda.
 
 \\[ P(dolor\ de\ columna) = k \cdot x \\]
 
@@ -97,7 +97,7 @@ x.sd <- sqrt(x.var)
 
 Debemos resolver manualmente la integral en función de \\( x \\) y \\( F(x) \\):
 
-\\[ F_x(x) = \int_a^n kx dx = k \cdot (\frac{n^2}{2} - \frac{a^2}{2}) \\]
+\\[ F_x(x) = \int_a^x kx dx = k \cdot (\frac{x^2}{2} - \frac{a^2}{2}) \\]
 
 ## Ejemplo de ejercicio
 
@@ -168,9 +168,11 @@ plot(x, F_x(x), type="l")
 
 > Calcular \\( P(x < 1.7) \\)
 
+Como sabemos que \\( P(x < n) = P(x \leq n) \\):
+
 \\[ P(x < 1.7) = P(x \leq 1.7) = F_x(1.7) \\]
 
-> NOTA: En contínua sabemos que \\( P(x < n) = P(x \leq n) \\)
+Y el valor buscado lo hemos calculado previamente:
 
 ```r
 F_x(1.7)
@@ -271,8 +273,8 @@ El dibujo esperado es una curva decreciente.
 
 > Los autobuses que suben a una facultad tienen, en media, una frecuencia de 4 a la hora. Me interesa el tiempo que va a tardar en llegar el siguiente autobús.
 >
-> a) Analiza la variable
-> b) Calcula la probabilidad de que el siguiente llegue antes de 15 minutos
+> a) Analiza la variable  
+> b) Calcula la probabilidad de que el siguiente llegue antes de 15 minutos  
 > c) Repito el experimento dos días seguidos, calcula la probabilidad de que al menos uno de esos dos días el autobús llegue antes de 15 minutos
 
 **Apartado A**
@@ -323,17 +325,18 @@ p_b <- pexp(1/4, 4) # 0.6321206
 \\[ x_1 = tiempo\ 1^{er}\ día \\]
 \\[ x_2 = tiempo\ 2^o\ día \\]
 
-\\[ P_T = P(X_1 < \frac{1}{4} \lor X_2 < \frac{1}{4}) \\]
-\\[ P_T = P(X_1 < \frac{1}{4}) + P(X_2 < \frac{1}{4}) - P(X_1 < \frac{1}{4} \land X_2 < \frac{1}{4}) \\]
-\\[ P_T = P(X_1 < \frac{1}{4}) + P(X_2 < \frac{1}{4}) - P(X_1 < \frac{1}{4}) \cdot P(X_2 < \frac{1}{4}) \\]
+\\[ P_T = P \left \(X_1 < \frac{1}{4} \lor X_2 < \frac{1}{4} \right \) \\]
+\\[ P_T = P \left \(X_1 < \frac{1}{4} \right \) + P \left \(X_2 < \frac{1}{4} \right \) - P \left \(X_1 < \frac{1}{4} \land X_2 < \frac{1}{4} \right \) \\]
+\\[ P_T = P \left \(X_1 < \frac{1}{4} \right \) + P \left \(X_2 < \frac{1}{4} \right \) - P \left \(X_1 < \frac{1}{4} \right \) \cdot P \left \(X_2 < \frac{1}{4} \right \) \\]
 
-Calcularemos \\( P_T \\) utilizando \\( P(X < \frac{1}{4} \\) que hemos calculado antes en R: `pexp(1/4, 4)`
+Calcularemos \\( P_T \\) utilizando \\( P \left \(X < \frac{1}{4} \right \) \\) que hemos calculado antes en R: `pexp(1/4, 4)`
 
 #### Ejemplo 2
 
 > Un ordenador manda un mensaje de aviso cuando se calienta mucho. Esto ocurre, en media, 4 veces al día. Me interesa el tiempo que pasará antes del siguiente aviso.
-> a) Analizar la variable
-> b) Calcular la probabilidad de que el próximo aviso se produzca entre 5 y 7 horas
+>
+> a) Analizar la variable  
+> b) Calcular la probabilidad de que el próximo aviso se produzca entre 5 y 7 horas  
 > c) Calcular 2 valores a y b de modo que el tiempo que tarde en avisar esté entre a y b con probabilidad del 90%
 
 **Apartado A**
@@ -386,12 +389,11 @@ Vemos entonces que el próximo aviso llegará entre 3 y 18 horas.
 
 Nos interesa una medida, y nos proporcionan la media y la desviación típica.
 
-Valores: \\( [-\infty, + \infty) \\)  
-Probabilidad: \\( \lambda \cdot e^{-\lambda \cdot t} \\)  
+Sus valores se encuentran en el intervalo \\( (-\infty, + \infty) \\), por lo que trabajaremos con valores en un rango más manejable:
 
-Trabajaremos con los valores del rango: \\( [m - 3 \cdot sd, m + 3 \cdot sd] \\)
+\\[ [m - 3 \cdot sd, m + 3 \cdot sd] \\]
 
-El dibujo es una campana de Gauss y la función de la curva es:
+El dibujo es una campana de Gauss y la función de densidad es:
 
 \\[ f(x) = \frac{1}{\sqrt{2 \cdot \pi} \cdot sd} \cdot e^{-\frac{(x - m)^2}{2 \cdot var}} \\]
 
@@ -405,8 +407,8 @@ q25 <- qnorm(25, m, sd)
 
 > La altura de un hombre es una normal con media 1.75 metros y una desviación típica de 0.05
 >
-> a) Analiza la variable
-> b) Probabilidad de medir más de 1.8
+> a) Analiza la variable  
+> b) Probabilidad de medir más de 1.8  
 > c) Se considera que alguien es muy alto si es del 5% que más miden. ¿A partir de qué medida se considera que alguien es muy alto?
 
 **Apartado A**
@@ -414,7 +416,7 @@ q25 <- qnorm(25, m, sd)
 \\( X =  \\) altura  
 \\( m = 1.75 \\)  
 \\( sd = 0.05 \\)  
-Valores: \\( [-\infty, +\infty) \\)
+Valores: \\( (-\infty, +\infty) \\)
 
 Llegaremos desde \\( 1.75 - 3 \cdot 0.05 \\) hasta \\( 1.75 + 3 \cdot 0.05 \\), es decir, entre 1.60 y 1.90 metros.
 
@@ -466,7 +468,7 @@ La suma de una variable normal y una constante da como resultado una variable no
 
 Una variable normal multiplicada por una constante da como resultado una variable normal:
 
-\\[ N(m, sd) \cdot k = N(m \cdot k, sd \cdot |k|) \\]
+\\[ N(m, sd) \cdot k = N(m \cdot k, sd \cdot \|k\|) \\]
 
 #### Ejemplo
 
