@@ -50,26 +50,32 @@ Vamos a ver cinco variables notables. En la primera de ellas, todos los sucesos 
 Podemos declarar las variables notables con el siguiente formato:
 
 ```
-Ctipo(val, n, p)
+Ctipo(val, ...args)
 ```
 
 Siendo ```C``` una de las siguientes constantes:
 
 * ```d```: Calcular probabilidades: \\( P(x = y) \\)
-* ```p```: Calcular probabilidades: \\( P(x \leq y) \\)
-* ```q```: Calcular percentiles
+* ```p```: Función de distribución: \\( P(x \leq y) \\)
+* ```q```: Percentiles expresados entre 0 y 1: `porcentaje/100`
 * ```r```: Funcionar como un *random*
 
 Y los parámetros:
 
 * ```val```: valores que proporcionamos
-* ```n```: número de sucesos
-* ```p```: la probabilidad dada
+* ```args```: propiedades necesarias para definir la variable
 
 Por ejemplo:
 
 ```r
-prob <- dbinom(val, n, p)
+# Binomial
+prob <- dbinom(val, n, p)      # Función de probabilidad para B(n, p)
+
+# Poisson
+perc <- qpois(23/100, lambda)  # Percentil del 23% para P(lambda)
+
+# Geométrica
+F_x <- pgeom(val, p)           # Función de distribución para G(p)
 ```
 
 ### Uniforme
@@ -136,7 +142,7 @@ Si el mismo experimento lo hacemos \\( n \\) veces, tenemos que \\( x \\) es el 
 
 Escrito matemáticamente: \\( x = B(n, p) \\), es decir, \\( x \\) es una variable Binomial, con \\( n \\) sucesos y \\( p \\) la probabilidad dada.
 
-El histograma esperado es una campana de Gauss.
+El histograma esperado es una campana de Gauss, cuyo máximo se da en la media.
 
 ```r
 val  <- 0:n
@@ -192,13 +198,13 @@ pbinom(1028, n, p) - pbinom(971, n, p)
 
 Para el último paso tenemos que encontrar dos números, \\( a \\) y \\( b \\), que dejan entre ellos el porcentaje de aciertos con seguridad (si no nos indican ningún valor, utilizaremos el 95%).
 
-Haremos uso de percentiles: \\( a \\) es un percentil del 2.5% y \\( b \\) es el percentil del 75.5%
+Haremos uso de percentiles: \\( a \\) es un percentil del 2.5% y \\( b \\) es el percentil del 97.5%
 
 ```r
 # 5 .- Ajustamos mejor el intervalo
-a <- qbinom(0.25/100, n, p)
+a <- qbinom(2.5/100, n, p)
 
-b <- qbinom(97.25/100, n, p)
+b <- qbinom(97.5/100, n, p)
 ```
 
 A la vista de los resultados, vemos claramente que los USBs rotos se encuentran en el rango \\( [921, 1055] \\).
@@ -218,7 +224,7 @@ Deben darse las siguientes condiciones:
 
 Escrito matemáticamente: \\( x = P(\lambda) \\), es decir, \\( x \\) es una variable de Poisson, siendo \\( \lambda \\) la media dada.
 
-El histograma esperado es una campana de Gauss.
+El histograma esperado es una campana de Gauss, cuyo máximo se da en la media.
 
 ```r
 # lambda es el valor de la media
@@ -384,11 +390,15 @@ k    <- 1 / suma
 > Analiza la Variable: valores, funciones de probabilidad, distribución, media y desviación típica
 
 ```r
-prob <- k * prob # Obtenemos las probabilidades reales
-F_i  <- cumsum(prob)
+prob     <- k * prob # Obtenemos las probabilidades reales
+media    <- sum(val * prob)
+varianza <- sum(((val - media) ** 2) * prob)
+sd       <- sqrt(varianza)
+F_x      <- cumsum(prob)
 
+# Podemos dibujar las funciones usando plot
 plot(val, prob, type="l")
-plot(val, F_i,  type="s")
+plot(val, F_x,  type="s")
 ```
 
 ### Ejercicio 2
@@ -414,7 +424,7 @@ Si posicionamos los tipos de días, vemos que:
 
 Lo que nos piden son las cantidades que separan los tipos, con lo cual tenemos que calcular los **percentiles** de la variable:
 
-\\[ X = Nº\ de\ pacientes\ graves = Binomial(150, \frac{4}{100}) \\]
+\\[ X = Nº\ de\ pacientes\ graves = Binomial \left \(150, \frac{4}{100} \right \) \\]
 
 ```r
 percentil_a <- qbinom(5/100, 150, 4/100)
@@ -427,11 +437,11 @@ percentil_b <- qbinom(90/100, 150, 4/100)
 
 De nuevo, se trata de una binomial.
 
-\\[ Y = Nº\ días\ malos = Binomial(30, \frac{10}{100}) \\]
+\\[ Y = Nº\ días\ malos = Binomial \left \(30, \frac{10}{100} \right \) \\]
 
 Y nos piden la siguiente probabilidad:
 
-\\[ P(Y \lt 5) = 1 - P(Y \leq 5 ) \\]
+\\[ P(Y \gt 5) = 1 - P(Y \leq 5 ) \\]
 
 ```r
 p = 1 - pbinom(5, 30, 10/100)
@@ -439,17 +449,17 @@ p = 1 - pbinom(5, 30, 10/100)
 
 Como la probabilidad es del 10% y tenemos un mes (30 días), esperamos:
 
-\\[ 10\% \cdot 30 = 3 días\ malos \\]
+\\[ 10\% \cdot 30 = 3\ días\ malos \\]
 
 #### Apartado C
 
 > ¿Cuál es la probabilidad de que pase una semana antes de que haya un día bueno?
 
-\\[ Z = Nº\ días\ antes\ de\ que\ haya\ uno\ bueno = Geométrica(\frac{5}{100}) \\]
+\\[ Z = Nº\ días\ antes\ de\ que\ haya\ uno\ bueno = Geométrica \left \(\frac{5}{100} \right \) \\]
 
 Calculamos la probabilidad:
 
-\\[ P(Z \geq 7) = 1 - P(Z \leq 6) \\]
+\\[ P(Z \geq 7) = P(Z \gt 6) = 1 - P(Z \leq 6) \\]
 
 ```r
 p = 1 - pgeom(6, 5/100)
