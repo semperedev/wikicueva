@@ -10,3 +10,4 @@ quarter: 2
 * [Probabilidad](est/probabilidad.md)
 * [Variable Aleatoria Discreta](est/variable-aleatoria-discreta.md)
 * [Variable Aleatoria Contínua](est/variable-aleatoria-continua.md)
+* [Muestreo](est/muestreo.md)
