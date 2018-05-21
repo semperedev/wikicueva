@@ -80,12 +80,16 @@ x.media.f <- function(x) { return(x * f(x)) }
 x.media <- integrate(x.media.f, a, b)
 ```
 
+\\[ m = \int_a^b x \cdot f(x) dx \\]
+
 ### Varianza
 
 ```r
 x.var.f <- function(x) { return((x - x.media)**2 * f(x)) }
 x.var <- integrate(x.var.f, a, b)
 ```
+
+\\[ var = \int_a^b (x - \bar{x})^2 \cdot f(x) dx \\]
 
 ### Desviación Típica
 
@@ -147,7 +151,6 @@ x.m <- integrate(x.m.f, 1, 2)$value # 1.607143
 # Calculamos la varianza
 x.var.f <- function(x) { return((x - x.m)**2 * f(x)) }
 x.var <- integrate(x.var.f, 1, 2)$value
-x.var
 ```
 
 La función de distribución la calculamos manualmente:
