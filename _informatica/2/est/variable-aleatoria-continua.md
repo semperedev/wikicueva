@@ -284,7 +284,7 @@ El dibujo esperado es una curva decreciente.
 
 **Apartado A**
 
-\\( X =  \\) tiempo haste el siguiente autobús  
+\\( X = \\) tiempo hasta el siguiente autobús  
 \\( \lambda = 4 \\) (horas)  
 Valores: \\( [0, +\infty) \\)
 
@@ -297,20 +297,29 @@ Cogeremos los valores entre 0 y \\( m + 3\cdot sd \\), con lo cual necesitaremos
 
 Llegaremos hasta: \\( \frac{1}{4} + 3 \cdot \frac{1}{4} = 1 \\)
 
+Otra forma de verlo: como sabemos que la media y la desviación típica valen lo mismo, vemos claro que \\( m + 3\cdot sd = 4 \cdot m\\), con lo cual queremos llegar hasta: \\( 4 \cdot \frac{1}{4} = 1 \\)
+
 Vamos a introducirlo en R:
 
 ```r
 # Definimos valores
 val <- seq(0, 1, 0.01)
-f_x <- dexp(val, 4)
-F_x <- pexp(val, 4)
 
-# Dibujamos
+# Función de densidad
+f_x <- dexp(val, 4)
+
 plot(val, f_x, type="l")
-plot(val, F_x, type="l")
 ```
 
 ![Variable Aleatoria Contínua 6-1](/uploads/informatica/2/est/variable-aleatoria-continua-6-1.png)
+
+```r
+# Función de distribución
+F_x <- pexp(val, 4)
+
+plot(val, F_x, type="l")
+```
+
 ![Variable Aleatoria Contínua 6-2](/uploads/informatica/2/est/variable-aleatoria-continua-6-2.png)
 
 **Apartado B**
@@ -359,14 +368,18 @@ Introducimos en R:
 ```r
 val    <- seq(0, 24, 0.1)
 lambda <- 4/24
-f_x    <- dexp(val, lambda)
-F_x    <- pexp(val, lambda)
 
+f_x    <- dexp(val, lambda)
 plot(val, f_x, type="l")
-plot(val, F_x, type="l")
 ```
 
 ![Variable Aleatoria Contínua 7-1](/uploads/informatica/2/est/variable-aleatoria-continua-7-1.png)
+
+```r
+F_x <- pexp(val, lambda)
+plot(val, F_x, type="l")
+```
+
 ![Variable Aleatoria Contínua 7-2](/uploads/informatica/2/est/variable-aleatoria-continua-7-2.png)
 
 **Apartado B**
@@ -388,7 +401,7 @@ a <- qexp(5/100, lambda) # 0.3077598
 b <- qexp(95/100, lambda) # 17.97439
 ```
 
-Vemos entonces que el próximo aviso llegará entre 3 y 18 horas.
+Vemos entonces que el próximo aviso llegará entre 0.3 y 18 horas.
 
 ### Variable Normal (o de Gauss)
 
@@ -431,14 +444,18 @@ Introducimos en R:
 val <- seq(1.6, 1.9, 0.01)
 m   <- 1.75
 sd  <- 0.05
-f_x <- dnorm(val, m, sd)
-F_x <- pnorm(val, m, sd)
 
+f_x <- dnorm(val, m, sd)
 plot(val, f_x, type="l")
-plot(val, F_x, type="l")
 ```
 
 ![Variable Aleatoria Contínua 8-1](/uploads/informatica/2/est/variable-aleatoria-continua-8-1.png)
+
+```r
+F_x <- pnorm(val, m, sd)
+plot(val, F_x, type="l")
+```
+
 ![Variable Aleatoria Contínua 8-2](/uploads/informatica/2/est/variable-aleatoria-continua-8-2.png)
 
 **Apartado B**
@@ -514,7 +531,7 @@ qnorm(0.9995, 860, sqrt(126)) # b = 896.9361
 
 > Tengo dos cursos. Hago un examen. Las notas de cada curso son una normal:
 >
-> Curso 1: \\( N(6, 0.5) \\)
+> Curso 1: \\( N(6, 0.5) \\)  
 > Curso 2: \\( N(5.5, 1) \\)
 >
 > Cojo un alumno a suertes de cada grupo. ¿Cuál es la probabilidad de que la nota del alumno del primer curso sea mayor que la del segundo curso?
@@ -536,7 +553,7 @@ Dado que sólo sabemos sumar y multiplicar, primero haremos un pequeño cálculo
 
 > La altura de las personas de dos países A y B, son variables normales.
 >
-> \\( X_A = N(1.75, 0.05)  \\)
+> \\( X_A = N(1.75, 0.05) \\)  
 > \\( X_B = N(1.72, 0.1) \\)
 >
 > Cojo uno de cada país. ¿Cuál es la probabilidad de que el primer país sea más alto que el segundo?
@@ -553,7 +570,7 @@ Dado que sólo sabemos sumar y multiplicar, primero haremos un pequeño cálculo
 
 Hay una normal especialmente sencilla, la normal estándar: \\( N(0, 1) \\), de la cual podemos obtener otras distintas:
 
-\\[ N(m, sd) = N(0, 1) * sd + m \\]
+\\[ N(m, sd) = N(0, 1) \cdot sd + m \\]
 
 Y al contrario también:
 
@@ -577,7 +594,7 @@ En programación usaremos una normal cuando:
 
 > Tengo unos datos que pienso que son de una normal, y quiero calcular la media y la desviación típica.
 >
-> Se sabe que esos datos pasan de 100 en una determinada proporción: \\( \frac{1}{10} \\)
+> Se sabe que esos datos pasan de 100 en una determinada proporción: \\( \frac{1}{10} \\)  
 > Se sabe que esos datos pasan de 200 en otra determinada proporción: \\( \frac{1}{1000} \\)
 
 \\[ X = N(m, s) \\]
