@@ -185,12 +185,12 @@ F_x(1.7)
 
 Comparando con las variables notables en discreta, tenemos las siguientes equivalencias:
 
-> NOTA: Pasar a tabla en vez de lista
-
-* Bernouilli: No hay
-* Uniforme: Uniforme contínua (Todos misma probabilidad)
-* Geométrica: Exponencial (Tiempo hasta que ocurre algo)
-* Binomial y Poisson: Normal (Medir)
+Discreta | Contínua
+---|---
+Bernouilli | No hay
+Uniforme | Uniforme contínua (Todos misma probabilidad)
+Geométrica | Exponencial (Tiempo hasta que ocurre algo)
+Binomial y Poisson | Normal (Medir)
 
 ### Uniforme contínua
 
@@ -212,31 +212,33 @@ var <- (b - a)**2 / 12 # El 12 del denominador viene de una integral que no vamo
 #### Ejemplo
 
 > Un programa de ordenador devuelve un número a suertes entre 0 y 1
-> a) Analiza la variable
+>
+> a) Analiza la variable  
 > b) Probabilidad de que un número esté entre 0.2 y 0.3
 
 ```r
-val <- seq(0, 1, 0.1)
-# f(x) es dunif(x, 0, 1) // no es necesario definirla de nuevo
+val  <- seq(0, 1, 0.1)
+prob <- dunif(val, 0, 1)
 
-plot(val, dunif(val, 0, 1), type="l")
+plot(val, prob, type="l")
 ```
 
 ![Variable Aleatoria Contínua 4](/uploads/informatica/2/est/variable-aleatoria-continua-4.png)
 
 ```r
-val.m <- (0 + 1)/2
-val.var <- (1 - 0)**2 / 12
+m   <- (0 + 1)/2
+var <- (1 - 0)**2 / 12
 
-# F_x(x) es punif(x, 0, 1) // no es necesaria definirla de nuevo
-plot(val, punif(val, 0, 1))
+F_x <- dunif(val, 0, 1)
+
+plot(val, F_x)
 ```
 
 ![Variable Aleatoria Contínua 5](/uploads/informatica/2/est/variable-aleatoria-continua-5.png)
 
 Y para terminar:
 
-\\[ P(0.2 < x < 0.3) = P(x \leq 0.3) - P(x \leq 0.2) \\]
+\\[ P(0.2 < x < 0.3) = P(0.2 < x \leq 0.3) = P(x \leq 0.3) - P(x \leq 0.2) \\]
 
 ```r
 punif(0.3, 0, 1) - punif(0.2, 0, 1) # 0.1
