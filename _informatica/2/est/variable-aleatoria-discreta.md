@@ -158,16 +158,9 @@ FX  <- pbinom(val, n, p)
 
 > La probabilidad de que un USB falle es del 20%. Tengo 5000 USBs. Me interesa el número de los que fallan.
 
-Pasos a seguir:
-
-1. Analiza la variable
-2. Calcula \\( m - sd \\) y \\( m + sd \\)
-3. Calcula \\( P(x \geq m + sd) \\)
-4. Calcula \\( P(m - sd \leq x \leq m + sd) \\)
-5. Encuentra un intervalo donde creas que está \\( x \\)
+**1) Analiza la variable**
 
 ```r
-# 1.- Analizamos la variable
 n <- 5000
 p <- 0.2
 
@@ -184,27 +177,38 @@ plot(val, prob, type="l")
 
 ![Variables Notables: Binomial](/uploads/informatica/2/est/variable-notable-binom-1.png)
 
+**2) Calcula \\( m - sd \\) y \\( m + sd \\)**
+
 ```r
-# 2.- Calculamos m-sd y m+sd
 m - sd # 971.7157
 m + sd # 1028.284
-
-# 3.- Calculamos P(x >= m + sd) = P(x > 1028) = 1 - P(x <= 1028)
-1 - pbinom(1028, n, p)
-
-# 4.- Calculamos P(m - sd <= x <= m + sd) = P(971 < x <= 1028) = P(x <= 1028) - P(x <= 971)
-pbinom(1028, n, p) - pbinom(971, n, p)
 ```
 
-Para el último paso tenemos que encontrar dos números, \\( a \\) y \\( b \\), que dejan entre ellos el porcentaje de aciertos con seguridad (si no nos indican ningún valor, utilizaremos el 95%).
+**3) Calcula \\( P(x \geq m + sd) \\)**
+
+\\[ P(x \geq m + sd) = P(x > 1028) = 1 - P(x \leq 1028) \\]
+
+```r
+1 - pbinom(1028, n, p) # 0.156825
+```
+
+**4) Calcula \\( P(m - sd \leq x \leq m + sd) \\)**
+
+\\[ P(m - sd \leq x \leq m + sd) = P(971 < x \leq 1028) = P(x \leq 1028) - P(x \leq 971) \\]
+
+```r
+pbinom(1028, n, p) - pbinom(971, n, p) # 0.6863759
+```
+
+**5) Encuentra un intervalo donde creas que está \\( x \\)**
+
+Tenemos que encontrar dos números, \\( a \\) y \\( b \\), que dejan entre ellos el porcentaje de aciertos con seguridad (si no nos indican ningún valor, utilizaremos el 95%).
 
 Haremos uso de percentiles: \\( a \\) es un percentil del 2.5% y \\( b \\) es el percentil del 97.5%
 
 ```r
-# 5 .- Ajustamos mejor el intervalo
-a <- qbinom(2.5/100, n, p)
-
-b <- qbinom(97.5/100, n, p)
+qbinom(2.5/100, n, p)  # 921
+qbinom(97.5/100, n, p) # 1055
 ```
 
 A la vista de los resultados, vemos claramente que los USBs rotos se encuentran en el rango \\( [921, 1055] \\).
@@ -240,16 +244,11 @@ varianza <- lambda
 
 > En un sistema de atención al público, llegan, en media, 80 USBs rotos al mes. Nos interesa la cantidad de USBs rotos el próximo mes, con una seguridad del 90%.
 
-Pasos a seguir:
-
-1. Analiza la variable
-2. Calcula \\( m - sd \\) y \\( m + sd \\)
-3. Calcula \\( P(m - sd \leq x \leq m + sd) \\)
-4. Encuentra un intervalo donde creas que está \\( x \\)
-
 Como es lógico, no podemos trabajar con un intervalo de cero a infinito, por lo cual estableceremos el intervalo de estudio:
 
 Sabemos que \\( m = 80 \\), \\( var = 80 \\) y por tanto, \\( sd = \sqrt{80} \approx 9 \\). Trabajaremos con el intervalo \\( [0, m + 2\cdot sd] \\), es decir, \\( [0, 98] \\)
+
+**1) Analiza la variable**
 
 ```r
 l = 80
@@ -275,15 +274,17 @@ plot(val, prob, type="l")
 
 ![Variables Notables: Poisson](/uploads/informatica/2/est/variable-notable-poisson-2.png)
 
-Ahora podemos continuar con el ejercicio:
+**3) Calcula \\( P(m - sd \leq x \leq m + sd) \\)**
 
 ```r
-# 3.- Calcular P(71 <= x <= 89) = P(x <= 89) - P(x <= 70)
-ppois(89, l) - ppois(70, l)
+ppois(89, l) - ppois(70, l) # 0.7121275
+```
 
-# 4 .- Ajustamos mejor el intervalo
-a <- qpois(0.25 / 100, l)
-b <- qpois(97.25 / 100, l)
+**4) Encuentra un intervalo donde creas que está \\( x \\)**
+
+```r
+qpois(0.25 / 100, l)  # 56
+qpois(97.25 / 100, l) # 98
 ```
 
 #### Nota

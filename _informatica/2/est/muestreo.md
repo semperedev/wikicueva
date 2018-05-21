@@ -199,7 +199,7 @@ Si el valor que me han dado está entre \\( a \\) y \\( b \\), considero que es 
 
 > Compro una GPU de la que me dicen que el tiempo medio de renderizado de una escena 3D es 1 segundo con desviación típica de 0.1
 >
-> Pruebo 30 veces esa GPU, apunto lo que tarda cada bez y calculo su media: 1.2
+> Pruebo 30 veces esa GPU, apunto lo que tarda cada vez y calculo su media: 1.2
 >
 > ¿El valor que nos han proporcionado es correcto con seguridad del 80%? ¿Entre qué valores debería estar \\( m \\)?
 
