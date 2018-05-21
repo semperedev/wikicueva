@@ -403,7 +403,7 @@ plot(val, F_x,  type="s")
 
 ### Ejercicio 2
 
-> La consulta de un médico recibe 150 pacientes al día. Se sabe que la proporción de pacientes con enfermedades graves es del 4%. Un día se considera bueno si es del 55 de los días en los que el número de pacientes graves atendidos es menor y se considera malo si es del 10% de los días en que se atienden a más pacientes graves. Si el día no es ni bueno ni malo, se considera estándar.
+> La consulta de un médico recibe 150 pacientes al día. Se sabe que la proporción de pacientes con enfermedades graves es del 4%. Un día se considera bueno si es del 55% de los días en los que el número de pacientes graves atendidos es menor y se considera malo si es del 10% de los días en que se atienden a más pacientes graves. Si el día no es ni bueno ni malo, se considera estándar.
 
 #### Apartado A
 

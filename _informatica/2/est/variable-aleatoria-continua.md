@@ -606,9 +606,9 @@ Podemos traducir esos datos a:
 
 Si tipificamos:
 
-\\[ P(\frac{x - m}{s} > \frac{100 - m}{s}) = \frac{1}{10} \\]
+\\[ P(\frac{X - m}{s} > \frac{100 - m}{s}) = \frac{1}{10} \\]
 
-Sabemos que la primera parte, \\( \frac{X - m}{s} \\), es \\( N(0, 1) \\). Y nos deja a un lado \\( \frac{9}{10} \\) y al otro \\( \frac{1}{10} \\). Por tanto el dato que buscamos es el percentil del 90% de \\( N(0, 1) \\).
+Sabemos que la primera parte, \\( \frac{X - m}{s} \\), es \\( N(0, 1) \\). Y la segunda parte, \\( \frac{100 - m}{s} \\), nos deja a un lado \\( \frac{9}{10} \\) y al otro \\( \frac{1}{10} \\), por tanto el dato que buscamos es el percentil del 90% de \\( N(0, 1) \\).
 
 ```r
 qnorm(0.9, 0, 1) # 1.281552
@@ -616,7 +616,7 @@ qnorm(0.9, 0, 1) # 1.281552
 
 Y para el segundo dato, repetimos los mismos pasos:
 
-\\[ P(\frac{x - m}{s} > \frac{200 - m}{s}) = \frac{1}{1000} \\]
+\\[ P(\frac{X - m}{s} > \frac{200 - m}{s}) = \frac{1}{1000} \\]
 
 Sabemos que la primera parte, \\( \frac{X - m}{s} \\), es \\( N(0, 1) \\).
 
@@ -628,11 +628,11 @@ qnorm(999/1000, 0, 1) # 3.090232
 
 Si reemplazamos en las ecuaciones:
 
-\\[ m + 1.28 \cdot s = 100 \\]
-\\[ m + 3.09 \cdot s = 200 \\]
+\\[ \frac{100 - m}{s} = 1.28 \rightarrow m + 1.28 \cdot s = 100 \\]
+\\[ \frac{200 - m}{s} = 3.09 \rightarrow m + 3.09 \cdot s = 200 \\]
 
 Y despejando:
 
-\\[ s = \frac{100}{1.81} \\]
+\\[ s = \frac{100}{1.81} = 55.25 \\]
 
-\\[ m = 200 - 3.09 \cdot \frac{100}{1.81} \\]
+\\[ m = 200 - 3.09 \cdot \frac{100}{1.81} = 29.28 \\]

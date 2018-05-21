@@ -178,18 +178,6 @@ qnorm(10/100, 15, 1/sqrt(50)) # a
 qnorm(90/100, 15, 1/sqrt(50)) # b
 ```
 
-#### Generar una normal
-
-```c
-float normal() {
-  float k = 0;
-
-  for (i = 0; i < 12; i++) { k += random() }
-
-  return k - 6;
-}
-```
-
 ## Test de Hipótesis
 
 Tengo unos datos y estoy interesado en su media, \\( m \\). Me dan un cierto valor para dicha \\( m \\), ¿puedo saber si está bien o no?
