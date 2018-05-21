@@ -229,7 +229,7 @@ plot(val, prob, type="l")
 m   <- (0 + 1)/2
 var <- (1 - 0)**2 / 12
 
-F_x <- dunif(val, 0, 1)
+F_x <- punif(val, 0, 1)
 
 plot(val, F_x)
 ```
