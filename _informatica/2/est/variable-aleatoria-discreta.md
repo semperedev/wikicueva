@@ -445,7 +445,7 @@ Y nos piden la siguiente probabilidad:
 \\[ P(Y \gt 5) = 1 - P(Y \leq 5 ) \\]
 
 ```r
-p = 1 - pbinom(5, 30, 10/100)
+1 - pbinom(5, 30, 10/100)
 ```
 
 Como la probabilidad es del 10% y tenemos un mes (30 días), esperamos:
@@ -463,5 +463,5 @@ Calculamos la probabilidad:
 \\[ P(Z \geq 7) = P(Z \gt 6) = 1 - P(Z \leq 6) \\]
 
 ```r
-p = 1 - pgeom(6, 5/100)
+1 - pgeom(6, 5/100)
 ```
