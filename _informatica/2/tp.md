@@ -3,6 +3,8 @@ title: Tecnologías de la Programación
 quarter: 2
 ---
 
+[Definiciones](tp/definiciones.md)
+
 Se han recopilado algunos de los ejercicios propuestos de la asignatura.
 
 * [Ejercicios de Teoría](tp/preguntas-teoria.md)
