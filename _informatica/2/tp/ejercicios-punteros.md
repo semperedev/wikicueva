@@ -1,5 +1,9 @@
 ---
 title: Punteros y Memoria Dinámica
-layout: code
-code: ejercicios/punteros-memoria.c
 ---
+
+[&lt;&lt; Volver a **TP**](../tp.md)
+
+{% highlight c %}
+{% include_relative ejercicios/punteros-memoria.c %}
+{% endhighlight %}
