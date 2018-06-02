@@ -1,44 +1,13 @@
-/**
- * 7) Usando el TDA Punto (ejercicio 1), implementa el TDA descrito
- * a continuación:
- *
- * > Una polilínea representa una secuencia ordenada de puntos en
- * > el plano bidimensional. Los puntos de la polilínea de mantendrán
- * > en el orden en que sean añadidos.
- * typedef struct PolilineaRep * Polilinea;
- *
- * > Devuelve una nueva polilínea vacía
- * Polilinea Polilinea_crea();
- *
- * > Libera la memoria asociada a la polilínea p
- * void Polilinea_libera(Polilinea p);
- *
- * > Muestra la polilínea p por la pantalla
- * void Polilinea_muestra(Polilinea p);
- *
- * > Añade el punto q al final de la secuencia de puntos de p
- * void Polilinea_agrega(Polilinea p, Punto q);
- *
- * > Devuelve el punto incluído en p que esté más cerca de las
- * > coordenadas (x, y) usando distancia euclídea
- * Punto Polilinea_selecciona(Polilinea p, double x, double y);
- *
- * > Elimina el punto q de la secuencia de puntos de p
- * void Polilinea_elimina(Polilinea p, Punto q);
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-#include "punto.h"
+#include "tda-7.h"
 
 struct PolilineaRep {
   Punto punto;
   struct PolilineaRep * sig;
 };
-
-typedef struct PolilineaRep * Polilinea;
 
 Polilinea Polilinea_crea() {
   Polilinea p = malloc(sizeof(struct PolilineaRep));
@@ -153,33 +122,4 @@ void Polilinea_elimina(Polilinea p, Punto q) {
     Punto_libera(borrar->punto);
     free(borrar);
   }
-}
-
-int main(int argc, char const *argv[]) {
-  Polilinea p = Polilinea_crea();
-
-  Polilinea_agrega(p, Punto_crea(0, 0));
-  Polilinea_agrega(p, Punto_crea(0, 1));
-  Polilinea_agrega(p, Punto_crea(1, 0));
-  Polilinea_agrega(p, Punto_crea(1, 1));
-
-  Polilinea_muestra(p);
-
-  printf("\nCercano a (0.15, 0)\n");
-  Punto punto = Polilinea_selecciona(p, 0.15, 0);
-  Punto_muestra(punto);
-
-  printf("\nAgrega puntoNuevo\n");
-  Punto puntoNuevo = Punto_crea(1, 3);
-  Polilinea_agrega(p, puntoNuevo);
-  Polilinea_muestra(p);
-
-  printf("\nElimina puntoNuevo\n");
-  Polilinea_elimina(p, puntoNuevo);
-  Polilinea_muestra(p);
-
-  Punto_libera(puntoNuevo);
-  Polilinea_libera(p);
-
-  return 0;
 }

@@ -1,30 +1,12 @@
-/**
- * 3) Implementa el TDA descrito a continuación:
- *
- * typedef struct ComplejoRep * Complejo;
- * Complejo Complejo_crea(double r, double i);
- * Complejo Complejo_crea_polares(double r, double o);
- * void Complejo_libera(Complejo c);
- * void Complejo_muestra(Complejo c);
- * double Complejo_recupera_parte_real(Complejo c);
- * double Complejo_recupera_parte_imaginaria(Complejo c);
- * double Complejo_modulo(Complejo c);
- * Complejo Complejo_suma(Complejo c, Complejo d);
- * Complejo Complejo_resta(Complejo c, Complejo d);
- * Complejo Complejo_multiplica(Complejo c, Complejo d);
- * Complejo Complejo_divide(Complejo c, Complejo d);
- * int Complejo_compara(Complejo c, Complejo d);
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
+#include "tda-3.h"
+
 struct ComplejoRep {
   double r, i;
 };
-
-typedef struct ComplejoRep * Complejo;
 
 Complejo Complejo_crea(double r, double i) {
   Complejo c = malloc(sizeof(struct ComplejoRep));
@@ -38,9 +20,8 @@ Complejo Complejo_crea(double r, double i) {
 Complejo Complejo_crea_polares(double r, double o) {
   Complejo c = malloc(sizeof(struct ComplejoRep));
 
-  // a = r * cos(o)
-  // b = r * sin(o)
-  // z = a + b
+  // Parte real => r * cos(o)
+  // Parte imaginaria => r * sin(o)
 
   c->r = r * cos(o);
   c->i = r * sin(o);
@@ -92,38 +73,4 @@ Complejo Complejo_divide(Complejo c, Complejo d) {
 
 int Complejo_compara(Complejo c, Complejo d) {
   return (c->r == d->r) && (d->i == c->i);
-}
-
-int main(int argc, char const *argv[]) {
-  Complejo c = Complejo_crea(1, 23);
-  Complejo d = Complejo_crea(2, 30);
-
-  Complejo_muestra(c);
-  Complejo_muestra(d);
-
-  printf(
-    "%f + %fi\n",
-    Complejo_recupera_parte_real(c),
-    Complejo_recupera_parte_imaginaria(c)
-  );
-
-  Complejo e = Complejo_suma(c, d);
-  Complejo f = Complejo_resta(e, c);
-
-  Complejo_muestra(f);
-
-  if (Complejo_compara(d, f)) {
-    printf("Son iguales\n");
-  }
-  else {
-    printf("No son iguales\n");
-  }
-
-  Complejo_libera(c);
-  Complejo_libera(d);
-
-  Complejo_libera(e);
-  Complejo_libera(f);
-
-  return 0;
 }
