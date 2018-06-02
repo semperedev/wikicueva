@@ -155,3 +155,41 @@ void libera(NodoPtr lista) {
 ```
 
 En el bucle no se avanza, por lo que se trataría de un bucle infinito, pero el código finalizaría con un error al tratar de liberar el mismo elemento dos veces.
+
+### Ejercicio 14
+
+> La función debe borrar el siguiente elemento al apuntado por `p` dejando la estructura enlazada bien conectada
+
+```c
+void borra(NodoPtr p) {
+  NodoPtr aux = p->sig;
+  p->sig = aux->sig;
+  free(p->sig);
+}
+```
+
+Si el elemento apuntado o su siguiente elemento son nulos, el programa falla al intentar acceder a sus campos.
+
+Si ambos elementos existen, también fallaría, pues asignamos el valor de `aux` antes de liberar el elemento, con lo cual liberamos el elemento dos posiciones después y dejamos la lista sin enlace.
+
+### Ejercicio 16
+
+> La función debe borrar todos los nodos de la lista cuyo dato coincida con `d`. ¿Por qué falla?
+
+```c
+void borra(NodoPtr lista, Elemento d) {
+  NodoPtr aux = lista;
+
+  while (aux->sig != NULL) {
+    if (aux->sig->elem == d) {
+      NodoPtr borrar = aux->sig;
+      aux->sig = borrar->sig;
+      free(borrar);
+    }
+
+    aux = aux->sig;
+  }
+}
+```
+
+Cuando queremos borrar el último elemento, enlazamos la lista (el penúltimo elemento) con nulo, de forma que al avanzar, asignamos a `aux` el valor nulo, con lo cual el programa falla en la comprobación del bucle al intentar acceder al campo `aux->sig`.
