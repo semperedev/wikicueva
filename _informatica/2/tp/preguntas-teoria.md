@@ -34,6 +34,8 @@ Porque en caso de no existir un caso base, la recursividad nunca tendría condic
 
 Sí. La condición mínima es que tenga un caso base, aunque algunas definiciones de recursividad podrían utilizar varios.
 
+Por ejemplo, el cálculo de una potencia recursivamente tiene dos casos bases: uno para el exponente 0 y otro para el 1.
+
 > Explica qué es un TDA
 
 Es un tipo de dato creado por el usuario cuya implementación y representación son independientes y están **ocultas**. La única forma de trabajar con dicho tipo es utilizando las operaciones definidas en el TDA.
