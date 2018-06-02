@@ -10,4 +10,5 @@ Se han recopilado algunos de los ejercicios propuestos de la asignatura.
 * [Ejercicios de Estructuras Enlazadas Lineales](tp/ejercicios-estructuras-enlazadas.md)
 * [Ejercicios de Prácticas](tp/ejercicios-practicos.md)
 * [Ejercicios de Punteros y Memoria Dinámica](tp/ejercicios-punteros.md)
+* [Ejercicios de TDAs](tp/ejercicios-tdas.md)
 * [Ejercicios de Teoría](tp/preguntas-teoria.md)
