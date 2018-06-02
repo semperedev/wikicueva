@@ -14,6 +14,7 @@ Se han recopilado algunos de los ejercicios propuestos de la asignatura.
 * [Ejercicios de Punteros y Memoria Dinámica](tp/ejercicios-punteros.md)
 * [Ejercicios de TDAs](tp/ejercicios-tdas.md)
 * [Ejercicios de Estructuras Enlazadas Lineales](tp/ejercicios-estructuras-enlazadas.md)
+* [Ejercicios de Recursividad](tp/ejercicios-recursividad.md)
 
 ## Cómo estudiar TP
 
