@@ -118,3 +118,21 @@ g++ build/tda-1.o build/tda-7.o build/tda-7-probar.o -o build/tda-7
 # Ejecutar
 ./build/tda-7
 ```
+
+## TDA Lista
+
+Dado el siguiente TDA:
+
+### [lista.h](ejercicios/lista.h)
+
+{% highlight c %}
+{% include_relative ejercicios/lista.h %}
+{% endhighlight %}
+
+Hacer los siguientes ejercicios:
+
+### [tda-lista.c](ejercicios/tda-lista.c)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-lista.c %}
+{% endhighlight %}
