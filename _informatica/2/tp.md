@@ -15,6 +15,7 @@ Se han recopilado algunos de los ejercicios propuestos de la asignatura.
 * [Ejercicios de TDAs](tp/ejercicios-tdas.md)
 * [Ejercicios de Estructuras Enlazadas Lineales](tp/ejercicios-estructuras-enlazadas.md)
 * [Ejercicios de Recursividad](tp/ejercicios-recursividad.md)
+* [Ejercicios de Árboles](tp/ejercicios-arboles.md)
 
 ## Cómo estudiar TP
 
