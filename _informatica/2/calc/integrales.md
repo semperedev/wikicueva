@@ -2,6 +2,11 @@
 title: Cálculo de Integrales
 ---
 
+[&lt;&lt; Volver a **Cálculo**](../calc.md)
+
+* Tabla de Contenidos
+{:toc}
+
 ## Integración por partes
 
 Aplicaremos este método cuando tengamos una integral de la forma:
