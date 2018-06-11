@@ -2,11 +2,36 @@
 title: Series
 ---
 
+[&lt;&lt; Volver a **Cálculo**](../calc.md)
+
+* Tabla de Contenidos
+{:toc}
+
 Tratamos la serie \\(S_n\\):
 
 \\[ S_n = \sum_{k = 1}^n a_k \\]
 
 ## Series no negativas
+
+### Casos base
+
+**Caso 1**
+
+\\[ \sum_{n=1}^\infty \frac{1}{n^p} \\]
+\\[ p > 1 \implies a_n\ \text{converge} \\]
+
+**Caso 2**
+
+\\[ \sum_{n=1}^\infty \frac{1}{n} \text{diverge} \\]
+
+**Caso 3**
+
+\\[ \sum_{n=1}^\infty r^p \\]
+\\[ \|r\| < 1 \implies a_n\ \text{converge} \\]
+
+**Caso 4**
+
+\\[ \sum_{n=1}^\infty \frac{1}{p^n}\ \text{converge} \\]
 
 ### Criterio de la divergencia
 
