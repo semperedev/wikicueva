@@ -8,6 +8,7 @@ quarter: 2
 1. [Método de Inducción](calc/induccion.md)
 2. [Sucesiones](calc/sucesiones.md)
 3. [Integrales](calc/integrales.md)
+4. [Series](calc/series.md)
 
 # Recursos
 
