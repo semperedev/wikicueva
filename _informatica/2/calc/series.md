@@ -13,6 +13,10 @@ Tratamos la serie \\(S_n\\):
 
 ## Series no negativas
 
+Tenemos dos sucesiones \\(a_n\\) y \\(b_n\\).
+
+Si \\(a_n\\) está acotada y \\(b_n\\) converge a cero, \\(a_n b_n\\) converge a cero.
+
 ### Casos base
 
 **Caso 1**
