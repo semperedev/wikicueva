@@ -68,3 +68,59 @@ Una fuente de contínua en sentido contrario al de la corriente, restará su ten
 ![Kirchhoff: ley de las corrientes](/uploads/informatica/2/ffi/kirchhoff-tensiones.png)
 
 \\[ V_a - V_1 - V_b - V_2 - V_3 = 0 \\]
+
+## Divisor de Corriente
+
+Si tenemos un circuito de la siguiente forma:
+
+![Divisor de Corriente](/uploads/informatica/2/ffi/divisor-corriente.png)
+
+Podemos calcular la corriente que circula por cada resistencia:
+
+\\[ I_{R2} = I_{ent} \frac{R1}{R1 + R2} \\]
+
+## Equivalente Thevenin
+
+Dado cualquier circuito, podemos obtener un circuito equivalente compuesto por una resistencia y una fuente de tensión.
+
+![Equivalencia Thevenin](/uploads/informatica/2/ffi/thevenin.png)
+
+En vez de A y B, podemos tener una carga \\(R_L\\), que deberemos eliminar antes de operar.
+
+### Resistencia Thevenin
+
+Eliminamos todas las fuentes y calculamos la resistencia equivalente a todas las resistencias que quedan.
+
+### Tensión Thevenin
+
+\\[ V_{TH} = V_A - V_B \\]
+
+El problema está en obtener las tensiones en A y B, que calcularemos mediante cualquiera de los métodos anteriores.
+
+## Teorema de Norton
+
+En caso de querer una resistencia y una fuente de corriente, en vez de una fuente de tensión, aplicaremos el Teorema de Norton en lugar de Thevenin.
+
+Las resistencias equivalentes de Thevenin y Norton se calculan de la misma forma:
+
+\\[ R_N = R_{TH} \\]
+
+Para calcular el valor de la fuente de corriente utilizaremos la tensión de Thevenin:
+
+\\[ I_N = \frac{V_{TH}}{R_{TH}} \\]
+
+## Mallas
+
+Dado un circuito con esta forma:
+
+![Mallas: 1](/uploads/informatica/2/ffi/malla-1.png)
+
+Podemos calcular el valor de las corriente que circula por cada malla.
+
+**Paso 1**: Identificamos las mallas.
+
+**Paso 2**: Marcamos las corrientes y sus sentidos. El truco es que las corrientes tengan sentidos opuestos para que sea más sencillo operar con la resistencia central.
+
+![Mallas: 2](/uploads/informatica/2/ffi/malla-2.png)
+
+**Paso 3**: Aplicamos Kirchhoff para obtener una ecuación de tensiones por cada malla. El resultado es un sistema de tantas incógnitas como mallas tengamos.
