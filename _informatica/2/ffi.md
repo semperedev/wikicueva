@@ -6,6 +6,7 @@ quarter: 2
 ## Temario
 
 * [Resolución de Circuitos](ffi/resolucion-circuitos.md)
+* [Corriente Alterna](ffi/alterna.md)
 
 ## Recursos
 
