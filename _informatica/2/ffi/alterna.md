@@ -53,3 +53,19 @@ Si \\(\varphi > 0\\), el circuito es inductivo: las bobinas prevalecen
 La frecuencia de resonancia se puede obtener despejando \\(f\\) de la igualación \\(X_L = X_C\\):
 
 \\[ f = \frac{1}{2 \pi \sqrt{R C}} \\]
+
+## Potencia
+
+#### Potencia activa
+
+\\[ P = I \cdot V \cos \varphi \\]
+
+#### Potencia reactiva
+
+\\[ Q = I \cdot V \sin \varphi \\]
+
+#### Potencia aparente
+
+Es la suma de las dos anteriores.
+
+\\[ S = IV \\]

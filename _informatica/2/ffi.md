@@ -5,6 +5,7 @@ quarter: 2
 
 ## Temario
 
+* [Corriente Contínua](ffi/continua.md)
 * [Resolución de Circuitos](ffi/resolucion-circuitos.md)
 * [Corriente Alterna](ffi/alterna.md)
 
