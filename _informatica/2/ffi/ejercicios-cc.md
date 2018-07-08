@@ -41,3 +41,44 @@ Tenemos que darnos cuenta de que los dos condensadores de la derecha están en s
 Esto nos deja dos condensadores en paralelo. Resolvemos el ejercicio calculando su equivalente:
 
 \\[ C_T = C + \frac{2}{5} C = \frac{7}{5} C \\]
+
+### Ejercicio 57
+
+> Obtener la carga almacenada en el condensador y la potencia disipada en la resistencia \\(R_1\\)
+>
+> ![Ejercicio 57](/uploads/informatica/2/ffi/ejercicios-cc/57.png)
+>
+> \\(R_1 = 1k \Omega\\)  
+> \\(R_1 = 500 \Omega\\)  
+> \\(C = 30 \cdot 10^{-6} F\\)  
+> \\(\varepsilon = 12 V\\)
+
+#### Carga del condensador
+
+Puesto que no nos lo indican, supondremos que el circuito ya está estable, y por tanto el condensador está completamente cargado. Por tanto, se comporta como un corto-circuito, y podemos redibujar el circuito así:
+
+![Ejercicio 57 (2)](/uploads/informatica/2/ffi/ejercicios-cc/57-2.png)
+
+A continuación, vamos a calcular la tensión en A para poder obtener la carga del condensador utilizando \\(Q = V C\\).
+
+Está claro que la tensión en A es la misma que la tensión en \\(R_2\\), para calcularla necesitamos la corriente que pasa por ella.
+
+Calculamos la resistencia equivalente de \\(R_1\\) y \\(R_2\\) que están en serie:
+
+\\[ R_T = 1k + 500 = 1.5k \Omega \\]
+
+Y obtenemos la corriente del circuito:
+
+\\[ I = \frac{V}{R} = \frac{12}{1.5k} = 8 mA \\]
+
+Finalmente:
+
+\\[ V_A = 500 \Omega \cdot 8 mA \\]
+
+\\[ Q_C = C \cdot V_A = 30 \cdot 10^{-6} \cdot 4 = 1.2 \cdot 10^{-4} C \\]
+
+#### Potencia disipada
+
+Sabemos que \\(P = V \cdot I\\) y \\(V = R \cdot I\\), con lo que:
+
+\\[ P = R \cdot I^2 = 1k \cdot \left( 8 \cdot 10^{-3} \right)^2 = 0.064W \\]
