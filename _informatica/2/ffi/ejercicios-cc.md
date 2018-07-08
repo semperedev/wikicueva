@@ -42,6 +42,52 @@ Esto nos deja dos condensadores en paralelo. Resolvemos el ejercicio calculando 
 
 \\[ C_T = C + \frac{2}{5} C = \frac{7}{5} C \\]
 
+### Ejercicio 54
+
+> Un condensador de \\(0.12 \mu F\\) inicialmente descargado se conecta en serie con una resistencia de \\(10 k \Omega\\) y una batería de \\(12 V\\). Calcular el tiempo que tarda el condensador en alcanzar el 90% de su carga final, es decir: \\(V = 0.9 V_0\\)
+
+Sabemos que la carga de un condensador se calcula con las siguientes fórmulas:
+
+\\[ Q = VC \cdot \left( 1 - e^{\frac{-t}{RC}} \right) \\]
+
+Operamos para intentar despejar \\(t\\)
+
+\\[ \frac{Q}{CV} = 1 - e^{\frac{-t}{RC}} \\]
+
+\\[ 1 - \frac{Q}{CV} = e^{\frac{-t}{RC}} \\]
+
+Aplicamos logaritmos
+
+\\[ \ln \left( 1 - \frac{Q}{CV} \right) = - \frac{t}{RC} \\]
+
+Seguimos operando
+
+\\[
+  t = -RC \cdot \ln \left( 1 - \frac{Q}{C \cdot V} \right)
+\\]
+
+No conocemos la carga, así que la reemplazamos por su expresión:
+
+\\[ Q_{90} = V_{90} \cdot C \\]
+
+Y sustituyendo:
+
+\\[
+  t = - RC \cdot \ln \left( 1 - \frac{V_{90} \cdot C}{C \cdot V_0} \right)
+\\]
+
+\\[ t = - RC \cdot \ln \left( 1 - \frac{V_{90}}{V_0} \right) \\]
+
+\\[ t = - RC \cdot \ln \left( 1 - \frac{V_0 \cdot 0.9}{V_0} \right) \\]
+
+\\[ t = - RC \cdot \ln (1 - 0.9) \\]
+
+Ahora simplemente reemplazamos con los datos:
+
+\\[ t = (-1) \cdot 10^4 \cdot 0.12 \cdot 10^{-6} \cdot \ln (0.1) \\]
+
+\\[ t = 2.8 ms \\]
+
 ### Ejercicio 57
 
 > Obtener la carga almacenada en el condensador y la potencia disipada en la resistencia \\(R_1\\)
@@ -55,13 +101,11 @@ Esto nos deja dos condensadores en paralelo. Resolvemos el ejercicio calculando 
 
 #### Carga del condensador
 
-Puesto que no nos lo indican, supondremos que el circuito ya está estable, y por tanto el condensador está completamente cargado. Por tanto, se comporta como un corto-circuito, y podemos redibujar el circuito así:
+Puesto que no nos lo indican, supondremos que el circuito ya está estable, y por tanto el condensador está completamente cargado. Con lo cual, se comporta como un corto-circuito, y es posible redibujar el circuito así:
 
 ![Ejercicio 57 (2)](/uploads/informatica/2/ffi/ejercicios-cc/57-2.png)
 
-A continuación, vamos a calcular la tensión en A para poder obtener la carga del condensador utilizando \\(Q = V C\\).
-
-Está claro que la tensión en A es la misma que la tensión en \\(R_2\\), para calcularla necesitamos la corriente que pasa por ella.
+Podemos calcular la carga del condensador utilizando \\(Q = V C\\), para lo que debemos calcular la tensión en A, que es la misma que la tensión en \\(R_2\\), y para calcularla necesitamos la corriente que pasa por ella.
 
 Calculamos la resistencia equivalente de \\(R_1\\) y \\(R_2\\) que están en serie:
 

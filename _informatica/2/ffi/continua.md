@@ -95,7 +95,7 @@ Dados dos condensadores en **paralelo**:
 **Hasta alcanzar carga Q**
 
 \\( \begin{align}
-  t = RC \cdot \left[- \ln \left( 1 - \frac{Q}{C V_0} \right) \right]
+  t = -RC \cdot \ln \left( 1 - \frac{Q}{C \cdot V_0} \right)
 \end{align} \\)
 
 Siendo:
@@ -107,7 +107,9 @@ Siendo:
 **Hasta una tensión V**
 
 \\( \begin{align}
-  t = RC \cdot \left[- \ln \left( 1 - \frac{V}{V_0} \right) \right]
+  t = -RC \cdot \ln \left( 1 - \frac{V}{V_0} \right)
 \end{align} \\)
 
-> Esta fórmula se obtiene sustituyendo \\( V = \frac{Q}{C} \\) en la fórmula anterior
+> Esta fórmula se obtiene sustituyendo en la fórmula anterior:
+>
+> \\( Q = V \cdot C \\)
