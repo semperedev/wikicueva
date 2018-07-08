@@ -11,4 +11,4 @@ quarter: 2
 
 ## Recursos
 
-* [Ejercicios Resueltos](ffi/ejercicios-resueltos.md)
+* [Ejercicios: Corriente Contínua](ffi/ejercicios-cc.md)

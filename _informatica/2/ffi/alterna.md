@@ -2,6 +2,11 @@
 title: Corriente Alterna
 ---
 
+[&lt;&lt; Volver a **FFI**](../ffi.md)
+
+* Tabla de Contenidos
+{:toc}
+
 ## Conceptos básicos
 
 Las resistencias se llaman impedancias y se designan con la \\(Z\\).

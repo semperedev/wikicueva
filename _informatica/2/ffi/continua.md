@@ -2,6 +2,11 @@
 title: Corriente Contínua
 ---
 
+[&lt;&lt; Volver a **FFI**](../ffi.md)
+
+* Tabla de Contenidos
+{:toc}
+
 Por convenio, tomaremos que la corriente va siempre del positivo al negativo.
 
 ## Resistencias
