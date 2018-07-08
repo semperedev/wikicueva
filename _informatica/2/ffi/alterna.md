@@ -16,6 +16,8 @@ Siendo \\(L\\) la inductancia de la bobina y \\(f\\) la frecuencia de la corrien
 
 > A mayor frecuencia, mayor valor de resistencia.
 
+A tiempo cero, es decir, nada más conectar la bobina, la reactancia es 0: se comporta como un cable.
+
 ## Condensadores
 
 Se comportan como resistencias, y podemos calcular su reactancia:
@@ -25,6 +27,8 @@ Se comportan como resistencias, y podemos calcular su reactancia:
 Siendo \\(C\\) la capacidad del condensador y \\(f\\) la frecuencia de la corriente alterna.
 
 > A mayor frecuencia, menor valor de resistencia.
+
+A tiempo cero, es decir, nada más conectar el condensador, la reactancia es 0: se comporta como un cable.
 
 ## Circuitos RLC
 
