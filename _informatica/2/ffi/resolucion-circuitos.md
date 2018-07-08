@@ -53,7 +53,7 @@ Siendo \\(E\\) la tensión de entrada, es decir: la tensión del cable antes de 
 
 > Todas las corrientes que entran en un nodo, salen
 
-Es decir, la suma de La suma de las corrientes entrantes es igual a la suma de las corrientes que salen:
+Es decir, la suma de las corrientes entrantes es igual a la suma de las corrientes que salen:
 
 ![Kirchhoff: ley de las corrientes](/uploads/informatica/2/ffi/kirchhoff-corrientes.png)
 
