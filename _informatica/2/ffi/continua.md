@@ -60,7 +60,7 @@ Y si conocemos la tensión en un instante \\(x\\):
 
 A tiempo cero, es decir, nada más conectar el condensador, éste se comporta como un cable.
 
-Pasado cierto tiempo, se comporta como una resistencia infinita, es decir, es un corto-circuito.
+Pasado cierto tiempo, se comporta como una resistencia infinita.
 
 ### Asociación
 
