@@ -101,7 +101,7 @@ Ahora simplemente reemplazamos con los datos:
 
 #### Carga del condensador
 
-Puesto que no nos lo indican, supondremos que el circuito ya está estable, y por tanto el condensador está completamente cargado. Con lo cual, se comporta como un corto-circuito, y es posible redibujar el circuito así:
+Puesto que no nos lo indican, supondremos que el circuito ya está estable, y por tanto el condensador está completamente cargado. Con lo cual, se comporta como un circuito abierto, y es posible redibujar el circuito completo de la siguiente forma:
 
 ![Ejercicio 57 (2)](/uploads/informatica/2/ffi/ejercicios-cc/57-2.png)
 
@@ -123,6 +123,12 @@ Finalmente:
 
 #### Potencia disipada
 
-Sabemos que \\(P = V \cdot I\\) y \\(V = R \cdot I\\), con lo que:
+Sabemos que la potencia disipada por \\(R_1\\) se calcula con la siguiente fórmula: \\(P = V \cdot I\\), siendo \\(V\\) la tensión de entrada de la resistencia; e \\(I\\) la intensidad de la corriente, que es la misma en todo el circuito.
 
-\\[ P = R \cdot I^2 = 1k \cdot \left( 8 \cdot 10^{-3} \right)^2 = 0.064W \\]
+Si reemplazamos \\(V\\) utilizando la Ley de Ohm, \\(V = R \cdot I\\), nos queda la siguiente fórmula:
+
+\\[ P_1 = R_1 \cdot I^2 \\]
+
+Y dando valores:
+
+\\[ P_1 = 1k \cdot \left( 8 \cdot 10^{-3} \right)^2 = 0.064W \\]
