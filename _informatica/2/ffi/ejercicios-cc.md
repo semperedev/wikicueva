@@ -130,3 +130,57 @@ Si reemplazamos \\(V\\) utilizando la Ley de Ohm, \\(V = R \cdot I\\), nos queda
 Y dando valores:
 
 \\[ P_1 = 1k \cdot \left( 8 \cdot 10^{-3} \right)^2 = 0.064W \\]
+
+## Ejercicio 59
+
+> Dado el siguiente circuito:
+>
+> ![Ejercicio 57](/uploads/informatica/2/ffi/ejercicios-cc/59.png)
+>
+> Tras cerrar el interruptor: calcular la corriente inicial de la batería y la corriente de la batería pasado un tiempo largo
+
+#### Corriente inicial
+
+Inicialmente y sin carga, el condensador se comporta como un corto-circuito (un cable), por lo que la corriente circularía por él al costarle menos que por la resistencia de \\(600 \Omega\\).
+
+Es decir, la corriente pasaría por la primera resistencia y por el condensador.
+
+Sabiendo esto, podemos calcular la corriente utilizando la ley de Ohm:
+
+\\[ I = \frac{50}{200} = \frac{1}{4} A \\]
+
+#### Pasado cierto tiempo
+
+El condensador se comporta como una resistencia infinita, creando un circuito abierto, por lo que toda la corriente pasa por la resistencia de \\(600 \Omega\\).
+
+Al pasar por las dos resistencias, podemos calcular la resistencia equivalente:
+
+\\[ R_T = 200 + 600 = 800 \Omega \\]
+
+De nuevo, podemos aplicar la Ley de Ohm:
+
+\\[ I \frac{50}{800} = \frac{1}{16}A \\]
+
+## Ejercicio 62
+
+> Dado el siguiente circuito:
+>
+> ![Ejercicio 62](/uploads/informatica/2/ffi/ejercicios-cc/62.png)
+>
+> Los condensadores están inicialmente descargados. Se cierra primero el interruptor \\(S_2\\), y después \\(S_1\\).
+>
+> Calcular la corriente suministrada por la batería inmediatamente después de cerrar \\(S_1\\) y tras pasar un tiempo largo.
+
+El hecho de que \\(S_2\\) se cierre antes no influye, puesto que aun estando cerrado, los condensadores seguirían sin estar conectados a la batería.
+
+#### Corriente inicial
+
+Los condensadores inicialmente son corto-circuitos. Igual que en el ejercicio anterior, la corriente pasará antes por el condensador que por una resistencia, con lo cual tenemos un cableado directo a la batería pasando solamente por la resistencia de \\(100 \Omega\\).
+
+\\[ I = \frac{12}{100} = 120\\ mA \\]
+
+#### Pasado un tiempo
+
+Ahora los condensadores se comportan como resistencias infinitas, con lo cual la corriente no tiene más remedio que pasar por todas las resistencias.
+
+\\[ I = \frac{12}{100 + 50 + 150} = 40\\ mA \\]
