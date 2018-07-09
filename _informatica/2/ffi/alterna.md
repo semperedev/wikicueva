@@ -23,6 +23,10 @@ Siendo \\(L\\) la inductancia de la bobina y \\(f\\) la frecuencia de la corrien
 
 A tiempo cero, es decir, nada más conectar la bobina, la reactancia es 0: se comporta como un cable.
 
+**Energía almacenada**
+
+\\[ E = \frac{1}{2} \cdot L \cdot I^2 \\]
+
 ## Condensadores
 
 Se comportan como resistencias, y podemos calcular su reactancia:

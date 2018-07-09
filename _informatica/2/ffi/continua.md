@@ -31,6 +31,7 @@ Dadas dos o más resistencias conectadas en paralelo:
 
 1. La tensión de entrada es la misma en todas las resistencias.
 2. La corriente total a la entrada es la misma que a la salida.
+3. La corriente se mantiene constante para todas las resistencias en serie.
 
 ## Condensadores
 
@@ -55,7 +56,7 @@ Y si conocemos la tensión en un instante \\(x\\):
 **Energía** de un condensador:
 
 \\( \begin{align}
-  E = \frac{q^2}{2 \cdot C}
+  E = \frac{Q^2}{2 \cdot C} = \frac{1}{2} \cdot C \cdot V^2
 \end{align} \\)
 
 A tiempo cero, es decir, nada más conectar el condensador, éste se comporta como un cable.
