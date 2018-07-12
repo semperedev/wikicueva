@@ -119,6 +119,8 @@ La frecuencia de resonancia se puede obtener despejando \\(f\\) de la igualació
 
 \\[ f = \frac{1}{2 \pi \sqrt{R C}} \\]
 
+\\[ \omega = \frac 1 \sqrt{RC} \\]
+
 ## Potencia
 
 #### Potencia activa
