@@ -22,6 +22,16 @@ Si despejamos \\(L\\) nos queda:
   \frac{100}{2 \pi \cdot 2 \cdot 10^3} = 8\\ \text{mH}
 \\]
 
+### Ejercicio 9
+
+> Un condensador de \\(10 \mu F\\) presenta en un circuito \\(100 \Omega\\) de reactancia. ¿Cuál es la frecuencia de funcionamiento?
+
+Solamente tenemos que despejar \\(f\\) de la fórmula de la reactancia de un condensador:
+
+\\[ X_C = \frac{1}{2 \pi f C} \\]
+
+\\[ f = \frac{1}{2 \pi \cdot C \cdot X_C} = \frac{1}{2 \pi \cdot 100 \cdot 10^{-7}} = 159.15\\ \text{Hz} \\]
+
 ### Ejercicio 3
 
 > Calcular las energías almacenadas en el condensador y la bobina
