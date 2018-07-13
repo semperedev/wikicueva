@@ -109,3 +109,31 @@ Con este dato podemos calcular la amplitud de la corriente:
 Y solamente nos falta \\(\varphi\\), que serán \\(-90º\\), pues es el desfase que provoca la bobina. Por tanto, la ecuación final es:
 
 \\[ I(t) = 500 \sin (3000t - 90º) \\]
+
+## Ejercicio 20
+
+> Se conectan dos fuentes de tensión en serie con una resistencia de \\(25 \Omega\\). Las tensiones de las fuentes son:
+>
+> \\( V_1(t) = 5 \sin (\omega t - \frac \pi 6) \\)
+>
+> \\( V_2(t) = 5 \sin (\omega t + \frac \pi 6) \\)
+>
+> Determine la corriente que atraviesa la resistencia.
+
+Aquí es muy importante tener en cuenta que no podemos operar como lo hacemos habitualmente, esto es debido a que las fuentes **no están en fase**, a pesar de que la corriente va a tener un desfase nulo, dado que el desfase de una fuente y la otra se anulan: \\( - \frac \pi 6 + \frac \pi 6 = 0 \\)
+
+Para comenzar, vamos a sumar los valores de ambas fuentes utilizando fasores en forma rectangular (o binómica). Sabemos que el módulo es 5 (la amplitud) y el ángulo es \\( \frac \pi 6 = 30º \\), con lo que:
+
+\\[ V_1 = 5 \angle - 30º = 4.33 - 2.5j \\]
+
+\\[ V_2 = 5 \angle 30º = 4.33 + 2.5j \\]
+
+\\[ V = 4.33 - 2.5j + 4.33 + 2.5j = 2 \cdot 4.33 = 8.66 \\]
+
+Ahora que tenemos el valor de la tensión resultante, calculamos la intensidad de corriente con la Ley de Ohm:
+
+\\[ A_I = \frac{A_V}{\|Z\|} = \frac{8.66}{25} = 0.346 \\]
+
+Finalmente, podemos construir la expresión de la corriente:
+
+\\[ I(t) = 0.346 \sin (\omega t) \\]
