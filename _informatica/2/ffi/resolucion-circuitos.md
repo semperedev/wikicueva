@@ -125,7 +125,7 @@ Podemos calcular el valor de las corriente que circula por cada malla.
 
 **Paso 3**: Aplicamos Kirchhoff para obtener una ecuación de tensiones por cada malla. El resultado es un sistema de tantas incógnitas como mallas tengamos.
 
-## Teorema de Tennelly
+## Teorema de Kennelly
 
 Queremos convertir una asociación de resistencias triangular en algo más sencillo.
 
