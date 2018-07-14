@@ -129,7 +129,7 @@ Podemos calcular el valor de las corriente que circula por cada malla.
 
 Queremos convertir una asociación de resistencias triangular en algo más sencillo.
 
-![Teorema de Tennelly](/uploads/informatica/2/ffi/tennelly.png)
+![Teorema de Kennelly](/uploads/informatica/2/ffi/kennelly.png)
 
 \\[ R_a = \frac{R_{ab} \cdot R_{ac}}{R_{ab} + R_{ac} + R_{bc}} \\]
 
