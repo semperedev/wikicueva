@@ -25,17 +25,21 @@ Dos resistencias están en paralelo cuando sus extremos están unidos físicamen
 
 \\[ R_{paralelo} = \frac{R_1 \cdot R_2}{R_1 + R_2} \\]
 
-## Leyes de Ohm
+### Ley de Ohm
 
 La tensión que perdemos en una resistencia es la intensidad de la corriente (Amperios) por el valor de la resistencia (Ohmnios):
 
 \\[ V = I \cdot R \\]
 
+### Ley de Watt
+
 La potencia (Watios) en un punto del circuito es:
 
 \\[ P = I \cdot V \\]
 
-## Divisor de Tensión
+## Métodos
+
+### Divisor de Tensión
 
 Si queremos calcular una tensión menor que la de entrada y tenemos un circuito de la siguiente forma:
 
@@ -47,9 +51,9 @@ Podemos calcular \\(V_{out}\\) con la siguiente fórmula:
 
 Siendo \\(E\\) la tensión de entrada, es decir: la tensión del cable antes de \\(R_1\\)
 
-## Kirchhoff
+### Kirchhoff
 
-### Ley de las Corrientes
+#### Ley de las Corrientes
 
 > Todas las corrientes que entran en un nodo, salen
 
@@ -57,7 +61,7 @@ Es decir, la suma de las corrientes entrantes es igual a la suma de las corrient
 
 ![Kirchhoff: ley de las corrientes](/uploads/informatica/2/ffi/kirchhoff-corrientes.png)
 
-### Ley de las Tensiones
+#### Ley de las Tensiones
 
 > Todas las tensiones que suben en una malla, bajan
 
@@ -69,7 +73,7 @@ Una fuente de contínua en sentido contrario al de la corriente, restará su ten
 
 \\[ V_a - V_1 - V_b - V_2 - V_3 = 0 \\]
 
-## Divisor de Corriente
+### Divisor de Corriente
 
 Si tenemos un circuito de la siguiente forma:
 
@@ -79,7 +83,7 @@ Podemos calcular la corriente que circula por cada resistencia:
 
 \\[ I_{R2} = I_{ent} \frac{R1}{R1 + R2} \\]
 
-## Equivalente Thevenin
+### Equivalente Thevenin
 
 Dado cualquier circuito, podemos obtener un circuito equivalente compuesto por una resistencia y una fuente de tensión.
 
@@ -87,17 +91,17 @@ Dado cualquier circuito, podemos obtener un circuito equivalente compuesto por u
 
 En vez de A y B, podemos tener una carga \\(R_L\\), que deberemos eliminar antes de operar.
 
-### Resistencia Thevenin
+#### Resistencia Thevenin
 
 Eliminamos todas las fuentes y calculamos la resistencia equivalente a todas las resistencias que quedan.
 
-### Tensión Thevenin
+#### Tensión Thevenin
 
 \\[ V_{TH} = V_A - V_B \\]
 
 El problema está en obtener las tensiones en A y B, que calcularemos mediante cualquiera de los métodos anteriores.
 
-## Teorema de Norton
+### Teorema de Norton
 
 En caso de querer una resistencia y una fuente de corriente, en vez de una fuente de tensión, aplicaremos el Teorema de Norton en lugar de Thevenin.
 
@@ -109,7 +113,7 @@ Para calcular el valor de la fuente de corriente utilizaremos la tensión de The
 
 \\[ I_N = \frac{V_{TH}}{R_{TH}} \\]
 
-## Mallas
+### Mallas
 
 Dado un circuito con esta forma:
 
@@ -117,15 +121,15 @@ Dado un circuito con esta forma:
 
 Podemos calcular el valor de las corriente que circula por cada malla.
 
-**Paso 1**: Identificamos las mallas.
+**Paso 1**: Identificamos las mallas **interiores** (la malla exterior no es necesaria).
 
-**Paso 2**: Marcamos las corrientes y sus sentidos. El truco es que las corrientes tengan sentidos opuestos para que sea más sencillo operar con la resistencia central.
+**Paso 2**: Marcamos las corrientes y sus sentidos. El truco es que las corrientes tengan sentidos opuestos para que sea más sencillo operar.
 
 ![Mallas: 2](/uploads/informatica/2/ffi/malla-2.png)
 
-**Paso 3**: Aplicamos Kirchhoff para obtener una ecuación de tensiones por cada malla. El resultado es un sistema de tantas incógnitas como mallas tengamos.
+**Paso 3**: Aplicamos Kirchhoff para obtener una ecuación de tensiones por cada malla. El resultado es un sistema de tantas incógnitas como corrientes tengamos.
 
-## Teorema de Kennelly
+### Teorema de Kennelly
 
 Queremos convertir una asociación de resistencias triangular en algo más sencillo.
 
