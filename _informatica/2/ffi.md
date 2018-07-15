@@ -10,6 +10,7 @@ quarter: 2
 * [Corriente Alterna](ffi/alterna.md)
 * [Diodos](ffi/diodos.md)
 * [Transistores](ffi/transistores.md)
+* [Amplificador Operacional](ffi/amplificador-operacional.md)
 
 ## Recursos
 
