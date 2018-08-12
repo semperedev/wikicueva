@@ -11,10 +11,10 @@ quarter: 1
 4. [Dirección Estratégica](gohp/tema-4.md)
 5. [La Función de Organización](gohp/tema-5.md)
 6. [La Función productiva](gohp/tema-6.md)
-7. [La función comercial: Márketing](gohp/tema-7.md) (Próximamente)
+7. [La función comercial: Márketing](gohp/tema-7.md) (No disponible)
 8. [La función financiera](gohp/tema-8.md)
-9. [La función de dirección](gohp/tema-9.md) (Próximamente)
-10. [Gestión de Recursos Humanos](gohp/tema-10.md) (Próximamente)
+9. [La función de dirección](gohp/tema-9.md) (No disponible)
+10. [Gestión de Recursos Humanos](gohp/tema-10.md) (No disponible)
 
 # Recursos
 
