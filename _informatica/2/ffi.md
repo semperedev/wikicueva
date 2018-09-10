@@ -3,6 +3,8 @@ title: Fundamentos Físicos de la Informática
 quarter: 2
 ---
 
+> NOTA: Pendiente de revisión
+
 ## Temario
 
 * [Corriente Contínua](ffi/continua.md)

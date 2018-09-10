@@ -3,6 +3,10 @@ title: Tecnologías de la Programación
 quarter: 2
 ---
 
+> NOTA: Pendiente de ampliación
+
+## Temario
+
 [Definiciones](tp/definiciones.md)
 
 ## Ejercicios

@@ -3,6 +3,8 @@ title: Cálculo
 quarter: 2
 ---
 
+> NOTA: Pendiente de revisión
+
 # Temario
 
 1. [Método de Inducción](calc/induccion.md)
