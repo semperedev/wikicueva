@@ -3,10 +3,9 @@ title: Tecnologías de la Programación
 quarter: 2
 ---
 
-> NOTA: Pendiente de ampliación
-
 ## Temario
 
+[Conceptos básicos de C](tp/c.md)  
 [Definiciones](tp/definiciones.md)
 
 ## Ejercicios
