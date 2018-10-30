@@ -7,71 +7,16 @@ struct PuntoRep {
 };
 
 /**
- * 5) Devuelve la dirección en memoria dinámica de un nuevo array
- * cuyos elementos sean el resultado de sumar los n valores contenidos
- * en los arrays a y b
- */
-int * suma(int a[], int b[], int n) {
-  int * array = malloc(sizeof(int) * n);
-
-  for (int i = 0; i < n; i++) {
-    array[i] = a[i] + b[i];
-  }
-
-  return array;
-}
-
-/**
- * 6) Devuelve la dirección en memoria dinámica de una nueva cadena
- * de caracteres idéntica a la recibida como parámetro
- */
-int longitud(char * cadena) {
-  int n = 0;
-
-  while (cadena[n] != '\0') {
-    n++;
-  }
-
-  return n;
-}
-
-char * duplica(char * cadena) {
-  int n = longitud(cadena) + 1; // Sumamos uno para la marca de fin '\0'
-
-  char * copy = malloc(sizeof(char) * n);
-
-  for (int i = 0; i < n; i++) {
-    copy[i] = cadena[i];
-  }
-
-  return copy;
-}
-
-/**
- * 7) Devuelve la dirección en memoria dinámica de una nueva cadena de
- * caracteres con la inversión de la recibida como parámetro
- */
-char * invierteCadena(char * cadena) {
-  int n = longitud(cadena);
-
-  char * copy = malloc(sizeof(char) * (n + 1));
-
-  for (int i = 0; i < n; i++) {
-    copy[i] = cadena[n - i - 1];
-  }
-
-  copy[n] = '\0'; // n aquí es igual a i + 1
-
-  return copy;
-}
-
-/**
  * 8) Devuelve la direcciónen memoria dinámica de una nueva cadena de
  * caracteres que contenga n letras elegidas aleatoriamente de entre
  * las incluidas en la cadena letras
  */
 char * generaCadena(char * letras, int n) {
-  int l = longitud(letras);
+  int l = 1;
+
+  while (letras[l] != '\0') {
+    l++;
+  }
 
   char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
 
@@ -90,7 +35,15 @@ char * generaCadena(char * letras, int n) {
  * las cadenas a y b
  */
 char * concatena(char * a, char * b) {
-  int n = longitud(a) + longitud(b);
+  int n = 1;
+
+  while (a[n] != '\0') {
+    n++;
+  }
+
+  while (b[n] != '\0') {
+    n++;
+  }
 
   char * cadena = malloc(sizeof(char) * (n + 1));
 

@@ -149,11 +149,11 @@ int * array = malloc(sizeof(int) * n);
 
 Ahora vamos con lo complicado: asignar los elementos en orden **inverso**.
 
-Hay varias formas de afrontar este problema, nosotros vamos a optar por la siguiente: recorrer nuestro array en orden correcto pero asignando los elementos del array `datos` desde el final hacia el principio.
+Hay varias formas de afrontar este problema, nosotros vamos a optar por la siguiente: recorrer nuestro array en orden correcto pero obteniendo los elementos del array `datos` desde el final hacia el principio.
 
-La dificultad está en obtener los índices correctos del array datos, para lo cual emplearemos la técnica del ejercicio 2.
+Ahora tenemos que obtener los índices correctos del array `datos`, para lo cual emplearemos la técnica del ejercicio 2.
 
-Si el índice es `i`, podemos obtener el elemento simétrico a `array[i]` utilizando `datos[n - i - 1]`, de forma que el bucle se nos queda:
+Si el índice actual es `i`, podemos obtener el elemento simétrico a `array[i]` utilizando `datos[n - i - 1]`, de forma que el bucle se nos queda:
 
 ```c
 for (int i = 0; i < n; i++) {
@@ -161,7 +161,7 @@ for (int i = 0; i < n; i++) {
 }
 ```
 
-Podríamos hacerlo de forma contraria: recorriendo datos de forma usual y asignando al array desde el final hasta el principio:
+Podríamos hacerlo de forma contraria: recorriendo `datos` de forma usual y asignando valores a nuestro array desde el final hasta el principio:
 
 ```c
 for (int i = 0; i < n; i++) {
@@ -184,6 +184,140 @@ int * invierte(int datos[], int n) {
   }
 
   return array;
+}
+```
+
+### Ejercicio 5
+
+> Devuelve la dirección en memoria dinámica de un nuevo array cuyos elementos sean el resultado de sumar los n valores contenidos en los arrays a y b
+>
+> `int * suma(int a[], int b[], int n);`
+
+Lo primero es reservar memoria:
+
+```c
+int * array = malloc(sizeof(int) * n);
+```
+
+A continuación tenemos que recorrer los arrays y sumar sus valores; esto es bastante sencillo dado que ambos arrays tienen la misma longitud, así que podemos utilizar un bucle `for` sencillo: `for (int i = 0; i < n; i++) { }`
+
+En el cuerpo del bucle simplemente accedemos a los elementos de los tres arrays utilizando la sintaxis de siempre, `array[indice]`, y nos queda:
+
+```c
+int * suma(int a[], int b[], int n) {
+  int * array = malloc(sizeof(int) * n);
+
+  for (int i = 0; i < n; i++) {
+    array[i] = a[i] + b[i];
+  }
+
+  return array;
+}
+```
+
+### Ejercicio 6
+
+> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres idéntica a la recibida como parámetro
+>
+> `char * duplica(char * cadena);`
+
+Dado que trabajamos con memoria dinámica, tenemos que reservar suficiente memoria para la nueva cadena, y para ello necesitamos conocer la longitud de la cadena, dato que no nos proporcionan.
+
+Para calcular la longitud tenemos que recorrer la cadena hasta que encontremos la marca de fin `'\0'`:
+
+```c
+// Empezamos en uno para tener en cuenta la marca de fin
+int n = 1;
+
+while (cadena[n] != '\0') {
+  n++;
+}
+```
+
+Ahora que ya tenemos la longitud de la cadena, reservamos memoria para la copia:
+
+```c
+char * copy = malloc(sizeof(char) * n);
+```
+
+Y podemos proceder a la copia, para ello simplemente recorremos la cadena original asignando sus valores a la nueva cadena:
+
+```c
+for (int i = 0; i < n; i++) {
+  copy[i] = cadena[i];
+}
+```
+
+Si juntamos todo:
+
+```c
+char * duplica(char * cadena) {
+  int n = 1;
+
+  while (cadena[n] != '\0') {
+    n++;
+  }
+
+  char * copy = malloc(sizeof(char) * n);
+
+  for (int i = 0; i < n; i++) {
+    copy[i] = cadena[i];
+  }
+
+  return copy;
+}
+```
+
+### Ejercicio 7
+
+> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres con la inversión de la recibida como parámetro
+>
+> `char * invierteCadena(char * cadena);`
+
+Igual que en el ejercicio anterior, tenemos que obtener la longitud y reservar memoria dinámica:
+
+```c
+int n = 0;
+
+while (cadena[n] != '\0') {
+  n++;
+}
+
+// Sumamos uno por la marca de fin
+char * copia = malloc(sizeof(char) * (n + 1));
+```
+
+Para la copia inversa tenemos dos opciones: recorrer la cadena en sentido contrario o llenar la copia en sentido contrario; vamos a optar por la primera opción.
+
+A cada elemento `i` de la copia le asignamos el elemento original de la misma posición pero desde el final: `n - i - 1`; restamos 1 por la marca de fin, que agregaremos luego a mano. El bucle queda así:
+
+```c
+for (int i = 0; i < n; i++) {
+  copia[i] = cadena[n - i - 1];
+}
+
+copia[n] = '\0';
+```
+
+Si lo juntamos todo:
+
+```c
+char * invierteCadena(char * cadena) {
+  int n = 0;
+
+  while (cadena[n] != '\0') {
+    n++;
+  }
+
+  char * copia = malloc(sizeof(char) * (n + 1));
+
+  for (int i = 0; i < n; i++) {
+    copia[i] = cadena[n - i - 1];
+  }
+
+  copia[n] = '\0'; // n aquí es igual a i + 1
+
+  return copia;
 }
 ```
 
