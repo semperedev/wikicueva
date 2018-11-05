@@ -47,6 +47,54 @@ El hardware debe disponer de una señal específica de reloj que produzca interr
 
 Es necesario que el hardware disponga de **todos** los mecanismos de protección.
 
+## Historia y evolución
+
+### Primera generación: válvulas y conexiones
+
+Grandes máquinas formadas por miles de válvulas de vacío. El programador reservaba la máquina durante un determinado tiempo, propiciando dos situaciones: que el trabajo se terminase antes, con lo cual la máquina quedaba ociosa; o que el trabajo no se terminase, teniendo que reservar de nuevo y alargando el periodo de desarrollo.
+
+La programación era completamente en lenguaje máquina y el propio programador debía incluir las rutinas de E/S.
+
+### Segunda generación: transistores y sistemas de procesamiento por lotes
+
+La aparición del transistor provocó que las máquinas se volviesen más fiables y se pudiesen proporcionar al público general, creando una clara separación entre diseñador del sistema y usuario del mismo.
+
+Aparecieron los ensambladores, enlazadores... y las librerías de E/S. Aunque el programador seguía siendo responsable de preparar y utilizar la máquina, lo cual seguía provocando pérdidas de tiempo en algunos casos; para solucionar esto apareció la figura del _operador profesional_: el programador entregaba los trabajos al operador y éste le devolvía los resultados de la máquina. Una segunda medida para evitar pérdidas de tiempo consistió en agrupar los trabajos por características comunes tales como el lenguaje de programación.
+
+Para agilizar el trabajo se crearon los primeros _sistemas operativos_, un tipo de programa denominado **monitor residente**, encargado de interpretar tarjetas de control situadas entre las tarjetas de datos de la máquina; de esta forma, los trabajos se podían ejecutar uno detrás de otro sin parar la CPU.
+
+Apareció también la llamada _operación fuera de línea_, que consistía en ocupar la E/S lenta con CPUs sencillas para pasar los datos a la CPU más potente utilizando dispositivos E/S rápidos (como las cintas). Sobre esta técnica se desarrolló una forma de optimizar el proceso aún más: eliminando las terceras máquinas necesarias para llenar las cintas.
+
+#### Buffers
+
+El sistema era sencillo: cuando el dispositivo de E/S proporcionaba la entrada a la CPU, ésta le ordenaba seguir leyendo, y los datos se almacenaban en una memoria temporal para después ser leídos. Se logra así que la CPU y la E/S trabajen de forma simultánea, ahorrando tiempo.
+
+Para que este método sea eficiente, es necesario que la CPU no intervenga en la trasferencia de datos entre la E/S y la memoria.
+
+#### Spoolers
+
+Este método consiste en almacenar la información de los dispositivos de E/S en disco, de esta forma, el programa en ejecución deposita su salida en disco y los programas que se ejecutarán posteriormente dispondrán de toda la información necesaria sin tener que realizar su E/S durante su ejecución.
+
+Trabajando de esta forma logramos que se obtenga E/S de trabajos distintos a los que se están ejecutando, agilizando mucho más el procesamiento.
+
+### Tercera generación: circuitos integrados y multiprogramación
+
+La multiprogramación nos permite tener varios trabajos en memoria, de forma que cuando uno no puede continuar su ejecución (por ejemplo, debido a la E/S), la CPU procede con otro trabajo. Aparece así la necesidad de planificar los trabajos, de forma que no interfieran unos con otros y todos se ejecuten correctamente.
+
+Aparece también una variante de la multiprogramación: el tiempo compartido o multitarea, que consiste en cambiar rápidamente entre trabajos, de forma que el usuario tenga la sensación de tener toda la máquina a su disposición.
+
+Durante este periodo aparecieron SSOO importantes como OS/360 o MULTICS.
+
+### Cuarta generación: ordenadores personales
+
+Debido a los avances tecnológicos, se vuelve posible integrar millones de transistores en pequeños circuitos integrados, gracias a lo cual disminuye el precio de los equipos y permite su popularización. Aparecen MS-DOS y UNIX, los grandes SSOO de los ordenadores personales y las estaciones de trabajo.
+
+Durante la década de los 80 comienzan a aparecer las redes de ordenadores, dando lugar a SSOO en red.
+
+### Quinta generación: Internet y dispositivos móviles
+
+Observamos la puesta en escena de los SSOO actuales como Windows, Linux o macOS. Y con la explosión de internet se propulsaron los dispositivos conectados como los teléfonos inteligentes, popularizados con la aparición del iPhone, y los SSOO que utilizaban: Android e iOS.
+
 ## Tipos de SO
 
 Principalmente encontraremos sistemas operativos de propósito general, diseñados para realizar tareas de muy diverso tipo en entornos muy variados. Están caracterizados por su flexibilidad y capacidad de adaptación. Por ejemplo: Windows, Unix y OS X, entre otros.
