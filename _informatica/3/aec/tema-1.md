@@ -163,3 +163,44 @@ Ahora simplemente aplicamos la fórmula:
 Aplicando la fórmula del rendimiento obtenemos que la parte de operaciones de coma flotante ha mejorado un 5.3%
 
 En contraste con el ejercicio 1: la Ley de Amdahl nos indica que la parte de la mejora, en efecto, ha mejorado; pero para conseguir dicha mejora fue necesario modificar otros parámetros que empeoraron el desempeño general de la máquina.
+
+## Comparación de resultados
+
+### Tiempo total de ejecución
+
+Utilizaremos la **media aritmética** para comparar tiempos de ejecución de varios programas en distintas máquinas.
+
+\\( \begin{align}
+  \text{Media aritmética} = \frac 1 n \sum_{i=1}^n \text{Tiempo}_i
+\end{align} \\)
+
+Se trata de una medida coherente, aunque es dependiente de la máquina de referencia.
+
+Si en lugar de tiempos tenemos frecuencias, usaremos la **media armónica**:
+
+\\( \begin{align}
+  \text{Media armónica} = \frac{n}{\sum_{i=1}^n \frac{1}{\text{Velocidad}_i}}
+\end{align} \\)
+
+#### Tiempo Total Ponderado
+
+Si todos los programas no se ejecutan el mismo número de veces:
+
+\\( \begin{align}
+  \text{Media aritmética} = \frac 1 n \sum_{i=1}^n w_i \cdot \text{Tiempo}_i
+\end{align} \\)
+
+\\( \begin{align}
+  \text{Media armónica} = \frac{n}{\sum_{i=1}^n \frac{w_i}{\text{Velocidad}_i}}
+\end{align} \\)
+
+Siendo \\(w_i\\) la ponderación entre 0 y 1.
+
+
+### Tiempo normalizado
+
+Utilizaremos la **media geométrica** cuando haya una mezcla desigual de programas. Es una medida independiente de la máquina de referencia.
+
+\\[
+  \sqrt[n]{\prod_{i=1}^n \text{Tiempo normalizado}_i}
+\\]
