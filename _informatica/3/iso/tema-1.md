@@ -49,7 +49,7 @@ Es necesario que el hardware disponga de **todos** los mecanismos de protección
 
 ## Tipos de SO
 
-Principalmente encontraremos sistemas operativos de propósito general, diseñados para realizar tareas de muy diverso tipo en entornos muy variados. Están caracterizados por su flexibilidad y capacidad de adaptación. Por ejemplo: Windows, Unix y OS X, entre otros.
+Principalmente encontraremos sistemas operativos de propósito general, diseñados para realizar tareas de muy diverso tipo en entornos muy variados. Están caracterizados por su flexibilidad y capacidad de adaptación. Por ejemplo: Windows, Unix y macOS, entre otros.
 
 Aunque podríamos utilizar solamente SO de propósito general, generalmente encontraremos distintos SO dependiendo del sistema que utilicemos:
 
@@ -67,7 +67,7 @@ Se trata de sistemas que permiten compartir software y hardware de un computador
 
 #### Sistemas personales
 
-Los sistemas personales están diseñados para proporcionar buen rendimiento y capacidad de multitarea a un único usuario; el SO mayoritario es [Windows](https://www.microsoft.com/en-us/windows), seguido de [OS X](https://www.apple.com/macos/) y las distribuciones basadas en [Linux](https://en.wikipedia.org/wiki/List_of_Linux_distributions).
+Los sistemas personales están diseñados para proporcionar buen rendimiento y capacidad de multitarea a un único usuario; el SO mayoritario es [Windows](https://www.microsoft.com/en-us/windows), seguido de [macOS](https://www.apple.com/macos/) y las distribuciones basadas en [Linux](https://en.wikipedia.org/wiki/List_of_Linux_distributions).
 
 #### Sistemas integrados
 
