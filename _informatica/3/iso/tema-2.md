@@ -89,3 +89,19 @@ Es importante elegir bien el quantum:
 
 * Si es muy pequeño, la CPU podría estar más tiempo cambiando de procesos que ejecutándolos
 * Si es muy grande, los últimos procesos de la cola podrían tardar demasiado en ser atendidos
+
+### Planificación por priodidad
+
+Por sus características, algunos procesos necesitan ser ejecutados lo antes posible. Cada proceso lleva asociada una prioridad, y el proceso con mayor prioridad es el primero en ser atendido.
+
+La asignación de prioridad puede ser estática, cuando la prioridad no se modifica durante la vida del proceso; o dinámica, donde la prioridad cambia de acuerdo a unos parámetros, como por ejemplo como la fracción utilizada del último quantum.
+
+Esta planificación puede ser apropiativa o no apropiativa. Un posible problema relacionado sería la **inanición**, que aparece cuando los procesos de menor prioridad nunca reciben CPU. Una posible solución, en el caso de ser apropiativa, sería disminuir paulatinamente la prioridad de los procesos en ejecución. Otra opción sería la contraria: subir la prioridad de los procesos listos del final de la cola.
+
+### Planificación de múltiples colas con realimentación
+
+Es la planificación más general y compleja. Manejamos varias colas de listos, y asignamos los procesos a una cola u otra dependiendo de distintos factores tales como el tipo de proceso, su último uso de CPU...
+
+A la hora de asignar la CPU debemos elegir con qué cola vamos a trabajar, y qué proceso vamos a escoger de dicha cola. Por norma general dispondremos de una planificación entre colas, y cada cola tendrá su propia planificación.
+
+Para la realimentación también habrá que establecer los criterios para cambiar un proceso de una cola a otra.
