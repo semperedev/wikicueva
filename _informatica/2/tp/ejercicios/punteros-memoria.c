@@ -7,29 +7,6 @@ struct PuntoRep {
 };
 
 /**
- * 8) Devuelve la direcciónen memoria dinámica de una nueva cadena de
- * caracteres que contenga n letras elegidas aleatoriamente de entre
- * las incluidas en la cadena letras
- */
-char * generaCadena(char * letras, int n) {
-  int l = 1;
-
-  while (letras[l] != '\0') {
-    l++;
-  }
-
-  char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
-
-  for (int i = 0; i < n; i++) {
-    cadena[i] = letras[rand() % l];
-  }
-
-  cadena[n] = '\0';
-
-  return cadena;
-}
-
-/**
  * 9) Devuelve la dirección en memoria dinámica de una nueva cadena de
  * caracteres que contenga la cadena formada por la concatenación de
  * las cadenas a y b

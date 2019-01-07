@@ -321,6 +321,58 @@ char * invierteCadena(char * cadena) {
 }
 ```
 
+### Ejercicio 8
+
+> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres que contenga n letras elegidas aleatoriamente de entre las incluidas en la cadena letras.
+>
+> `char * generaCadena(char * letras, int n);`
+
+Antes de comenzar, vamos a obtener la longitud de la cadena `letras`, para ello utilizaremos nuestro tan conocido bucle:
+
+```c
+int longitud = 1;
+
+while (letras[longitud] != '\0') {
+  longitud++;
+}
+```
+
+Como siempre, reservamos memoria:
+
+```c
+char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
+```
+
+Ahora simplemente tenemos que rellenar la nueva cadena. Para ello recorremos la cadena, y escogemos caracteres aleatorios de `letras`. Para obtener los índices utilizamos el método `rand()`, de la librería estándar de C, y limitamos los resultados con el módulo de la lista (`% longitud`). Quedaría algo así:
+
+```c
+for (int i = 0; i < n; i++) {
+  cadena[i] = letras[rand() % longitud];
+}
+```
+
+Finalmente agregamos la marca de fin `cadena[n] = '\0';` y devolvemos la cadena. Si lo juntamos todo:
+
+```c
+char * generaCadena(char * letras, int n) {
+  int longitud = 1;
+
+  while (letras[longitud] != '\0') {
+    longitud++;
+  }
+
+  char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
+
+  for (int i = 0; i < n; i++) {
+    cadena[i] = letras[rand() % longitud];
+  }
+
+  cadena[n] = '\0';
+
+  return cadena;
+}
+```
+
 ## Fichero antiguo
 
 {% highlight c %}
