@@ -73,10 +73,10 @@ Dependiendo de las debilidades, amenazas, fortalezas y oportunidades de una empr
 | | | |
 --- | --- | ---
 | | Fortalezas | Debilidades
-Amenazas | Estabilidad | Disminución
-Oportunidades | Crecimiento | Estabilidad
+Amenazas | **Estabilidad** | **Disminución**
+Oportunidades | **Crecimiento** | **Estabilidad**
 
-En la estrategia corporativa de disminución, se esta "sacando a flote" la empresa, se tiene que definir la estrategia para salir de una crisis.
+En la estrategia corporativa de disminución, se está _sacando a flote_ la empresa: hay que definir la estrategia para salir de una crisis.
 
 ### Estrategias Competitivas de Negocio
 
