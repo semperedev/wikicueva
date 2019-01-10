@@ -68,6 +68,16 @@ Podemos estructurar las estrategias por niveles:
 
 > Nivel Corporativo: ¿En qué negocios debe participar la empresa?
 
+Dependiendo de las debilidades, amenazas, fortalezas y oportunidades de una empresa, deberemos seguir una estrategia corporativa de crecimiento, estabilidad o disminución.
+
+| | | |
+--- | --- | ---
+| | Fortalezas | Debilidades
+Amenazas | **Estabilidad** | **Disminución**
+Oportunidades | **Crecimiento** | **Estabilidad**
+
+En la estrategia corporativa de disminución, se está _sacando a flote_ la empresa: hay que definir la estrategia para salir de una crisis.
+
 ### Estrategias Competitivas de Negocio
 
 > Nivel de Negocio: ¿Cómo debe competir la empresa en cada uno de sus negocios?
