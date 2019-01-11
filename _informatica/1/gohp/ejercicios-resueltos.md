@@ -40,4 +40,4 @@ Despejando y resolviendo:
 
 Simplemente debemos aplicar la fórmula:
 
-\\( Beneficios = I_{Totales} - C_{Totales} = 0,25 \times 29.000 - (3.606 + 0,1 \times 29.000) = 6.010\ euros \\)
+\\( Beneficios = I_{Totales} - C_{Totales} = 0,25 \times 29.000 - (3.606 + 0,1 \times 29.000) = 744\ euros \\)
