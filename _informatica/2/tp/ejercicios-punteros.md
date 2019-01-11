@@ -468,41 +468,7 @@ for (...) {
 }
 ```
 
-Incluso podríamos reducir la cantidad de código declarando las variables `i` y `j` al inicio de la función y cambiando los bucles _for_ por bucles _while_. Sería algo así:
-
-```c
-char * concatena(char * a, char * b) {
-  int n = 0, i = 0, j = 0;
-
-  while (a[i] != '\0') {
-    n++; i++;
-  }
-
-  i = 0;
-
-  while (b[i] != '\0') {
-    n++; i++;
-  }
-
-  char * cadena = malloc(sizeof(char) * (n + 1));
-
-  i = 0; j = 0;
-
-  while (a[j] != '\0') {
-    cadena[i++] = a[j++];
-  }
-  
-  j = 0;
-
-  while (b[j] != '\0') {
-    cadena[i++] = b[j++];
-  }
-
-  cadena[i] = '\0';
-
-  return cadena;
-}
-```
+Incluso podríamos usar esta misma técnica para todos los índices: declarando las variables `i` y `j` al inicio de la función y cambiando los bucles _for_ por bucles _while_, pero solamente aumentaría la complejidad del código sin aportar una mejora significativa al programa.
 
 ## Fichero antiguo
 
