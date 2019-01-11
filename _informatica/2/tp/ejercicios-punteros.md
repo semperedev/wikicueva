@@ -31,7 +31,7 @@ void intercambia(int * a, int * b) {
 
 ### Ejercicio 2
 
-> Devuelve la dirección en memoria dinámica de un nuevo array con `n` enteros generados aleatoriamente en el intervalo `[a, b]`
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con `n` enteros generados aleatoriamente en el intervalo cerrado `[a,b]`.
 >
 > `int * genera(int n, int a, int b)`
 
@@ -95,7 +95,7 @@ if (b < a) {
 
 ### Ejercicio 3
 
-> Devuelve la dirección en memoria dinámica de un nuevo array con los n valores contenidos en el array datos
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con los `n` valores contenidos en el array `datos`.
 >
 > `int * copia(int datos[], int n)`
 
@@ -133,7 +133,7 @@ Pero, ¿y si `n` no es realmente el número de elementos del array `datos`? Por 
 
 ### Ejercicio 4
 
-> Devuelve la dirección en memoria dinámica de un nuevo array con los n valores contenidos en el array datos en orden inverso
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con los `n` valores contenidos en el array `datos` en el orden inverso.
 >
 > `int * invierte(int datos[], int n)`
 
@@ -189,7 +189,7 @@ int * invierte(int datos[], int n) {
 
 ### Ejercicio 5
 
-> Devuelve la dirección en memoria dinámica de un nuevo array cuyos elementos sean el resultado de sumar los n valores contenidos en los arrays a y b
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array cuyos elementos sean el resultado de sumar los `n` valores contenidos en los arrays `a` y `b`.
 >
 > `int * suma(int a[], int b[], int n);`
 
@@ -217,7 +217,7 @@ int * suma(int a[], int b[], int n) {
 
 ### Ejercicio 6
 
-> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres idéntica a la recibida como parámetro
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de una nueva cadena de caracteres idéntica a la recibida como parámetro.
 >
 > `char * duplica(char * cadena);`
 
@@ -270,7 +270,7 @@ char * duplica(char * cadena) {
 
 ### Ejercicio 7
 
-> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres con la inversión de la recibida como parámetro
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de una nueva cadena de caracteres con la inversión de la recibida como parámetro.
 >
 > `char * invierteCadena(char * cadena);`
 
@@ -323,7 +323,7 @@ char * invierteCadena(char * cadena) {
 
 ### Ejercicio 8
 
-> Devuelve la dirección en memoria dinámica de una nueva cadena de caracteres que contenga n letras elegidas aleatoriamente de entre las incluidas en la cadena letras.
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de una nueva cadena de caracteres que contenga `n` letras elegidas aleatoriamente de entre las incluidas en la cadena `letras`.
 >
 > `char * generaCadena(char * letras, int n);`
 
@@ -368,6 +368,137 @@ char * generaCadena(char * letras, int n) {
   }
 
   cadena[n] = '\0';
+
+  return cadena;
+}
+```
+
+### Ejercicio 9
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de una nueva cadena de caracteres que contenga la cadena formada por la concatenación de las cadenas `a` y `b`. Por ejemplo, si `a="hola"` y `b="mundo"`, el resultado será la cadena `"holamundo"`.
+>
+> `char * concatena(char * a, char * b);`
+
+Básicamente tenemos que copiar cadenas a una nueva. Lo primero es obtener la longitud de la nueva cadena resultante, para ello recorremos las cadenas `a` y `b` aumentando un contador:
+
+```c
+int n = 0;
+
+for (int i = 0; a[i] != '\0'; i++) {
+  n++;
+}
+
+for (int i = 0; b[i] != '\0'; i++) {
+  n++;
+}
+```
+
+Ahora que tenemos la longitud en `n`, reservamos memoria para `n` caracteres y la marca de fin:
+
+```c
+char * cadena = malloc(sizeof(char) * (n + 1));
+```
+
+Para terminar solamente nos queda copiar las cadenas una después de la otra. Utilizaremos una variable `i` para mantener la posición en la cadena nueva, y bucles _for_ para recorrer cada cadena. Y no debemos olvidar la marca de fin.
+
+```c
+int i = 0;
+
+for (int j = 0; a[j] != '\0'; j++) {
+  cadena[i] = a[j];
+  i++;
+}
+
+for (int j = 0; b[j] != '\0'; j++) {
+  cadena[i] = b[j];
+  i++;
+}
+
+cadena[i] = '\0';
+```
+
+Si juntamos todo en una función:
+
+```c
+char * concatena(char * a, char * b) {
+  int n = 0;
+
+  for (int i = 0; a[i] != '\0'; i++) {
+    n++;
+  }
+
+  for (int i = 0; b[i] != '\0'; i++) {
+    n++;
+  }
+
+  char * cadena = malloc(sizeof(char) * (n + 1));
+
+  int i = 0;
+
+  for (int j = 0; a[j] != '\0'; j++) {
+    cadena[i] = a[j];
+    i++;
+  }
+
+  for (int j = 0; b[j] != '\0'; j++) {
+    cadena[i] = b[j];
+    i++;
+  }
+
+  cadena[i] = '\0';
+
+  return cadena;
+}
+```
+
+**Más allá**
+
+Se podría reducir el código de los bucles _for_ de copia si utilizamos el operador de incremento (`++`) en la variable `i` cuando la usamos como índice, pues dicho operador devuelve el valor de `i` antes de incrementarlo. Quedaría así:
+
+```c
+// Antes:
+for (...) {
+  cadena[i] = b[j];
+  i++;
+}
+
+// Después:
+for (...) {
+  cadena[i++] = b[j];
+}
+```
+
+Incluso podríamos reducir la cantidad de código declarando las variables `i` y `j` al inicio de la función y cambiando los bucles _for_ por bucles _while_. Sería algo así:
+
+```c
+char * concatena(char * a, char * b) {
+  int n = 0, i = 0, j = 0;
+
+  while (a[i] != '\0') {
+    n++; i++;
+  }
+
+  i = 0;
+
+  while (b[i] != '\0') {
+    n++; i++;
+  }
+
+  char * cadena = malloc(sizeof(char) * (n + 1));
+
+  i = 0; j = 0;
+
+  while (a[j] != '\0') {
+    cadena[i++] = a[j++];
+  }
+  
+  j = 0;
+
+  while (b[j] != '\0') {
+    cadena[i++] = b[j++];
+  }
+
+  cadena[i] = '\0';
 
   return cadena;
 }

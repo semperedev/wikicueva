@@ -7,46 +7,6 @@ struct PuntoRep {
 };
 
 /**
- * 9) Devuelve la dirección en memoria dinámica de una nueva cadena de
- * caracteres que contenga la cadena formada por la concatenación de
- * las cadenas a y b
- */
-char * concatena(char * a, char * b) {
-  int n = 1;
-
-  while (a[n] != '\0') {
-    n++;
-  }
-
-  while (b[n] != '\0') {
-    n++;
-  }
-
-  char * cadena = malloc(sizeof(char) * (n + 1));
-
-  int i = 0;
-
-  while (a[i] != '\0') {
-    cadena[i] = a[i];
-
-    i++;
-  }
-
-  int j = 0;
-
-  while (b[j] != '\0') {
-    cadena[i] = b[j];
-
-    i++;
-    j++;
-  }
-
-  cadena[n] = '\0';
-
-  return cadena;
-}
-
-/**
  * 10) Devuelve la dirección en memoria dinámica de un nuevo array con
  * n puntos cuyas coordenadas estén generadas aleatoriamente
  */
