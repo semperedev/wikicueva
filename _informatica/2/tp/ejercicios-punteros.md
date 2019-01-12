@@ -470,6 +470,104 @@ for (...) {
 
 Incluso podríamos usar esta misma técnica para todos los índices: declarando las variables `i` y `j` al inicio de la función y cambiando los bucles _for_ por bucles _while_, pero solamente aumentaría la complejidad del código sin aportar una mejora significativa al programa.
 
+### Ejercicio 10
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con `n` puntos cuyas coordenadas estén generadas aleatoriamente.
+>
+> `struct PuntoRep * generaPuntos(int n);`
+
+Nos proporcionan la siguiente estructura:
+
+```c
+struct PuntoRep {
+  int x, y;
+};
+```
+
+De igual forma que con tipos primitivos, reservamos memoria con malloc indicando que el tipo es la estructura PuntoRep:
+
+```c
+struct PuntoRep * array = malloc(sizeof(struct PuntoRep) * n);
+```
+
+Una vez tenemos la memoria, podemos empezar a dar valor a las estructuras, que el momento de la reserva tendrán valores basura. Para esto, recorremos el array con un bucle _for_ y asignamos valores usando `rand()`.
+
+```c
+for (int i = 0; i < n; i++) {
+  array[i].x = rand() % 101;
+  array[i].y = rand() % 101;
+}
+```
+
+> Hemos utilizado `% 101` a modo ilustrativo.
+
+Si lo juntamos todo:
+
+```c
+struct PuntoRep * generaPuntos(int n) {
+  struct PuntoRep * array = malloc(sizeof(struct PuntoRep) * n);
+
+  for (int i = 0; i < n; i++) {
+    array[i].x = rand() % 101;
+    array[i].y = rand() % 101;
+  }
+
+  return array;
+}
+```
+
+### Ejercicio 11
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con todos los valores positivos que haya en el array `datos`, sabiendo que éste contiene `n` números enteros. Coloca un -1 como último elemento del array devuelto a modo de marca de fin.
+>
+> `int * positivos(int datos[], int n);`
+
+Como siempre, lo primero es reservar memoria. En el caso de que todos sean positivos, tenemos que guardar los `n` elementos más la marca de fin, así que reservamos para `n+1`.
+
+```c
+int * array = malloc(sizeof(int) * (n + 1));
+```
+
+Ahora simplemente recorremos el array datos con un bucle _for_; para cada elemento comprobamos si es positivo, y en caso afirmativo lo agregamos al nuevo array. Utilizaremos una variable `j` para los índices del array resultado.
+
+```c
+int j = 0;
+
+for (int i = 0; i < n; i++) {
+  if (datos[i] >= 0) {
+    array[j] = datos[i];
+
+    j++;
+  }
+}
+```
+
+Finalmente quedaría agregar la marca de fin tras el bucle `array[j] = -1;`. Si juntamos todo nos queda algo así:
+
+```c
+int * positivos(int datos[], int n) {
+  int * array = malloc(sizeof(int) * (n + 1));
+
+  int j = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (datos[i] >= 0) {
+      array[j] = datos[i];
+
+      j++;
+    }
+  }
+  
+  array[j] = -1;
+
+  return array;
+}
+```
+
+**Más allá**
+
+Otra opción, más eficiente en memoria, sería recorrer el array primero para contar cuantos positivos tenemos, y reservar la memoria exacta que necesitaríamos.
+
 ## Fichero antiguo
 
 {% highlight c %}

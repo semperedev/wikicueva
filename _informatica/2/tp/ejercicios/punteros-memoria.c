@@ -2,46 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct PuntoRep {
-  int x, y;
-};
-
-/**
- * 10) Devuelve la dirección en memoria dinámica de un nuevo array con
- * n puntos cuyas coordenadas estén generadas aleatoriamente
- */
-struct PuntoRep * generaPuntos(int n) {
-  struct PuntoRep * array = malloc(sizeof(struct PuntoRep) * n);
-
-  for (int i = 0; i < n; i++) {
-    array[i].x = rand() % 101;
-    array[i].y = rand() % 101;
-  }
-
-  return array;
-}
-
-/**
- * 11) Devuelve la dirección en memoria dinámica de un nuevo array con
- * todos los valores positivos que haya en el array datos, sabiendo que
- * éste contiene n números enteros
- */
-int * positivos(int datos[], int n) {
-  int * array = malloc(sizeof(int) * n);
-
-  int j = 0;
-
-  for (int i = 0; i < n; i++) {
-    if (datos[i] >= 0) {
-      array[j] = datos[i];
-
-      j++;
-    }
-  }
-
-  return array;
-}
-
 /**
  * 12) Devuelve la dirección en memoria dinámica de un nuevo array con
  * n+1 punteros a carácter. Cada uno apuntará a una nueva cadena de
