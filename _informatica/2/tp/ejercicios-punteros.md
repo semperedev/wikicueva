@@ -756,3 +756,180 @@ char ** divide(char * direcciones) {
   return array;
 }
 ```
+
+### Ejercicio 13
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con todos los valores positivos que haya en el array `datos`, sabiendo que éste contiene `n` números enteros. Pero esta vez no deben aparecer números repetidos. Coloca un `-1` como último elemento del array devuelto a modo de marca de fin. Por ejemplo, si `datos = {1,2,3,1,2}` hay que devolver `{1,2,3,-1}`.
+>
+> `int * positivos(int datos[], int n);`
+
+Lo primero de todo, reservamos memoria para `n` elementos más la marca de fin:
+
+```c
+int * array = malloc(sizeof(int) * (n + 1));
+```
+
+Ahora tenemos que recorrer el array `datos` y copiar los elementos no duplicados. Hay varias formas de hacer esto, nosotros vamos a utilizar dos bucles _for_ anidados y una variable `k` para el índice del nuevo array.
+
+El exterior para recorrer `datos` (de 0 a `n`):
+
+```c
+for (int i = 0; i < n; i++) {
+  // ...
+}
+```
+
+El interior para buscar el elemento actual en el nuevo array:
+
+```c
+for (int j = 0; j < k; j++) {
+  if (datos[i] == array[j]) {
+    // El elemento está repetido
+    break;
+  }
+}
+```
+
+Si llegamos al final del nuevo array, el elemento no está repetido y lo podemos insertar:
+
+```c
+if (j == k) {
+  array[k] = datos[i];
+
+  k++;
+}
+```
+
+Si juntamos todas las piezas del bucle:
+
+```c
+for (int i = 0; i < n; i++) {
+  for (int j = 0; j < k; j++) {
+    if (datos[i] == array[j]) {
+      break;
+    }
+  }
+
+  if (j == k) {
+    array[k] = datos[i];
+
+    k++;
+  }
+}
+```
+
+Finalmente agregamos la marca de fin:
+
+```c
+array[k] = -1;
+```
+
+Todo junto se quedaría algo parecido a esto:
+
+```c
+int * positivos(int datos[], int n) {
+  int * array = malloc(sizeof(int) * (n + 1));
+
+  int k = 0;
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < k; j++) {
+      if (datos[i] == array[j]) {
+        break;
+      }
+    }
+
+    if (j == k) {
+      array[k++] = datos[i];
+    }
+  }
+
+  array[k] = -1;
+
+  return array;
+}
+```
+
+### Ejercicio 14
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de un nuevo array con las coordenadas correspondientes a las celdas del array bidimensional `datos`, de `f` filas y `c` columnas, en las que haya un valor negativo. El número de valores negativos encontrados, que se corresponderá con el tamaño del nuevo array generado en memoria dinámica, se devolverá a través del parámetro `n`.
+>
+> `struct CoordenadaRep * encuentra(int f, int c, int datos[f][c], int * n);`
+
+Nos proporcionan la siguiente estructura:
+
+```c
+struct CoordenadaRep {
+  int x, y;
+};
+```
+
+Reservamos memoria para todos los elementos (más adelante veremos una forma de hacerlo que gestiona mejor la memoria):
+
+```c
+struct CoordenadaRep * array = malloc(sizeof(struct CoordenadaRep *) * f * c);
+```
+
+Recorremos el array bidimensional con dos bucles _for_, y para cada elemento, si es negativo, lo agregamos al nuevo array como coordenada, donde `x = i` e `y = j`. Utilizamos una variable `k` como índice del nuevo array.
+
+```c
+for (int i = 0; i < f; i++) {
+  for (int j = 0; j < c; j++) {
+    if (datos[i][j] < 0) {
+      array[k].x = i;
+      array[k].y = j;
+
+      k++;
+    }
+  }
+}
+```
+
+Finalmente, modificamos el valor de la variable apuntada por `n` para que refleje el número de elementos, que tenemos en `k`:
+
+```c
+*n = k;
+```
+
+Todo junto quedaría algo así:
+
+```c
+struct CoordenadaRep * encuentra(int f, int c, int datos[f][c], int * n) {
+  struct CoordenadaRep * array = malloc(sizeof(struct CoordenadaRep *) * f * c);
+
+  int k = 0;
+
+  for (int i = 0; i < f; i++) {
+    for (int j = 0; j < c; j++) {
+      if (datos[i][j] < 0) {
+        array[k].x = i;
+        array[k].y = j;
+
+        k++;
+      }
+    }
+  }
+
+  *n = k;
+
+  return array;
+}
+```
+
+**Más allá**
+
+El algoritmo que hemos diseñado es rápido pero consume muchísima memoria, una forma de mejorarlo sería recorrer el array `datos` primero para obtener la cantidad de elementos negativos, de esta forma sólo reservaríamos memoria para los elementos que vamos a devolver. Simplemente habría que agregar dos bucles anidados y modificar la llamada a `malloc`:
+
+```c
+int l = 0;
+
+for (int i = 0; i < f; i++) {
+  for (int j = 0; j < c; j++) {
+    if (datos[i][j] < 0) {
+      l++;
+    }
+  }
+}
+
+struct CoordenadaRep * array = malloc(sizeof(struct CoordenadaRep *) * l);
+```
