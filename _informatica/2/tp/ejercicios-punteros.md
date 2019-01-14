@@ -933,3 +933,65 @@ for (int i = 0; i < f; i++) {
 
 struct CoordenadaRep * array = malloc(sizeof(struct CoordenadaRep *) * l);
 ```
+
+### Ejercicio 15
+
+> Completa el código de la siguiente función para que devuelva la dirección en memoria dinámica de una matriz (array de dos dimensiones) con `n` filas y `n` columnas conteniendo la diferencia en valor absoluto entre cada pareja de elementos de los arrays `a` y `b`, sabiendo que ambos contienen `n` elementos.
+>
+> `int ** genera(int a[], int b[], int n);`
+
+Comenzamos reservando memoria para el primer nivel del array:
+
+```c
+int ** array = malloc(sizeof(int *) * n);
+```
+
+Para cada elemento de `a` tenemos que recorrer `b` calculando la diferencia en valor absoluto. Para recorrer utilizaremos dos bucles _for_ anidados, el exterior para `a` y el interior para `b`.
+
+En cada iteración del bucle exterior reservaremos memoria para esa fila del array bidimensional.
+
+```c
+for (int i = 0; i < n; i++) {
+  array[i] = malloc(sizeof(int) * n);
+
+  for (int j = 0; j < n; j++) {
+    // ...
+  }
+}
+```
+
+En cada iteración del bucle interno calcularemos la diferencia, y si es negativa la volveremos positiva; tras esto la agregaremos al array.
+
+```c
+int x = a[i] - b[j];
+
+if (x < 0) {
+  x = 0 - x;
+}
+
+array[i][j] = x;
+```
+
+Si juntamos todo:
+
+```c
+int ** genera(int a[], int b[], int n) {
+  int ** array = malloc(sizeof(int *) * n);
+
+  for (int i = 0; i < n; i++) {
+    array[i] = malloc(sizeof(int) * n);
+
+    for (int j = 0; j < n; j++) {
+      int x = a[i] - b[j];
+
+      if (x < 0) {
+        x = 0 - x;
+      }
+
+      array[i][j] = x;
+    }
+  }
+
+  return array;
+}
+```
