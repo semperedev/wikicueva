@@ -46,7 +46,7 @@ int * array = malloc(n * sizeof(int));
 Ahora tenemos que llenar el array con valores. Para ello recorremos el array en memoria dinámica y vamos asignando valores a cada _hueco_:
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   array[i] = VALOR;
 }
 ```
@@ -69,7 +69,7 @@ Y por último tenemos que devolver la dirección del array que hemos creado. Si 
 int * genera(int n, int a, int b) {
   int * array = malloc(n * sizeof(int));
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = (rand() % (b - a + 1)) + a;
   }
 
@@ -82,9 +82,7 @@ int * genera(int n, int a, int b) {
 Podríamos agregar un poco de código al inicio de la función para comprobar que los parámetros son correctos, asegurándonos de que `n > 0` y `b > a`:
 
 ```c
-if (n <= 0) {
-  return NULL;
-}
+assert(n > 0);
 
 if (b < a) {
   int aux = a;
@@ -109,27 +107,17 @@ Ahora simplemente recorremos el array `datos` asignando a nuestro array cada uno
 
 ```c
 int * copia(int datos[], int n) {
+  assert(n > 0);
+
   int * array = malloc(sizeof(int) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = datos[i];
   }
 
   return array;
 }
 ```
-
-**Más allá**
-
-Podríamos agregar un poco de código al inicio de la función para asegurarnos de que `n > 0`:
-
-```c
-if (n <= 0) {
-  return NULL;
-}
-```
-
-Pero, ¿y si `n` no es realmente el número de elementos del array `datos`? Por ahora, tendremos que confiar en que nos pasan un número correcto.
 
 ### Ejercicio 4
 
@@ -140,9 +128,7 @@ Pero, ¿y si `n` no es realmente el número de elementos del array `datos`? Por 
 Como en los ejercicios anteriores, lo primero será comprobar los parámetros y reservar memoria:
 
 ```c
-if (n <= 0) {
-  return NULL;
-}
+assert(n > 0);
 
 int * array = malloc(sizeof(int) * n);
 ```
@@ -153,37 +139,29 @@ Hay varias formas de afrontar este problema, nosotros vamos a optar por la sigui
 
 Ahora tenemos que obtener los índices correctos del array `datos`, para lo cual emplearemos la técnica del ejercicio 2.
 
-Si el índice actual es `i`, podemos obtener el elemento simétrico a `array[i]` utilizando `datos[n - i - 1]`, de forma que el bucle se nos queda:
-
-```c
-for (int i = 0; i < n; i++) {
-  array[i] = datos[n - i - 1];
-}
-```
-
-Podríamos hacerlo de forma contraria: recorriendo `datos` de forma usual y asignando valores a nuestro array desde el final hasta el principio:
-
-```c
-for (int i = 0; i < n; i++) {
-  array[n - i - 1] = datos[i];
-}
-```
-
-Juntando todo el código (con la primera opción), quedaría esto:
+Si el índice actual es `i`, podemos obtener el elemento simétrico a `array[i]` utilizando `datos[n - i - 1]`, de forma que el bucle se nos quedaría esto:
 
 ```c
 int * invierte(int datos[], int n) {
-  if (n <= 0) {
-    return NULL;
-  }
+  assert(n > 0);
 
   int * array = malloc(sizeof(int) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = datos[n - i - 1];
   }
 
   return array;
+}
+```
+
+**Más allá**
+
+Otra forma de trabajar sería recorrer `datos` de forma contraria y asignando valores a nuestro array desde el final hasta el principio:
+
+```c
+for (int i = 0; i < n; i = i + 1) {
+  array[n - i - 1] = datos[i];
 }
 ```
 
@@ -193,13 +171,13 @@ int * invierte(int datos[], int n) {
 >
 > `int * suma(int a[], int b[], int n);`
 
-Lo primero es reservar memoria:
+Reservamos memoria:
 
 ```c
 int * array = malloc(sizeof(int) * n);
 ```
 
-A continuación tenemos que recorrer los arrays y sumar sus valores; esto es bastante sencillo dado que ambos arrays tienen la misma longitud, así que podemos utilizar un bucle `for` sencillo: `for (int i = 0; i < n; i++) { }`
+A continuación tenemos que recorrer los arrays y sumar sus valores; esto es bastante sencillo dado que ambos arrays tienen la misma longitud, así que podemos utilizar un bucle `for` sencillo: `for (int i = 0; i < n; i = i + 1) { }`
 
 En el cuerpo del bucle simplemente accedemos a los elementos de los tres arrays utilizando la sintaxis de siempre, `array[indice]`, y nos queda:
 
@@ -207,7 +185,7 @@ En el cuerpo del bucle simplemente accedemos a los elementos de los tres arrays 
 int * suma(int a[], int b[], int n) {
   int * array = malloc(sizeof(int) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = a[i] + b[i];
   }
 
@@ -243,7 +221,7 @@ char * copy = malloc(sizeof(char) * n);
 Y podemos proceder a la copia, para ello simplemente recorremos la cadena original asignando sus valores a la nueva cadena:
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   copy[i] = cadena[i];
 }
 ```
@@ -260,7 +238,7 @@ char * duplica(char * cadena) {
 
   char * copy = malloc(sizeof(char) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     copy[i] = cadena[i];
   }
 
@@ -292,7 +270,7 @@ Para la copia inversa tenemos dos opciones: recorrer la cadena en sentido contra
 A cada elemento `i` de la copia le asignamos el elemento original de la misma posición pero desde el final: `n - i - 1`; restamos 1 por la marca de fin, que agregaremos luego a mano. El bucle queda así:
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   copia[i] = cadena[n - i - 1];
 }
 
@@ -311,7 +289,7 @@ char * invierteCadena(char * cadena) {
 
   char * copia = malloc(sizeof(char) * (n + 1));
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     copia[i] = cadena[n - i - 1];
   }
 
@@ -327,7 +305,7 @@ char * invierteCadena(char * cadena) {
 >
 > `char * generaCadena(char * letras, int n);`
 
-Antes de comenzar, vamos a obtener la longitud de la cadena `letras`, para ello utilizaremos nuestro tan conocido bucle:
+Antes de comenzar, ya que `n` y `longitud` no tienen por qué coincidir, vamos a obtener la longitud de la cadena `letras`, para ello utilizaremos nuestro tan conocido bucle:
 
 ```c
 int longitud = 1;
@@ -343,10 +321,12 @@ Como siempre, reservamos memoria:
 char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
 ```
 
-Ahora simplemente tenemos que rellenar la nueva cadena. Para ello recorremos la cadena, y escogemos caracteres aleatorios de `letras`. Para obtener los índices utilizamos el método `rand()`, de la librería estándar de C, y limitamos los resultados con el módulo de la lista (`% longitud`). Quedaría algo así:
+Ahora simplemente tenemos que rellenar la nueva cadena. Para ello recorremos la cadena, y escogemos caracteres aleatorios de `letras`.
+
+Para obtener los índices utilizamos la función `rand()`, de la librería estándar de C. Esta función puede devolver cualquier número, así que utilizamos el módulo (`% longitud`) para asegurarnos de que el número se encuentra en el rango correcto. Quedaría algo así:
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   cadena[i] = letras[rand() % longitud];
 }
 ```
@@ -363,7 +343,7 @@ char * generaCadena(char * letras, int n) {
 
   char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     cadena[i] = letras[rand() % longitud];
   }
 
@@ -384,11 +364,11 @@ Básicamente tenemos que copiar cadenas a una nueva. Lo primero es obtener la lo
 ```c
 int n = 0;
 
-for (int i = 0; a[i] != '\0'; i++) {
+for (int i = 0; a[i] != '\0'; i = i + 1) {
   n++;
 }
 
-for (int i = 0; b[i] != '\0'; i++) {
+for (int i = 0; b[i] != '\0'; i = i + 1) {
   n++;
 }
 ```
@@ -406,12 +386,12 @@ int i = 0;
 
 for (int j = 0; a[j] != '\0'; j++) {
   cadena[i] = a[j];
-  i++;
+  i = i + 1;
 }
 
 for (int j = 0; b[j] != '\0'; j++) {
   cadena[i] = b[j];
-  i++;
+  i = i + 1;
 }
 
 cadena[i] = '\0';
@@ -423,11 +403,11 @@ Si juntamos todo en una función:
 char * concatena(char * a, char * b) {
   int n = 0;
 
-  for (int i = 0; a[i] != '\0'; i++) {
+  for (int i = 0; a[i] != '\0'; i = i + 1) {
     n++;
   }
 
-  for (int i = 0; b[i] != '\0'; i++) {
+  for (int i = 0; b[i] != '\0'; i = i + 1) {
     n++;
   }
 
@@ -437,12 +417,12 @@ char * concatena(char * a, char * b) {
 
   for (int j = 0; a[j] != '\0'; j++) {
     cadena[i] = a[j];
-    i++;
+    i = i + 1;
   }
 
   for (int j = 0; b[j] != '\0'; j++) {
     cadena[i] = b[j];
-    i++;
+    i = i + 1;
   }
 
   cadena[i] = '\0';
@@ -450,25 +430,6 @@ char * concatena(char * a, char * b) {
   return cadena;
 }
 ```
-
-**Más allá**
-
-Se podría reducir el código de los bucles _for_ de copia si utilizamos el operador de incremento (`++`) en la variable `i` cuando la usamos como índice, pues dicho operador devuelve el valor de `i` antes de incrementarlo. Quedaría así:
-
-```c
-// Antes:
-for (...) {
-  cadena[i] = b[j];
-  i++;
-}
-
-// Después:
-for (...) {
-  cadena[i++] = b[j];
-}
-```
-
-Incluso podríamos usar esta misma técnica para todos los índices: declarando las variables `i` y `j` al inicio de la función y cambiando los bucles _for_ por bucles _while_, pero solamente aumentaría la complejidad del código sin aportar una mejora significativa al programa.
 
 ### Ejercicio 10
 
@@ -490,10 +451,10 @@ De igual forma que con tipos primitivos, reservamos memoria con malloc indicando
 struct PuntoRep * array = malloc(sizeof(struct PuntoRep) * n);
 ```
 
-Una vez tenemos la memoria, podemos empezar a dar valor a las estructuras, que el momento de la reserva tendrán valores basura. Para esto, recorremos el array con un bucle _for_ y asignamos valores usando `rand()`.
+Una vez tenemos la memoria, podemos empezar a dar valor a las estructuras, que en el momento de la reserva tendrán valores basura. Para esto, recorremos el array con un bucle _for_ y asignamos valores usando `rand()`.
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   array[i].x = rand() % 101;
   array[i].y = rand() % 101;
 }
@@ -507,7 +468,7 @@ Si lo juntamos todo:
 struct PuntoRep * generaPuntos(int n) {
   struct PuntoRep * array = malloc(sizeof(struct PuntoRep) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i].x = rand() % 101;
     array[i].y = rand() % 101;
   }
@@ -533,7 +494,7 @@ Ahora simplemente recorremos el array datos con un bucle _for_; para cada elemen
 ```c
 int j = 0;
 
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   if (datos[i] >= 0) {
     array[j] = datos[i];
 
@@ -550,7 +511,7 @@ int * positivos(int datos[], int n) {
 
   int j = 0;
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     if (datos[i] >= 0) {
       array[j] = datos[i];
 
@@ -593,7 +554,7 @@ int n = 0, l = 0, max = 0;
 Para recorrer la cadena `direcciones` utilizamos un bucle _for_ comprobando que el elemento actual sea distinto de la marca de fin. En cada iteración del bucle usamos `l++` para llevar la cuenta de la longitud.
 
 ```c
-for (int i = 0; direcciones[i] != '\0'; i++) {
+for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
   // ...
 
   l++;
@@ -609,7 +570,7 @@ Cada vez que nos encontremos un separador (_;_) es porque hemos terminado una ca
 El bucle resultante sería algo así:
 
 ```c
-for (int i = 0; direcciones[i] != '\0'; i++) {
+for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
   if (direcciones[i] == ';') {
     n++;
 
@@ -684,7 +645,7 @@ El bucle completo sería algo así:
 ```c
 int j = 0, k;
 
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   array[i] = malloc(sizeof(char) * (max + 1));
 
   k = 0;
@@ -713,7 +674,7 @@ Finalmente, agrupamos todo el código en una función:
 char ** divide(char * direcciones) {
   int n = 0, l = 0, max = 0;
 
-  for (int i = 0; direcciones[i] != '\0'; i++) {
+  for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
     if (direcciones[i] == ';') {
       n++;
 
@@ -737,7 +698,7 @@ char ** divide(char * direcciones) {
 
   int j = 0, k;
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = malloc(sizeof(char) * (max + 1));
 
     k = 0;
@@ -774,7 +735,7 @@ Ahora tenemos que recorrer el array `datos` y copiar los elementos no duplicados
 El exterior para recorrer `datos` (de 0 a `n`):
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   // ...
 }
 ```
@@ -803,7 +764,7 @@ if (j == k) {
 Si juntamos todas las piezas del bucle:
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   for (int j = 0; j < k; j++) {
     if (datos[i] == array[j]) {
       break;
@@ -832,7 +793,7 @@ int * positivos(int datos[], int n) {
 
   int k = 0;
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     for (int j = 0; j < k; j++) {
       if (datos[i] == array[j]) {
         break;
@@ -873,7 +834,7 @@ struct CoordenadaRep * array = malloc(sizeof(struct CoordenadaRep *) * f * c);
 Recorremos el array bidimensional con dos bucles _for_, y para cada elemento, si es negativo, lo agregamos al nuevo array como coordenada, donde `x = i` e `y = j`. Utilizamos una variable `k` como índice del nuevo array.
 
 ```c
-for (int i = 0; i < f; i++) {
+for (int i = 0; i < f; i = i + 1) {
   for (int j = 0; j < c; j++) {
     if (datos[i][j] < 0) {
       array[k].x = i;
@@ -899,7 +860,7 @@ struct CoordenadaRep * encuentra(int f, int c, int datos[f][c], int * n) {
 
   int k = 0;
 
-  for (int i = 0; i < f; i++) {
+  for (int i = 0; i < f; i = i + 1) {
     for (int j = 0; j < c; j++) {
       if (datos[i][j] < 0) {
         array[k].x = i;
@@ -923,7 +884,7 @@ El algoritmo que hemos diseñado es rápido pero consume muchísima memoria, una
 ```c
 int l = 0;
 
-for (int i = 0; i < f; i++) {
+for (int i = 0; i < f; i = i + 1) {
   for (int j = 0; j < c; j++) {
     if (datos[i][j] < 0) {
       l++;
@@ -948,28 +909,16 @@ int ** array = malloc(sizeof(int *) * n);
 
 Para cada elemento de `a` tenemos que recorrer `b` calculando la diferencia en valor absoluto. Para recorrer utilizaremos dos bucles _for_ anidados, el exterior para `a` y el interior para `b`.
 
-En cada iteración del bucle exterior reservaremos memoria para esa fila del array bidimensional.
+En cada iteración del bucle exterior reservaremos memoria para esa fila del array bidimensional. Y en cada iteración del bucle interno calcularemos la diferencia en valor absoluto y la agregaremos al array.
 
 ```c
-for (int i = 0; i < n; i++) {
+for (int i = 0; i < n; i = i + 1) {
   array[i] = malloc(sizeof(int) * n);
 
   for (int j = 0; j < n; j++) {
-    // ...
+    array[i][j] = abs(a[i] - b[j]);
   }
 }
-```
-
-En cada iteración del bucle interno calcularemos la diferencia, y si es negativa la volveremos positiva; tras esto la agregaremos al array.
-
-```c
-int x = a[i] - b[j];
-
-if (x < 0) {
-  x = 0 - x;
-}
-
-array[i][j] = x;
 ```
 
 Si juntamos todo:
@@ -978,7 +927,7 @@ Si juntamos todo:
 int ** genera(int a[], int b[], int n) {
   int ** array = malloc(sizeof(int *) * n);
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n; i = i + 1) {
     array[i] = malloc(sizeof(int) * n);
 
     for (int j = 0; j < n; j++) {
