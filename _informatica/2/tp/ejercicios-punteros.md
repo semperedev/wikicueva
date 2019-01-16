@@ -208,7 +208,7 @@ Para calcular la longitud tenemos que recorrer la cadena hasta que encontremos l
 int n = 1;
 
 while (cadena[n] != '\0') {
-  n++;
+  n = n + 1;
 }
 ```
 
@@ -233,7 +233,7 @@ char * duplica(char * cadena) {
   int n = 1;
 
   while (cadena[n] != '\0') {
-    n++;
+    n = n + 1;
   }
 
   char * copy = malloc(sizeof(char) * n);
@@ -258,7 +258,7 @@ Igual que en el ejercicio anterior, tenemos que obtener la longitud y reservar m
 int n = 0;
 
 while (cadena[n] != '\0') {
-  n++;
+  n = n + 1;
 }
 
 // Sumamos uno por la marca de fin
@@ -284,7 +284,7 @@ char * invierteCadena(char * cadena) {
   int n = 0;
 
   while (cadena[n] != '\0') {
-    n++;
+    n = n + 1;
   }
 
   char * copia = malloc(sizeof(char) * (n + 1));
@@ -311,7 +311,7 @@ Antes de comenzar, ya que `n` y `longitud` no tienen por qué coincidir, vamos a
 int longitud = 1;
 
 while (letras[longitud] != '\0') {
-  longitud++;
+  longitud = longitud + 1;
 }
 ```
 
@@ -338,7 +338,7 @@ char * generaCadena(char * letras, int n) {
   int longitud = 1;
 
   while (letras[longitud] != '\0') {
-    longitud++;
+    longitud = longitud + 1;
   }
 
   char * cadena = malloc(sizeof(char) * (n + 1)); // +1 por marca de fin
@@ -365,11 +365,11 @@ Básicamente tenemos que copiar cadenas a una nueva. Lo primero es obtener la lo
 int n = 0;
 
 for (int i = 0; a[i] != '\0'; i = i + 1) {
-  n++;
+  n = n + 1;
 }
 
 for (int i = 0; b[i] != '\0'; i = i + 1) {
-  n++;
+  n = n + 1;
 }
 ```
 
@@ -384,12 +384,12 @@ Para terminar solamente nos queda copiar las cadenas una después de la otra. Ut
 ```c
 int i = 0;
 
-for (int j = 0; a[j] != '\0'; j++) {
+for (int j = 0; a[j] != '\0'; j = j + 1) {
   cadena[i] = a[j];
   i = i + 1;
 }
 
-for (int j = 0; b[j] != '\0'; j++) {
+for (int j = 0; b[j] != '\0'; j = j + 1) {
   cadena[i] = b[j];
   i = i + 1;
 }
@@ -404,23 +404,23 @@ char * concatena(char * a, char * b) {
   int n = 0;
 
   for (int i = 0; a[i] != '\0'; i = i + 1) {
-    n++;
+    n = n + 1;
   }
 
   for (int i = 0; b[i] != '\0'; i = i + 1) {
-    n++;
+    n = n + 1;
   }
 
   char * cadena = malloc(sizeof(char) * (n + 1));
 
   int i = 0;
 
-  for (int j = 0; a[j] != '\0'; j++) {
+  for (int j = 0; a[j] != '\0'; j = j + 1) {
     cadena[i] = a[j];
     i = i + 1;
   }
 
-  for (int j = 0; b[j] != '\0'; j++) {
+  for (int j = 0; b[j] != '\0'; j = j + 1) {
     cadena[i] = b[j];
     i = i + 1;
   }
@@ -498,7 +498,7 @@ for (int i = 0; i < n; i = i + 1) {
   if (datos[i] >= 0) {
     array[j] = datos[i];
 
-    j++;
+    j = j + 1;
   }
 }
 ```
@@ -515,7 +515,7 @@ int * positivos(int datos[], int n) {
     if (datos[i] >= 0) {
       array[j] = datos[i];
 
-      j++;
+      j = j + 1;
     }
   }
   
@@ -551,19 +551,19 @@ Vamos a utilizar tres variables auxiliares:
 int n = 0, l = 0, max = 0;
 ```
 
-Para recorrer la cadena `direcciones` utilizamos un bucle _for_ comprobando que el elemento actual sea distinto de la marca de fin. En cada iteración del bucle usamos `l++` para llevar la cuenta de la longitud.
+Para recorrer la cadena `direcciones` utilizamos un bucle _for_ comprobando que el elemento actual sea distinto de la marca de fin. En cada iteración del bucle usamos `l = l + 1` para llevar la cuenta de la longitud.
 
 ```c
 for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
   // ...
 
-  l++;
+  l = l + 1;
 }
 ```
 
 Cada vez que nos encontremos un separador (_;_) es porque hemos terminado una cadena, con lo cual:
 
-* Aumentamos el número de cadenas: `n++;`
+* Aumentamos el número de cadenas: `n = n + 1;`
 * Actualizamos `max` si es necesario: `if (l > max) max = l;`
 * Reiniciamos el contador de longitud: `l = 0;`
 
@@ -572,7 +572,7 @@ El bucle resultante sería algo así:
 ```c
 for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
   if (direcciones[i] == ';') {
-    n++;
+    n = n + 1;
 
     if (l > max) {
       max = l;
@@ -581,7 +581,7 @@ for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
     l = 0;
   }
 
-  l++;
+  l = l + 1;
 }
 ```
 
@@ -592,7 +592,7 @@ if (l > max) {
   max = l;
 }
 
-n++;
+n = n + 1;
 ```
 
 En este paso tenemos el número de cadenas correcto y la longitud de la cadena mayor.
@@ -629,8 +629,8 @@ A continuación copiamos caracteres hasta encontrar un separador o una marca de 
 while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
   array[i][k] = direcciones[j];
   
-  k++;
-  j++;
+  k = k + 1;
+  j = j + 1;
 }
 ```
 
@@ -651,12 +651,15 @@ for (int i = 0; i < n; i = i + 1) {
   k = 0;
 
   while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
-    array[i][k++] = direcciones[j++];
+    array[i][k] = direcciones[j];
+
+    k = k + 1;
+    j = j + 1;
   }
 
   array[i][k] = '\0';
 
-  j++;
+  j = j + 1;
 }
 ```
 
@@ -676,7 +679,7 @@ char ** divide(char * direcciones) {
 
   for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
     if (direcciones[i] == ';') {
-      n++;
+      n = n + 1;
 
       if (l > max) {
         max = l;
@@ -685,14 +688,14 @@ char ** divide(char * direcciones) {
       l = 0;
     }
 
-    l++;
+    l = l + 1;
   }
 
   if (l > max) {
     max = l;
   }
 
-  n++;
+  n = n + 1;
 
   char ** array = malloc(sizeof(char *) * (n + 1));
 
@@ -704,12 +707,13 @@ char ** divide(char * direcciones) {
     k = 0;
 
     while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
-      array[i][k++] = direcciones[j++];
+      array[i][k] = direcciones[j];
     }
 
     array[i][k] = '\0';
 
-    j++;
+    k = k + 1;
+    j = j + 1;
   }
 
   array[n] = NULL;
@@ -743,7 +747,7 @@ for (int i = 0; i < n; i = i + 1) {
 El interior para buscar el elemento actual en el nuevo array:
 
 ```c
-for (int j = 0; j < k; j++) {
+for (int j = 0; j < k; j = j + 1) {
   if (datos[i] == array[j]) {
     // El elemento está repetido
     break;
@@ -757,7 +761,7 @@ Si llegamos al final del nuevo array, el elemento no está repetido y lo podemos
 if (j == k) {
   array[k] = datos[i];
 
-  k++;
+  k = k + 1;
 }
 ```
 
@@ -765,7 +769,7 @@ Si juntamos todas las piezas del bucle:
 
 ```c
 for (int i = 0; i < n; i = i + 1) {
-  for (int j = 0; j < k; j++) {
+  for (int j = 0; j < k; j = j + 1) {
     if (datos[i] == array[j]) {
       break;
     }
@@ -774,7 +778,7 @@ for (int i = 0; i < n; i = i + 1) {
   if (j == k) {
     array[k] = datos[i];
 
-    k++;
+    k = k + 1;
   }
 }
 ```
@@ -794,14 +798,16 @@ int * positivos(int datos[], int n) {
   int k = 0;
 
   for (int i = 0; i < n; i = i + 1) {
-    for (int j = 0; j < k; j++) {
+    for (int j = 0; j < k; j = j + 1) {
       if (datos[i] == array[j]) {
         break;
       }
     }
 
     if (j == k) {
-      array[k++] = datos[i];
+      array[k] = datos[i];
+
+      k = k + 1;
     }
   }
 
@@ -835,12 +841,12 @@ Recorremos el array bidimensional con dos bucles _for_, y para cada elemento, si
 
 ```c
 for (int i = 0; i < f; i = i + 1) {
-  for (int j = 0; j < c; j++) {
+  for (int j = 0; j < c; j = j + 1) {
     if (datos[i][j] < 0) {
       array[k].x = i;
       array[k].y = j;
 
-      k++;
+      k = k + 1;
     }
   }
 }
@@ -861,12 +867,12 @@ struct CoordenadaRep * encuentra(int f, int c, int datos[f][c], int * n) {
   int k = 0;
 
   for (int i = 0; i < f; i = i + 1) {
-    for (int j = 0; j < c; j++) {
+    for (int j = 0; j < c; j = j + 1) {
       if (datos[i][j] < 0) {
         array[k].x = i;
         array[k].y = j;
 
-        k++;
+        k = k + 1;
       }
     }
   }
@@ -885,9 +891,9 @@ El algoritmo que hemos diseñado es rápido pero consume muchísima memoria, una
 int l = 0;
 
 for (int i = 0; i < f; i = i + 1) {
-  for (int j = 0; j < c; j++) {
+  for (int j = 0; j < c; j = j + 1) {
     if (datos[i][j] < 0) {
-      l++;
+      l = l + 1;
     }
   }
 }
@@ -915,7 +921,7 @@ En cada iteración del bucle exterior reservaremos memoria para esa fila del arr
 for (int i = 0; i < n; i = i + 1) {
   array[i] = malloc(sizeof(int) * n);
 
-  for (int j = 0; j < n; j++) {
+  for (int j = 0; j < n; j = j + 1) {
     array[i][j] = abs(a[i] - b[j]);
   }
 }
@@ -930,7 +936,7 @@ int ** genera(int a[], int b[], int n) {
   for (int i = 0; i < n; i = i + 1) {
     array[i] = malloc(sizeof(int) * n);
 
-    for (int j = 0; j < n; j++) {
+    for (int j = 0; j < n; j = j + 1) {
       int x = a[i] - b[j];
 
       if (x < 0) {
