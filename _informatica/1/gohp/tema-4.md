@@ -45,7 +45,7 @@ Para lograr un análisis
 ---|---|---
 | | Análisis Interno | Análisis Externo
 Afecta Negativamente | **D**ebilidad | **A**menaza
-Afecta Positivamente | **F**uerza | **O**portunidad
+Afecta Positivamente | **F**ortaleza | **O**portunidad
 
 Ejemplos de factores:
 
