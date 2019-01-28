@@ -1,7 +1,3 @@
-/**
- * 1) Implementar el TDA Punto, descrito a continuación:
- */
-
 // El tipo Punto representa un punto en el plano real
 typedef struct PuntoRep * Punto;
 

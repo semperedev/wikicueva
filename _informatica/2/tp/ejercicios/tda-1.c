@@ -10,7 +10,7 @@ struct PuntoRep {
 Punto Punto_crea(double x, double y) {
   Punto p = malloc(sizeof(struct PuntoRep));
 
-  p->x  = x;
+  p->x = x;
   p->y = y;
 
   return p;
