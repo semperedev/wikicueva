@@ -9,11 +9,11 @@ title: Ejercicios de TDAs
 
 ## Implementar TDAs
 
-Para realizar los ejercicios, debemos implementar los TDAs cuya definición (archivo `.h`) nos proporcionan.
+Para realizar los ejercicios, debemos implementar los TDAs cuya especificación (archivo `.h`) nos proporcionan.
 
 ### Ejercicio 1: TDA Punto
 
-#### Definición
+#### Especificación
 
 > [tda-1.h](ejercicios/tda-1.h)
 
@@ -103,7 +103,7 @@ void Punto_modifica(Punto p, double x, double y) {
 
 ### Ejercicio 2: TDA Rectangulo
 
-#### Definición
+#### Especificación
 
 > [tda-2.h](ejercicios/tda-2.h)
 
@@ -206,15 +206,160 @@ int dentro_rectangulo(Rectangulo r, int x, int y) {
 {% include_relative ejercicios/tda-2.c %}
 {% endhighlight %}
 
-### Ejercicio 3
+### Ejercicio 3: TDA Complejo
 
-#### [tda-3.h](ejercicios/tda-3.h)
+#### Especificación
+
+> [tda-3.h](ejercicios/tda-3.h)
 
 {% highlight c %}
 {% include_relative ejercicios/tda-3.h %}
 {% endhighlight %}
 
-#### [tda-3.c](ejercicios/tda-3.c)
+#### Implementación
+
+**Estructura**
+
+Comenzamos implementando la estructura `ComplejoRep`. Nos indican en el enunciado que se trata de dos reales (`double`):
+
+```c
+struct ComplejoRep {
+  double r, i;
+};
+```
+
+**crea_complejo**
+
+En la versión simple tan sólo hay que reservar memoria y asignar los nuevos valores:
+
+```c
+Complejo crea_complejo(double r, double i) {
+  Complejo c = malloc(sizeof(struct ComplejoRep));
+
+  c->r = r;
+  c->i = i;
+
+  return c;
+}
+```
+
+En la versión de _polares_, la parte real es \\(r \cdot \cos o\\) y la imaginaria es \\(r \cdot \sin o\\), con lo cual podemos reutilizar la función `crea_complejo` pasando como argumentos los resultados de ambas operaciones:
+
+```c
+Complejo crea_polares_complejo(double r, double o) {
+  return crea_complejo(r * cos(o), r * sin(o));
+}
+```
+
+**libera_complejo**
+
+Como siempre, liberamos con `free`:
+
+```c
+void libera_complejo(Complejo c) {
+  free(c);
+}
+```
+
+**muestra_complejo**
+
+Mostramos con `printf`:
+
+```c
+void muestra_complejo(Complejo c) {
+  printf("r: %f, i: %f\n", c->r, c->i);
+}
+```
+
+**recupera_complejo**
+
+Devolvemos los valores de la estructura:
+
+```c
+double recupera_parte_real_complejo(Complejo c) {
+  return c->r;
+}
+
+double recupera_parte_imaginaria_complejo(Complejo c) {
+  return c->i;
+}
+```
+
+**modulo_complejo**
+
+Simplemente tenemos que aplicar una fórmula matemática muy sencilla, para ello utilizaremos un par de funciones de la librería `math.h`: `sqrt` y `pow`. La fórmula del módulo es:
+
+\\( mod = \sqrt{r^2 + i^2} \\)
+
+```c
+double modulo_complejo(Complejo c) {
+  return sqrt(pow(c->r, 2) + pow(c->i, 2));
+}
+```
+
+***operacion*_complejo**
+
+La suma y resta de complejos es sencilla, simplemente operamos sus componentes. En estas operaciones, tenemos que crear un nuevo complejo y devolver su dirección, así que utilizaremos la función `crea_complejo` con los argumentos apropiados:
+
+```c
+Complejo suma_complejo(Complejo c, Complejo d) {
+  return crea_complejo(c->r + d->r, c->i + d->i);
+}
+
+Complejo resta_complejo(Complejo c, Complejo d) {
+  return crea_complejo(c->r - d->r, c->i - d->i);
+}
+```
+
+En el caso de la multiplicación, vamos a aplicar la propiedad distributiva sobre las formas binómicas de ambos complejos:
+
+\\(
+  (a + bi) \cdot (c + di) =
+  (ac - bd) +
+  (ad + bc)i
+\\)
+
+Implementado quedaría:
+
+```c
+Complejo multiplica_complejo(Complejo c, Complejo d) {
+  return crea_complejo(
+    c->r * d->r - c->i * d->i,
+    c->r * d->i + c->i * d->r
+  );
+}
+```
+
+La división es más compleja, así que simplemente dejaremos el resultado final y lo implementaremos:
+
+\\(
+  \frac{a + bi}{c + di} =
+  \frac{ac + bd}{b^2 + d^2} +
+  \frac{bc - ad}{b^2 + d^2}i
+\\)
+
+```c
+Complejo divide_complejo(Complejo c, Complejo d) {
+  return crea_complejo(
+    (c->r * d->r + c->i * d->i) / (pow(c->i, 2) + pow(d->i, 2)),
+    (c->i * d->r - c->r * d->i) / (pow(c->i, 2) + pow(d->i, 2))
+  );
+}
+```
+
+**compara_complejo**
+
+Dos complejos son iguales si sus componentes son iguales, así que:
+
+```c
+int compara_complejo(Complejo c, Complejo d) {
+  return (c->r == d->r) && (d->i == c->i);
+}
+```
+
+#### Todo junto
+
+> [tda-3.c](ejercicios/tda-3.c)
 
 {% highlight c %}
 {% include_relative ejercicios/tda-3.c %}

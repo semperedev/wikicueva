@@ -8,7 +8,7 @@ struct ComplejoRep {
   double r, i;
 };
 
-Complejo Complejo_crea(double r, double i) {
+Complejo crea_complejo(double r, double i) {
   Complejo c = malloc(sizeof(struct ComplejoRep));
 
   c->r = r;
@@ -17,60 +17,52 @@ Complejo Complejo_crea(double r, double i) {
   return c;
 }
 
-Complejo Complejo_crea_polares(double r, double o) {
-  Complejo c = malloc(sizeof(struct ComplejoRep));
-
-  // Parte real => r * cos(o)
-  // Parte imaginaria => r * sin(o)
-
-  c->r = r * cos(o);
-  c->i = r * sin(o);
-
-  return c;
+Complejo crea_polares_complejo(double r, double o) {
+  return crea_complejo(r * cos(o), r * sin(o));
 }
 
-void Complejo_libera(Complejo c) {
+void libera_complejo(Complejo c) {
   free(c);
 }
 
-void Complejo_muestra(Complejo c) {
-  printf("%f + %fi\n", c->r, c->i);
+void muestra_complejo(Complejo c) {
+  printf("r: %f, i: %f\n", c->r, c->i);
 }
 
-double Complejo_recupera_parte_real(Complejo c) {
+double recupera_parte_real_complejo(Complejo c) {
   return c->r;
 }
 
-double Complejo_recupera_parte_imaginaria(Complejo c) {
+double recupera_parte_imaginaria_complejo(Complejo c) {
   return c->i;
 }
 
-double Complejo_modulo(Complejo c) {
-  // sqrt = raíz cuadrada
-  // pow = potencia
-
+double modulo_complejo(Complejo c) {
   return sqrt(pow(c->r, 2) + pow(c->i, 2));
 }
 
-Complejo Complejo_suma(Complejo c, Complejo d) {
-  return Complejo_crea(c->r + d->r, c->i + d->i);
+Complejo suma_complejo(Complejo c, Complejo d) {
+  return crea_complejo(c->r + d->r, c->i + d->i);
 }
 
-Complejo Complejo_resta(Complejo c, Complejo d) {
-  return Complejo_crea(c->r - d->r, c->i - d->i);
+Complejo resta_complejo(Complejo c, Complejo d) {
+  return crea_complejo(c->r - d->r, c->i - d->i);
 }
 
-Complejo Complejo_multiplica(Complejo c, Complejo d) {
-  return Complejo_crea(c->r * d->r - c->i + d->i, c->r * d->i + c->i * d->r);
-}
-
-Complejo Complejo_divide(Complejo c, Complejo d) {
-  return Complejo_crea(
-    (c->r * d->r + c->i * d->i) / (pow(c->i, 2) + pow(d->i, 2)),
-    (c->r * d->r - c->i * d->i) / (pow(c->i, 2) + pow(d->i, 2))
+Complejo multiplica_complejo(Complejo c, Complejo d) {
+  return crea_complejo(
+    c->r * d->r - c->i * d->i,
+    c->r * d->i + c->i * d->r
   );
 }
 
-int Complejo_compara(Complejo c, Complejo d) {
+Complejo divide_complejo(Complejo c, Complejo d) {
+  return crea_complejo(
+    (c->r * d->r + c->i * d->i) / (pow(c->i, 2) + pow(d->i, 2)),
+    (c->i * d->r - c->r * d->i) / (pow(c->i, 2) + pow(d->i, 2))
+  );
+}
+
+int compara_complejo(Complejo c, Complejo d) {
   return (c->r == d->r) && (d->i == c->i);
 }
