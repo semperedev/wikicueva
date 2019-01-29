@@ -19,7 +19,7 @@ int recupera_x_rectangulo(Rectangulo r);
 int recupera_y_rectangulo(Rectangulo r);
 
 // Modifica las coordenadas del Rectangulo r
-void modifica_rectangulo(Rectangulo r, double x, double y);
+void modifica_rectangulo(Rectangulo r, int x, int y);
 
 // Devuelve 1 si el punto (x,y) está dentro del rectángulo r
 int dentro_rectangulo(Rectangulo r, int x, int y);

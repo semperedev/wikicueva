@@ -34,7 +34,7 @@ int recupera_y_rectangulo(Rectangulo r) {
   return r->y;
 }
 
-void modifica_rectangulo(Rectangulo r, double x, double y) {
+void modifica_rectangulo(Rectangulo r, int x, int y) {
   r->x = x;
   r->y = y;
 }
