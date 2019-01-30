@@ -365,6 +365,230 @@ int compara_complejo(Complejo c, Complejo d) {
 {% include_relative ejercicios/tda-3.c %}
 {% endhighlight %}
 
+
+### Ejercicio 4: TDA Matriz
+
+#### Especificación
+
+> [tda-4.h](ejercicios/tda-4.h)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-4.h %}
+{% endhighlight %}
+
+#### Implementación
+
+**Estructura**
+
+Comenzamos implementando la estructura `MatrizRep`. Nos indican que los valores de la matriz son de tipo real, pero, ¿cómo estructuramos esos datos? Vamos a almacenar un array bidimensional de reales en memoria dinámica, es decir, un array (filas) de punteros (columnas). También necesitamos guardar el número de filas y columnas (enteros):
+
+```c
+struct MatrizRep {
+  double ** arr;
+  int f, c;
+};
+```
+
+**crea_matriz**
+
+Igual que en los casos anteriores, creamos la estructura en memoria dinámica y asignamos los valores de `f` y `c`. Pero en este caso, además, tenemos que dar valor al array bidimensional; para ello, creamos el primer nivel: array de punteros a real. A continuación, iteramos por el primer nivel creando los arrays del segundo.
+
+```c
+Matriz crea_matriz(int f, int c) {
+  Matriz m = malloc(sizeof(struct MatrizRep));
+  
+  m->f = f;
+  m->c = c;
+
+  m->arr = malloc(sizeof(double *) * f);
+
+  for (int i = 0; i < f; i = i + 1) {
+    m->arr[i] = malloc(sizeof(double) * c);
+  }
+
+  return m;
+}
+```
+
+**matriz_identidad**
+
+Creamos la matriz con `crea_matriz`, y recorremos la matriz con dos bucles _for_ anidados, dando valor `1` cuando los índices coincidan.
+
+```c
+Matriz matriz_identidad(int n) {
+  Matriz m = crea_matriz(n, n);
+
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < m->c; j = j + 1) {
+      if (i == j) {
+        m->arr[i][j] = 1;
+      }
+    }
+  }
+
+  return m;
+}
+```
+
+**libera_matriz**
+
+El orden en el que liberamos la matriz es muy importante, pues tenemos varios niveles en memoria dinámica. Para hacerlo correctamente, comenzamos liberando desde el nivel más profundo hacia los superiores, tras esto podremos liberar la estructura:
+
+```c
+void libera_matriz(Matriz m) {
+  for (int i = 0; i < m->f; i = i + 1) {
+    free(m->arr[i]);
+  }
+
+  free(m->arr);
+  free(m);
+}
+```
+
+**muestra_matriz**
+
+Esta operación es sencilla: iteramos por filas el array con dos bucles _for_ anidado, mostrando cada elemento de cada columna, y un salto de línea al terminar el bucle interior.
+
+```c
+void muestra_matriz(Matriz m) {
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < m->c; j = j + 1) {
+      printf("%f ", m->arr[i][j]);
+    }
+
+    printf("\n");
+  }
+}
+```
+
+***operacion*_valor_matriz**
+
+Para acceder a un valor concreto de la matriz simplemente utilizamos la fila y la columna como índices del array bidimensional:
+
+```c
+double recupera_valor_matriz(Matriz m, int f, int c) {
+  return m->arr[f][c];
+}
+
+void asigna_valor_matriz(Matriz m, int f, int c, double r) {
+  m->arr[f][c] = r;
+}
+```
+
+**recupera_matriz**
+
+Simplemente devolvemos los valores de la estructura:
+
+```c
+int recupera_filas_matriz(Matriz m) {
+  return m->f;
+}
+
+int recupera_columnas_matriz(Matriz m) {
+  return m->c;
+}
+```
+
+**escala_matriz**
+
+Nos indican que tenemos que devolver una nueva matriz, por lo cual lo primero de todo será crear una matriz con el mismo número de filas y columnas que la que nos dan. A continuación, recorremos todo el array de la matriz original y asignamos a la nueva matriz los valores originales multiplicados por `e`.
+
+```c
+Matriz escala_matriz(Matriz m, double e) {
+  Matriz n = crea_matriz(m->f, m->c);
+
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < m->c; j = j + 1) {
+      n->arr[i][j] = m->arr[i][j] * e;
+    }
+  }
+
+  return n;
+}
+```
+
+**suma_matriz**
+
+Primero comprobamos que se puede realizar la operación, es decir: si el número de filas y columnas de ambas matrices difieren, devolvemos `NULL`. Tras la comprobación, simplemente creamos una nueva matriz con las mismas dimensiones, y asignamos a cada elemento \\(suma_{ij}\\) la suma de las otras dos matrices: \\(suma_{ij} = m_{ij} + n_{ij}\\)
+
+```c
+Matriz suma_matriz(Matriz m, Matriz n) {
+  if (m->f != n->f || m->c != n->c) {
+    return NULL;
+  }
+
+  Matriz suma = crea_matriz(m->f, m->c);
+
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < m->c; j = j + 1) {
+      suma->arr[i][j] = m->arr[i][j] + n->arr[i][j];
+    }
+  }
+
+  return suma;
+}
+```
+
+**multiplica_matriz**
+
+Lo primero, comprobamos que se puede realizar la operación. Para ello el número de columnas de `m` tiene que coincidir con el número de filas de `n`, si esto no es así, devolvemos `NULL`. Ahora creamos la nueva matriz (`mul`) y recorremos su array con dos bucles _for_.
+
+En cada iteración del bucle interior calculamos el valor de \\(mul_{ij}\\), que se obtiene multiplicando cada elemento de la fila i de la matriz `m` por cada elemento de la columna j de la matriz `n` y sumándolos. Para esto vamos a utilizar una variable `suma` y un bucle _for_ que recorre a la vez la fila i y la columna j, gracias a que tienen la misma longitud.
+
+Finalmente, asignamos el valor de la suma a la posición correspondiente del array bidimensional.
+
+```c
+Matriz multiplica_matriz(Matriz m, Matriz n) {
+  if (m->c != n->f) {
+    return NULL;
+  }
+
+  Matriz mul = crea_matriz(m->f, n->c);
+  
+  int suma;
+
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < n->c; j = j + 1) {
+      suma = 0;
+
+      for (int k = 0; k < m->c; k = k + 1) {
+        suma = suma + m->arr[i][k] * n->arr[k][j];
+      }
+
+      mul->arr[i][j] = suma;
+    }
+  }
+
+  return mul;
+}
+```
+
+**matriz_traspuesta**
+
+Para trasponer una matriz simplemente copiamos la matriz `m` a la nueva matriz, pero cambiando los índices en la asignación en una de las dos matrices.
+
+```c
+Matriz matriz_traspuesta(Matriz m) {
+  Matriz n = crea_matriz(m->f, m->c);
+
+  for (int i = 0; i < m->f; i = i + 1) {
+    for (int j = 0; j < m->c; j = j + 1) {
+      n->arr[i][j] = m->arr[j][i];
+    }
+  }
+
+  return n;
+}
+```
+
+#### Todo junto
+
+> [tda-4.c](ejercicios/tda-4.c)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-4.c %}
+{% endhighlight %}
+
 ### Ejercicio 7
 
 #### [tda-7.h](ejercicios/tda-7.h)
