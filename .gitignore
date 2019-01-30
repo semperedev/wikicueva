@@ -1,4 +1,14 @@
+# Jekyll
 *build/
 _site
 .sass-cache
 .jekyll-metadata
+
+# C/C++
+Makefile
+main
+*.o
+*.out
+
+# Editor/IDE
+.vscode/**
