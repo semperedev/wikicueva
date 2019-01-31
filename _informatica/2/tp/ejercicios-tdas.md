@@ -365,7 +365,6 @@ int compara_complejo(Complejo c, Complejo d) {
 {% include_relative ejercicios/tda-3.c %}
 {% endhighlight %}
 
-
 ### Ejercicio 4: TDA Matriz
 
 #### Especificación
@@ -587,6 +586,96 @@ Matriz matriz_traspuesta(Matriz m) {
 
 {% highlight c %}
 {% include_relative ejercicios/tda-4.c %}
+{% endhighlight %}
+
+### Ejercicio 5: TDA Monomio
+
+#### Especificación
+
+> [tda-5.h](ejercicios/tda-5.h)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-5.h %}
+{% endhighlight %}
+
+#### Implementación
+
+**Estructura**
+
+Para la estructura vamos a necesitar almacenar el coeficiente y el exponente.
+
+```c
+struct MonomioRep {
+  double c;
+  int e;
+};
+```
+
+**crea_monomio y libera_monomio**
+
+Para crear y liberar usamos los mismos esquemas básicos de los primeros TDAs:
+
+```c
+Monomio crea_monomio(double coef, int exp) {
+  Monomio m = malloc(sizeof(struct MonomioRep));
+
+  m->c = coef;
+  m->e = exp;
+
+  return m;
+}
+```
+
+```c
+void libera_monomio(Monomio m) {
+  free(m);
+}
+```
+
+**muestra_monomio**
+
+Usamos `printf` para mostrar las dos propiedades de la estructura:
+
+```c
+void muestra_monomio(Monomio m) {
+  printf("%f * x^%d\n", m->c, m->e);
+}
+```
+
+**recupera_monomio y modifica_monomio**
+
+Simplemente devolvemos y modificamos los datos que nos indican directamente en la estructura:
+
+```c
+double recupera_coeficiente_monomio(Monomio m) {
+  return m->c;
+}
+
+int recupera_exponente_monomio(Monomio m) {
+  return m->e;
+}
+
+void modifica_coeficiente_monomio(Monomio m, double coef) {
+  m->c = coef;
+}
+```
+
+**evalua_monomio**
+
+Tenemos que reemplazar la _x_ por el valor que nos proporcionan y devolver el valor que tendría la expresión resultante. Utilizaremos las funciones de `math.h` para ello.
+
+```c
+double evalua_monomio(Monomio m, double x) {
+  return m->c * pow(x, m->e);
+}
+```
+
+#### Todo junto
+
+> [tda-5.c](ejercicios/tda-5.c)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-5.c %}
 {% endhighlight %}
 
 ### Ejercicio 7
