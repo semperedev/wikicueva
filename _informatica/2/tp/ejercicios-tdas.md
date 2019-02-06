@@ -851,6 +851,104 @@ void elimina_punto_polilinea(Polilinea p, Punto q) {
 {% include_relative ejercicios/tda-7.c %}
 {% endhighlight %}
 
+### Ejercicio 8: TDA Contacto
+
+#### Especificación
+
+> [tda-8.h](ejercicios/tda-8.h)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-8.h %}
+{% endhighlight %}
+
+#### Implementación
+
+Para copiar cadenas vamos a utilizar la función `duplica` de los ejercicios de punteros y memoria dinámica, que nos devuelve un puntero a una cadena en memoria dinámica con el mismo contenido que la original:
+
+```c
+char * duplica(char * cadena);
+```
+
+**Estructura**
+
+Tenemos que almacenar dos cadenas de longitud desconocida, es decir, dos punteros a caracter:
+
+```c
+struct ContactoRep {
+  char * nom, tel;
+};
+```
+
+**crea_contacto**
+
+Creamos la estructura en memoria dinámica y asignamos las nuevas cadenas con `duplica`:
+
+```c
+Contacto crea_contacto(char * nombre) {
+  Contacto c = malloc(sizeof(struct ContactoRep));
+
+  c->nom = duplica(nombre);
+  c->tel = duplica("000 000 000");
+
+  return c;
+}
+```
+
+**libera_contacto**
+
+Liberamos primero las dos cadenas, que están en memoria dinámica, y luego la estructura:
+
+```c
+void libera_contacto(Contacto c) {
+  free(c->nom);
+  free(c->tel);
+  free(c);
+}
+```
+
+**muestra_contacto**
+
+Simplemente pasamos las cadenas a `printf` y dejamos que él se encargue:
+
+```c
+void muestra_contacto(Contacto c) {
+  printf("%s - %s", c->nom, c->tel);
+}
+```
+
+**recupera_contacto**
+
+Para obtener cualquiera de las dos cadenas, llamamos a `duplica` para crear una copia en memoria dinámica y devolvemos su dirección:
+
+```c
+char * recupera_nombre_contacto(Contacto c) {
+  return duplica(c->nom);
+}
+
+char * recupera_tlf_contacto(Contacto c) {
+  return duplica(c->tel);
+}
+```
+
+**modifica_tlf_contacto**
+
+La forma más cómoda de modificar una de las cadenas del contacto es liberar la que ya tenemos y copiar la que nos dan utilizando `duplica`:
+
+```c
+void modifica_tlf_contacto(Contacto c, char * tlf) {
+  free(c->tel);
+  c->tel = duplica(tlf);
+}
+```
+
+#### Todo junto
+
+> [tda-8.c](ejercicios/tda-8.c)
+
+{% highlight c %}
+{% include_relative ejercicios/tda-8.c %}
+{% endhighlight %}
+
 ## Utilizar TDAs
 
 Dado el siguiente TDA:
