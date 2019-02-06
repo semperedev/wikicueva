@@ -678,15 +678,174 @@ double evalua_monomio(Monomio m, double x) {
 {% include_relative ejercicios/tda-5.c %}
 {% endhighlight %}
 
-### Ejercicio 7
+### Ejercicio 7: TDA Polilinea
 
-#### [tda-7.h](ejercicios/tda-7.h)
+> Utilizando el [TDA Punto](#ejercicio-1-tda-punto)
+
+#### Especificación
+
+> [tda-7.h](ejercicios/tda-7.h)
 
 {% highlight c %}
 {% include_relative ejercicios/tda-7.h %}
 {% endhighlight %}
 
-#### [tda-7.c](ejercicios/tda-7.c)
+#### Implementación
+
+**Estructura**
+
+Nos piden que mantengamos los puntos en el orden en que fueron agregados, por lo que para almacenarlos vamos a implementar una lista simplemente enlazada con nodo cabecera. Para ello vamos a definir dos estructuras: `Nodo` y `PolilineaRep`. La primera va a ser un nodo de la lista (dato y puntero a siguiente); y la segunda va a contener un puntero a nodo para la cabecera de la lista y otro puntero a nodo para la cola.
+
+```c
+struct Nodo {
+  Punto p;
+  NodoPtr sig;
+};
+
+struct PolilineaRep {
+  NodoPtr cabecera, ultimo;
+};
+```
+
+**crea_polilinea**
+
+Para crear la polilinea, creamos la estructura en memoria dinámica y creamos el nodo cabecera. Los dos punteros de la polilinea apuntan al mismo nodo porque está vacía.
+
+```c
+Polilinea crea_polilinea() {
+  Polilinea p = malloc(sizeof(struct PolilineaRep));
+  
+  p->cabecera = malloc(sizeof(struct Nodo));
+  p->cabecera->sig = NULL;
+
+  p->ultimo = p->cabecera;
+
+  return p;
+}
+```
+
+**libera_polilinea**
+
+Para liberar la polilinea, tenemos que liberar la lista y después la cabecera, para ello recorremos la lista con un puntero auxiliar; en cada iteración re-enlazamos la lista y liberamos el nodo correspondiente:
+
+```c
+void libera_polilinea(Polilinea p) {
+  NodoPtr aux = p->cabecera;
+
+  while (p->cabecera->sig != NULL) {
+    aux = p->cabecera->sig;
+    p->cabecera->sig = aux->sig;
+    free(aux);
+  }
+
+  free(p);
+}
+```
+
+**muestra_polilinea**
+
+Recorremos la lista y llamamos a `muestra_punto` (del TDA Punto) con cada punto:
+
+```c
+void muestra_polilinea(Polilinea p) {
+  NodoPtr aux = p->cabecera;
+
+  while (aux->sig != NULL) {
+    muestra_punto(aux->sig->p);
+    aux = aux->sig;
+  }
+}
+```
+
+**agrega_punto_polilinea**
+
+Nos indican que agregamos por el final, con lo cual simplemente tenemos que crear el nodo y enlazarlo con el último nodo, que tenemos apuntado en la estructura de la polilinea.
+
+```c
+void agrega_punto_polilinea(Polilinea p, Punto q) {
+  NodoPtr nodo = malloc(sizeof(struct Nodo));
+  nodo->p = q;
+  nodo->sig = NULL;
+
+  p->ultimo->sig = nodo;
+  p->ultimo = nodo;
+}
+```
+
+**selecciona_polilinea**
+
+Nos piden el punto más cercano, con lo cual tenemos que buscar en la lista el nodo con la distancia más corta, es decir, recorrer la lista e ir actualizando la distancia mínima y un puntero al punto con dicha distancia:
+
+```c
+Punto punto = NULL; // punto más cercano
+float minDist = INT_MAX; // distancia mínima, obtenemos INT_MAX de <limits.h>
+float dist; // distancia del nodo actual
+```
+
+Para hacer las cosas más fáciles vamos a utilizar un par de variables auxiliares para las coordenadas del punto del nodo actual:
+
+```c
+int px, py;
+```
+
+Calculamos la distancia con la fórmula de la distancia euclídea (\\(d = \sqrt{(x_1 + x_2)^2 + (x_1 + x_2)^2}\\)):
+
+```c
+dist = sqrt(pow(px + x, 2) + pow(py + y, 2));
+```
+
+Sólo queda recorrer la lista igual que en las otras operaciones y devolver el punto más cercano:
+
+```c
+Punto selecciona_polilinea(Polilinea p, double x, double y) {
+  NodoPtr aux = p->cabecera;
+
+  Punto punto = NULL;
+  float dist;
+  float minDist = INT_MAX;
+
+  int px, py;
+
+  while (aux->sig != NULL) {
+    px = recupera_x_punto(aux->sig->p);
+    py = recupera_y_punto(aux->sig->p);
+
+    dist = sqrt(pow(px + x, 2) + pow(py + y, 2));;
+
+    if (dist < minDist) {
+      punto = aux->sig->p;
+    }
+
+    aux = aux->sig;
+  }
+
+  return punto;
+}
+```
+
+**elimina_punto_polilinea**
+
+Necesitamos encontrar el punto en la lista: con un bucle avanzamos mientras no lleguemos al final o encontremos el elemento. Tras esto, si no hemos llegado al final, re-enlazamos la lista sin el nodo encontrado y lo borramos.
+
+```c
+void elimina_punto_polilinea(Polilinea p, Punto q) {
+  NodoPtr aux = p->cabecera;
+
+  while ((aux->sig != NULL) && (aux->sig->p != q)) {
+    aux = aux->sig;
+  }
+
+  if (aux->sig != NULL) {
+    NodoPtr borrar = aux->sig;
+    aux->sig = aux->sig->sig;
+    free(borrar);
+  }
+}
+```
+
+#### Todo junto
+
+> [tda-7.c](ejercicios/tda-7.c)
 
 {% highlight c %}
 {% include_relative ejercicios/tda-7.c %}

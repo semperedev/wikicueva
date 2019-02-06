@@ -1,30 +1,25 @@
-/**
- * 7) Usando el TDA Punto (ejercicio 1), implementa el TDA descrito
- * a continuación:
- */
-
 #include "tda-1.h"
 
-// Una polilínea representa una secuencia ordenada de puntos en
-// el plano bidimensional. Los puntos de la polilínea de mantendrán
-// en el orden en que sean añadidos.
+// Una Polilínea representa una secuencia ordenada de puntos en
+// el plano bidimensional. Los puntos de la Polilínea se
+// mantendrán en el orden en que sean añadidos
 typedef struct PolilineaRep * Polilinea;
 
 // Devuelve una nueva polilínea vacía
-Polilinea Polilinea_crea();
+Polilinea crea_polilinea();
 
 // Libera la memoria asociada a la polilínea p
-void Polilinea_libera(Polilinea p);
+void libera_polilinea(Polilinea p);
 
 // Muestra la polilínea p por la pantalla
-void Polilinea_muestra(Polilinea p);
+void muestra_polilinea(Polilinea p);
 
-// Añade el punto q al final de la secuencia de puntos de p
-void Polilinea_agrega(Polilinea p, Punto q);
+// Agrega el punto q al final de la secuencia de puntos de p
+void agrega_punto_polilinea(Polilinea p, Punto q);
 
-// Devuelve el punto incluído en p que esté más cerca de las
-// coordenadas (x, y) usando distancia euclídea
-Punto Polilinea_selecciona(Polilinea p, double x, double y);
+// Devuelve el punto incluido en p que esté más cerca
+// de las coordenadas (x,y) usando distancia euclídea
+Punto selecciona_polilinea(Polilinea p, double x, double y);
 
 // Elimina el punto q de la secuencia de puntos de p
-void Polilinea_elimina(Polilinea p, Punto q);
+void elimina_punto_polilinea(Polilinea p, Punto q);
