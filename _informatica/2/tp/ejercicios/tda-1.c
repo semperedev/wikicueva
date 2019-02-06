@@ -7,7 +7,7 @@ struct PuntoRep {
   double x, y;
 };
 
-Punto Punto_crea(double x, double y) {
+Punto crea_punto(double x, double y) {
   Punto p = malloc(sizeof(struct PuntoRep));
 
   p->x = x;
@@ -16,23 +16,23 @@ Punto Punto_crea(double x, double y) {
   return p;
 }
 
-void Punto_libera(Punto p) {
+void libera_punto(Punto p) {
   free(p);
 }
 
-void Punto_muestra(Punto p) {
+void muestra_punto(Punto p) {
   printf("%f %f\n", p->x, p->y);
 }
 
-double Punto_recupera_x(Punto p) {
+double recupera_x_punto(Punto p) {
   return p->x;
 }
 
-double Punto_recupera_y(Punto p) {
+double recupera_y_punto(Punto p) {
   return p->y;
 }
 
-void Punto_modifica(Punto p, double x, double y) {
+void modifica_punto(Punto p, double x, double y) {
   p->x = x;
   p->y = y;
 }

@@ -33,12 +33,12 @@ struct PuntoRep {
 };
 ```
 
-**Punto_crea**
+**crea_punto**
 
 Tenemos que crear la estructura, asignar los valores que nos dan y devolverla. Ya que el tipo `Punto` es un puntero a la estructura que hemos creado antes, tenemos que guardar la estructura en memoria dinámica:
 
 ```c
-Punto Punto_crea(double x, double y) {
+Punto crea_punto(double x, double y) {
   Punto p = malloc(sizeof(struct PuntoRep));
 
   p->x = x;
@@ -48,46 +48,46 @@ Punto Punto_crea(double x, double y) {
 }
 ```
 
-**Punto_libera**
+**libera_punto**
 
 Nos proporcionan una dirección de memoria y tenemos que liberarla, fácil y corto:
 
 ```c
-void Punto_libera(Punto p) {
+void libera_punto(Punto p) {
   free(p);
 }
 ```
 
-**Punto_muestra**
+**muestra_punto**
 
 Vamos a utilizar `printf` para mostrar las dos propiedades del tipo de datos: `x` e `y`, que tenemos almacenadas en la estructura:
 
 ```c
-void Punto_muestra(Punto p) {
+void muestra_punto(Punto p) {
   printf("%f %f\n", p->x, p->y);
 }
 ```
 
-**Punto_recupera**
+**recupera_punto**
 
 Dado que tenemos las propiedades en la estructura, simplemente tenemos que devolver sus valores:
 
 ```c
-double Punto_recupera_x(Punto p) {
+double recupera_x_punto(Punto p) {
   return p->x;
 }
 
-double Punto_recupera_y(Punto p) {
+double recupera_y_punto(Punto p) {
   return p->y;
 }
 ```
 
-**Punto_modifica**
+**modifica_punto**
 
 Nos pasan por argumentos la dirección del Punto y los nuevos valores de sus propiedades. Simplemente asignamos dichos valores a las variables de la estructura:
 
 ```c
-void Punto_modifica(Punto p, double x, double y) {
+void modifica_punto(Punto p, double x, double y) {
   p->x = x;
   p->y = y;
 }
