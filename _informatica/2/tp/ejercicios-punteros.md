@@ -537,186 +537,150 @@ Otra opción, más eficiente en memoria, sería recorrer el array primero para c
 
 **Importante**: asumimos que entre separadores siempre hay al menos un caracter y la cadena de entrada no está vacía
 
-Nos encontramos ante un problema complejo, comencemos el análisis: tenemos que devolver un array de cadenas de caracteres (`char **`), para reservar la memoria correcta necesitamos saber la longitud de las cadenas, así que lo primero será obtener la cadena de mayor longitud.
+Nos encontramos ante un problema complejo, comencemos el análisis: tenemos que devolver un array de cadenas de caracteres (`char **`), para reservar la memoria correcta necesitamos saber el número de cadenas, así que recorremos el array contando los separadores.
 
-#### 1. Obtener cadena mayor
-
-Vamos a utilizar tres variables auxiliares:
-
-* `n`: número de cadenas en `direcciones`
-* `l`: longitud de la cadena actual
-* `max`: longitud de la mayor cadena
+Avanzamos mientras no encontremos la marca de fin, y cada vez que aparezca un `;` incrementamos el contador porque ha terminado la secuencia de un correo. Tras el bucle incrementamos en uno porque el último correo no termina con `;`.
 
 ```c
-int n = 0, l = 0, max = 0;
-```
+int n = 0;
 
-Para recorrer la cadena `direcciones` utilizamos un bucle _for_ comprobando que el elemento actual sea distinto de la marca de fin. En cada iteración del bucle usamos `l = l + 1` para llevar la cuenta de la longitud.
-
-```c
-for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
-  // ...
-
-  l = l + 1;
-}
-```
-
-Cada vez que nos encontremos un separador (_;_) es porque hemos terminado una cadena, con lo cual:
-
-* Aumentamos el número de cadenas: `n = n + 1;`
-* Actualizamos `max` si es necesario: `if (l > max) max = l;`
-* Reiniciamos el contador de longitud: `l = 0;`
-
-El bucle resultante sería algo así:
-
-```c
 for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
   if (direcciones[i] == ';') {
     n = n + 1;
-
-    if (l > max) {
-      max = l;
-    }
-
-    l = 0;
   }
-
-  l = l + 1;
-}
-```
-
-Es importante darse cuenta de que la última cadena, al no tener separador, no se comprueba en el bucle, así que tenemos que actualizar `max` y `n` si es necesario:
-
-```c
-if (l > max) {
-  max = l;
 }
 
 n = n + 1;
 ```
 
-En este paso tenemos el número de cadenas correcto y la longitud de la cadena mayor.
-
-#### 2. Llenar el array
-
-Para continuar, reservamos la memoria del array: `n + 1` punteros a caracter.
+Ahora que conocemos la cantidad de cadenas, reservamos la memoria del array para las `n` cadenas más la cadena de fin.
 
 ```c
 char ** array = malloc(sizeof(char *) * (n + 1));
 ```
 
-Ahora tenemos que volver a recorrer `direcciones` copiando cada cadena. Vamos a utilizar un bucle _for_ ya que tenemos el número de cadenas en `n`.
-
-Para el índice de la cadena `direcciones` vamos a crear una variable `j`, y una variable `k` para el índice de cada cadena en el array.
+Ahora tenemos que volver a recorrer `direcciones` copiando cada cadena: vamos a utilizar un bucle _for_ (índice `i`) ya que tenemos el número de cadenas en `n`. Vamos a utilizar dos índices para ello:
 
 ```c
 int j = 0, k = 0;
 ```
 
-#### 3. Bucle de copia
-
-Para cada iteración del bucle:
-
-Primero reservamos memoria para una cadena de la máxima longitud:
+Usaremos `j` para obtener la longitud de cada cadena, y `k` para volver a recorrerlas copiándolas. El bucle exterior tendría esta forma:
 
 ```c
-array[i] = malloc(sizeof(char) * (max + 1));
-```
-
-A continuación copiamos caracteres hasta encontrar un separador o una marca de fin. Reiniciamos el índice de la nueva cadena (`k = 0;`) y utilizamos un bucle _while_ para ir copiando mientras no nos encontremos la marca de fin o un separador:
-
-```c
-while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
-  array[i][k] = direcciones[j];
-  
-  k = k + 1;
-  j = j + 1;
+for (int i = 0; i < n; i = i + 1) {
+  // Obtener longitud
+  // Reservar memoria
+  // Copiar cadena
 }
 ```
 
-Tras copiar la cadena, agregamos la marca de fin:
+Así que comencemos obteniendo la longitud: avanzamos con `j` el siguiente correo a copiar, y luego restamos los dos índices; `k` apuntará al último separador, mientras que `j` estará apuntando al siguiente separador o a la marca de fin, es decir, entre `j` y `k` está la cadena completa y su resta nos da la longitud exacta.
 
 ```c
-array[i][k] = '\0';
+while (direcciones[j] != ';' && direcciones[j] != '\0') {
+  j = j + 1;
+}
+
+int len = j - k;
+```
+
+A continuación reservamos memoria y copiamos el correo avanzando en la cadena original con un índice `k`:
+
+```c
+array[i] = malloc(sizeof(char) * (len + 1));
+
+for (int x = 0; x < len; x = x + 1) {
+  array[i][x] = direcciones[k];
+
+  k = k + 1;
+}
+```
+
+Finalmente, agregamos la marca de fin y avanzamos `j` y `k` para pasar los separadores:
+
+```c
+array[i][len] = '\0';
+
+j = j + 1;
+k = k + 1;
 ```
 
 El bucle completo sería algo así:
 
 ```c
-int j = 0, k;
-
 for (int i = 0; i < n; i = i + 1) {
-  array[i] = malloc(sizeof(char) * (max + 1));
-
-  k = 0;
-
-  while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
-    array[i][k] = direcciones[j];
-
-    k = k + 1;
+  while (direcciones[j] != ';' && direcciones[j] != '\0') {
     j = j + 1;
   }
 
-  array[i][k] = '\0';
+  int len = j - k;
+
+  array[i] = malloc(sizeof(char) * (len + 1));
+
+  for (int x = 0; x < len; x = x + 1) {
+    array[i][x] = direcciones[k];
+
+    k = k + 1;
+  }
+
+  array[i][len] = '\0';
 
   j = j + 1;
+  k = k + 1;
 }
 ```
 
-#### 4. Terminando
-
-Agregamos la marca de fin, que se representa como una cadena vacía, es decir, el valor especial `NULL`.
+Después del bucle, agregamos la marca de fin al array de cadenas, que se representa como una cadena vacía `\0`:
 
 ```c
-array[n] = NULL;
+array[n] = malloc(sizeof(char));
+
+array[n][0] = '\0';
 ```
 
 Finalmente, agrupamos todo el código en una función:
 
 ```c
 char ** divide(char * direcciones) {
-  int n = 0, l = 0, max = 0;
+  int n = 0;
 
   for (int i = 0; direcciones[i] != '\0'; i = i + 1) {
     if (direcciones[i] == ';') {
       n = n + 1;
-
-      if (l > max) {
-        max = l;
-      }
-
-      l = 0;
     }
-
-    l = l + 1;
-  }
-
-  if (l > max) {
-    max = l;
   }
 
   n = n + 1;
 
   char ** array = malloc(sizeof(char *) * (n + 1));
 
-  int j = 0, k;
+  int j = 0, k = 0;
 
   for (int i = 0; i < n; i = i + 1) {
-    array[i] = malloc(sizeof(char) * (max + 1));
-
-    k = 0;
-
-    while ((direcciones[j] != '\0') && (direcciones[j] != ';')) {
-      array[i][k] = direcciones[j];
+    while (direcciones[j] != ';' && direcciones[j] != '\0') {
+      j = j + 1;
     }
 
-    array[i][k] = '\0';
+    int len = j - k;
 
-    k = k + 1;
+    array[i] = malloc(sizeof(char) * (len + 1));
+
+    for (int x = 0; x < len; x = x + 1) {
+      array[i][x] = direcciones[k];
+
+      k = k + 1;
+    }
+
+    array[i][len] = '\0';
+    
     j = j + 1;
+    k = k + 1;
   }
 
-  array[n] = NULL;
+  array[n] = malloc(sizeof(char));
+
+  array[n][0] = '\0';
 
   return array;
 }
