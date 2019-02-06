@@ -875,7 +875,7 @@ Tenemos que almacenar dos cadenas de longitud desconocida, es decir, dos puntero
 
 ```c
 struct ContactoRep {
-  char * nom, tel;
+  char * nom, * tel;
 };
 ```
 
@@ -912,7 +912,7 @@ Simplemente pasamos las cadenas a `printf` y dejamos que él se encargue:
 
 ```c
 void muestra_contacto(Contacto c) {
-  printf("%s - %s", c->nom, c->tel);
+  printf("%s - %s\n", c->nom, c->tel);
 }
 ```
 

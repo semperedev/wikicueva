@@ -20,7 +20,7 @@ char * duplica(char * cadena) {
 }
 
 struct ContactoRep {
-  char * nom, tel;
+  char * nom, * tel;
 };
 
 Contacto crea_contacto(char * nombre) {
@@ -39,7 +39,7 @@ void libera_contacto(Contacto c) {
 }
 
 void muestra_contacto(Contacto c) {
-  printf("%s - %s", c->nom, c->tel);
+  printf("%s - %s\n", c->nom, c->tel);
 }
 
 char * recupera_nombre_contacto(Contacto c) {
