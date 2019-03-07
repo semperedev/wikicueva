@@ -9,15 +9,15 @@ Podemos resumir los esquemas de Recorrido utilizando el método *CTA*.
 ## Primer Modelo
 
 **C**omenzar  
-**T**tratamiento Inicial  
+**T**ratamiento Inicial  
 **C**omprobar (¿Es marca Fin?)  
-**T**tratamiento Elemento Actual  
+**T**ratamiento Elemento Actual  
 **A**vanzar
 
 ## Segundo Modelo
 
 **I**niciar  
-**T**tratamiento Inicial  
+**T**ratamiento Inicial  
 **A**vanzar  
-**T**tratamiento Elemento Actual  
+**T**ratamiento Elemento Actual  
 **C**omprobar (¿Es Último?)
