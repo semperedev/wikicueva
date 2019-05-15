@@ -43,10 +43,10 @@ int fibonacci(int n) {
 /**
  * 6) Calcula f(x) para x >= 0 siendo:
  * f(x) = f(x-2)*2 + f(x-3)*3
- * y con f(x) = 2*x si x < 3 y x >= 0
+ * y con f(x) = 2*x si x <= 3 y x >= 0
  */
 int ejercicio6(int x) {
-  if (x < 3) {
+  if (x <= 3) {
     return 2 * x;
   }
 
