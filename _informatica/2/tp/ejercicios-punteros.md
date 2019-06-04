@@ -204,11 +204,13 @@ Dado que trabajamos con memoria dinámica, tenemos que reservar suficiente memor
 Para calcular la longitud tenemos que recorrer la cadena hasta que encontremos la marca de fin `'\0'`:
 
 ```c
-// Empezamos en uno para tener en cuenta la marca de fin
+// La longitud empieza valiendo uno para tener en cuenta la marca de fin, pero el índice del bucle para acceder al array empieza en cero
 int n = 1;
+int i = 0;
 
-while (cadena[n] != '\0') {
+while (cadena[i] != '\0') {
   n = n + 1;
+  i = i + 1;
 }
 ```
 
