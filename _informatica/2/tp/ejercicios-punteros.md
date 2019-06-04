@@ -205,7 +205,7 @@ Para calcular la longitud tenemos que recorrer la cadena hasta que encontremos l
 
 ```c
 // La longitud empieza valiendo uno para tener en cuenta la marca de fin.
-// pero el índice del bucle para acceder al array empieza en cero
+// Pero el índice del bucle para acceder al array empieza en cero
 int n = 1;
 int i = 0;
 
