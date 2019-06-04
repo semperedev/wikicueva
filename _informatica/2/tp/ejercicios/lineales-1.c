@@ -38,13 +38,13 @@ NodoPtr crea_e(Elemento d) {
 
 /**
  * 3) Construye y devuelve una lista con todos los números en
- * el intervalo [a, b]
+ * el intervalo [a, b] en el mismo orden
  */
 NodoPtr crea_rango(Elemento a, Elemento b) {
   NodoPtr cabecera = malloc(sizeof(struct Nodo));
   cabecera->sig = NULL;
 
-  for (Elemento elem = a; elem <= b; elem++) {
+  for (Elemento elem = b; elem >= a; elem = elem - 1 ) {
     NodoPtr nodo = malloc(sizeof(struct Nodo));
 
     nodo->elem = elem;
