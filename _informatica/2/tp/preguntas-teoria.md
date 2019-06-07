@@ -34,7 +34,7 @@ Porque en caso de no existir un caso base, la recursividad nunca tendría condic
 
 Sí. La condición mínima es que tenga un caso base, aunque algunas definiciones de recursividad podrían utilizar varios.
 
-Por ejemplo, el cálculo de una potencia recursivamente tiene dos casos bases: uno para el exponente 0 y otro para el 1.
+Por ejemplo, el cálculo de fibonacci recursivamente tiene dos casos bases: uno para el 0 y otro para el 1.
 
 > 8) Explica qué es un TDA
 
