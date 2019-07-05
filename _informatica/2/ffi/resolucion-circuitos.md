@@ -49,8 +49,6 @@ Podemos calcular \\(V_{out}\\) con la siguiente fórmula:
 
 \\[ V_{out} = V_{in} \cdot \frac{R_2}{R_1 + R_2} \\]
 
-Siendo \\(E\\) la tensión de entrada, es decir: la tensión del cable antes de \\(R_1\\)
-
 ### Kirchhoff
 
 #### Ley de las Corrientes
