@@ -46,6 +46,7 @@ Salvo que se especifique de otra forma:
 * La tensión de una fuente se proporciona en voltios pico (\\(V_p\\))
 * La tensión y la corriente se expresan en forma fasorial (polar)
 * La impedancia se expresa en forma binómica (rectangular)
+* Un voltímetro siempre muestra la tensión **eficaz**.
 
 ## Bobinas
 
