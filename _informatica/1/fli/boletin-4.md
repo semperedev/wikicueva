@@ -10,7 +10,7 @@ Se han omitido los ejercicios que por su trivialidad no aportaban ninguna inform
 
 > Qué diferencia existe entre interpretar en L0 e interpretar en L1?
 
-Podemos verlo en su apartado en la Wiki: [Interpretar en L1](/informatica/1/fli/l1/#interpretar-en-l).
+Podemos verlo en su apartado en la Wiki: [Interpretar en L1](/informatica/1/fli/l1/#interpretar-en-l1).
 
 ### Apartado B
 
