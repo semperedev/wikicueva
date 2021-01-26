@@ -15,7 +15,7 @@ lang: es
 description: El centro de información de La Cueva. Información variada sobre temas variados.
 baseurl: "" # subpath, e.g. /blog
 url: "" # without trailing /
-github_url:  PabloClon/wikicueva
+github_url:  sempereclon/wikicueva
 github_title: wikicueva
 google_analytics: UA-55358979-9
 
